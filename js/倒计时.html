@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				function GetRTime(){
+					var EndTime=new Date('2019/04/29 00:00:00');
+					var NowTime=new Date();
+					var t=EndTime.getTime()-NowTime.getTime();
+					var d=0;
+					var h=0;
+					var n=0;
+					var s=0;
+					if(t>=0){
+						d=Math.floor(t/1000/60/60/24);
+						h=Math.floor(t/1000/60/60%24);
+						n=Math.floor(t/1000/60%60);
+						s=Math.floor(t/1000%60);
+					}
+					function lan(num){
+						if(num<10){
+							return '0'+num
+						}else{
+							return num
+						}
+					}
+					document.getElementById('t_d').innerHTML=lan(d)+'天'
+					document.getElementById('t_h').innerHTML=lan(h)+'时'
+					document.getElementById('t_n').innerHTML=lan(n)+'分'
+					document.getElementById('t_s').innerHTML=lan(s)+'秒'
+				}
+				setInterval(GetRTime,0)
+			}
+		</script>
+	</head>
+	<body>
+		<div class="time">
+			<span id="t_d">00天</span>
+			<span id="t_h">00时</span>
+			<span id="t_n">00分</span>
+			<span id="t_s">00秒</span>
+		</div>
+	</body>
+</html>

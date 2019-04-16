@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				
+			}
+			body{
+				width: 600px;
+				margin: 0 auto;
+			}
+			li{
+				list-style: none;
+			}
+			div{
+				width: 600px;
+				height: 260px;
+				position: relative;
+				overflow: hidden;
+				margin-bottom: 30px;
+			}
+			div ul{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			div ul li,div ul li img{
+				width: 600px;
+				height: 260px;
+				float: left;
+			}
+			div ol li{
+				width: 20px;
+				height: 20px;
+				border-radius: 20px;
+				float: left;
+				margin-left: 10px;
+				background: aqua;
+			}
+			div ol{
+				position: absolute;
+				top: 230px;
+				margin-left: 250px;
+				z-index: 999;
+			}
+			div span{
+				display: block;
+				width: 30px;
+				height: 60px;
+				background: rgba(255,255,255,.5);
+				position: absolute;
+				top: 100px;
+				z-index: 999;
+			}
+			div>span:last-child{
+				left: 0;
+			}
+			div>span:first-child{
+				right: 0;
+			}
+			
+			
+			#lanW ul li{
+				position: absolute;
+				left: 0;
+				top: 0;
+				overflow: hidden;
+			}
+			
+			#opacity ul li{
+				position: absolute;
+				top: 0;
+				left: 0;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="left">
+			<span></span>
+			<span></span>
+			<ul>
+				<li><img src="img/lan.jpg"/></li>
+				<li><img src="img/lan1.jpg"/></li>
+				<li><img src="img/lan2.jpg"/></li>
+				<li><img src="img/lan3.jpg"/></li>
+				<li><img src="img/lan.jpg"/></li>
+			</ul>
+			<ol>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+		
+		
+		<div id="top">
+			<span></span>
+			<span></span>
+			<ul>
+				<li><img src="img/lan.jpg"/></li>
+				<li><img src="img/lan1.jpg"/></li>
+				<li><img src="img/lan2.jpg"/></li>
+				<li><img src="img/lan3.jpg"/></li>
+			</ul>
+			<ol>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+		
+		
+		<div id="lanW">
+			<span></span>
+			<span></span>
+			<ul>
+				<li><img src="img/lan.jpg"/></li>
+				<li><img src="img/lan1.jpg"/></li>
+				<li><img src="img/lan2.jpg"/></li>
+				<li><img src="img/lan3.jpg"/></li>
+			</ul>
+			<ol>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+		
+		
+		<div id="opacity">
+			<span></span>
+			<span></span>
+			<ul>
+				<li><img src="img/lan.jpg"/></li>
+				<li><img src="img/lan1.jpg"/></li>
+				<li><img src="img/lan2.jpg"/></li>
+				<li><img src="img/lan3.jpg"/></li>
+			</ul>
+			<ol>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+	</body>
+</html>
+
+<script src="../兼容（调用）/index().js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+
+    function $(ID){
+    	return document.getElementById(ID);
+    }
+    
+    var l_ol=$('left').getElementsByTagName('ol')[0];	
+    var l_oLi=l_ol.getElementsByTagName('li');
+    var l_ul=$('left').getElementsByTagName('ul')[0];
+    var span=$('left').getElementsByTagName('span');
+	l_ul.style.width=600*(l_oLi.length+1)+'px'
+	
+	for(var i=0;i<l_oLi.length;i++){
+		
+		l_oLi[i].index=i;
+		
+		l_oLi[i].onmouseover=function(){
+			lanf(this)
+			l_num=this.index+1
+			move(l_ul,-600*this.index,'left')
+		}
+    }
+	
+	function lanf(obj){
+		for(var i=0;i<l_oLi.length;i++){
+				l_oLi[i].style.background='aqua'
+			}
+			obj.style.background='lime'
+	}
+	
+	var l_num=1;
+	var alan=0;
+	span[0].onclick=function(){
+		if(l_num>=5){
+			l_ul.style.left=0;
+			l_num=1;
+			alan=0
+		}
+		
+		
+		lanf(l_oLi[alan])
+		alan++
+		move(l_ul,-600*l_num,'left')
+		l_num++
+	}
+	
+	
+	var t_ol=$('top').getElementsByTagName('ol')[0];	
+    var t_oLi=t_ol.getElementsByTagName('li');
+    var t_ul=$('top').getElementsByTagName('ul')[0];
+	
+	for(var i=0;i<t_oLi.length;i++){
+		t_oLi[i].index=i;
+		
+		t_oLi[i].onmouseover=function(){
+			for(var i=0;i<t_oLi.length;i++){
+				t_oLi[i].style.background='aqua'
+			}
+			this.style.background='lime'
+			
+			move(t_ul,-260*this.index,'top')
+			
+		}
+	}
+	
+	
+	var lanW_ol=$('lanW').getElementsByTagName('ol')[0];	
+    var lanW_oLi=lanW_ol.getElementsByTagName('li');
+    var lanW_ul=$('lanW').getElementsByTagName('ul')[0];
+	var num=1;
+	
+	for(var i=0;i<lanW_oLi.length;i++){
+		lanW_oLi[i].index=i;
+		
+		lanW_oLi[i].onmouseover=function(){
+			lanW_ul.children[this.index].style.width=0;
+			lanW_ul.children[this.index].style.zIndex=num;
+			move(lanW_ul.children[this.index],600,'width')
+			num++
+		}
+	}
+	
+	
+	var laN_ol=$('opacity').getElementsByTagName('ol')[0];	
+    var laN_oLi=laN_ol.getElementsByTagName('li');
+    var laN_ul=$('opacity').getElementsByTagName('ul')[0];
+	var num=1;
+	
+	for(var i=0;i<laN_oLi.length;i++){
+		laN_oLi[i].index=i;
+		
+		laN_oLi[i].onmouseover=function(){
+			laN_ul.children[this.index].style.opacity=0;
+			laN_ul.children[this.index].style.zIndex=num;
+			move(laN_ul.children[this.index],600,'opacity')
+			num++
+		}
+	}
+	
+</script>

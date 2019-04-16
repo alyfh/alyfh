@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+		    *{
+		        margin: 0 ;
+		        padding: 0;
+		    }
+		    #box{
+		        width: 200px;
+		        height: 200px;
+		        position: absolute;
+		        top: 0;
+		        left:50%;
+		        margin-left:-100px;
+		    }
+		    #box>div {
+		        width: 20px;
+		        height: 20px;
+		        transition: 1s all ease;
+		        position: absolute;
+		    }
+		</style>
+	</head>
+	<body>
+		<div id="box"></div>
+	</body>
+	<script>
+	    var lanBox=document.getElementById('box');
+	    var timer=null;
+	    var time=null;
+	    var open=true;
+	    
+	    for(var i=0;i<10;i++){
+	        for(var j=0;j<10;j++) {
+	            var oDiv=document.createElement('div');
+	            oDiv.style.backgroundImage='url(img/lanM.jpg)';
+	            oDiv.style.backgroundSize='200px 200px';
+	            oDiv.style.left=20*j+'px';
+	            oDiv.style.top=20*i+'px';
+	            oDiv.style.backgroundPositionX=j*-20+'px';
+	            oDiv.style.backgroundPositionY=i*-20+'px';
+	            oDiv.style.transition =(Math.random(0,1)+'s');  
+	            lanBox.appendChild(oDiv);
+	        }
+	    }
+	    var xDiv = lanBox.querySelectorAll('div');
+	    var xDivLen=xDiv.length-1;
+	    lanBox.onclick=function(){
+	            if(open==true){
+	                clearInterval(timer);
+	                timer=setInterval(function() {
+	                    xDiv[xDivLen].style.backgroundImage='url(img/lan.jpg)';
+	                    xDiv[xDivLen].style.transform='translateY(400px)';
+	                    xDivLen--;
+	                    if(xDivLen==-1){
+	                        clearInterval(timer);
+	                        xDivLen=0;
+	                        open=false;
+	                    }
+	                },30)
+	            }
+	            if(open==false){
+	                clearInterval(time);
+	                time = setInterval(function(){
+	                    xDiv[xDivLen].style.backgroundImage = 'url(img/lanM.jpg)';
+	                    xDiv[xDivLen].style.transform = 'translateY(0px)';
+	                    xDivLen++;
+	                    if (xDivLen == xDiv.length) {
+	                        clearInterval(time);
+	                        xDivLen = xDiv.length - 1;
+	                        open = true;
+	                    }
+	                }, 30)
+	            }
+	    }
+	</script>
+</html>

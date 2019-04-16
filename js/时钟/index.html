@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				background: black;
+				text-align: center;
+				line-height: 500px;
+				color: aqua;
+				font-size: 70px;
+			}
+		</style>
+		<script type="text/javascript">
+		function toNum(num){
+		    	if(num<10){
+		    		return '0'+num;
+		    	}else{
+		    		return ''+num;
+		    	}
+		    }
+		window.onload=function(){
+			var obj=document.getElementsByTagName('img');
+			function clock(){
+				var time=new Date();
+				var time1=toNum(time.getHours())+toNum(time.getMinutes())+toNum(time.getSeconds());
+			    for(var i=0;i<obj.length;i++){
+				    obj[i].src='img/'+time1[i]+'.png'
+			    }
+			}
+			setInterval(clock,1000);
+			clock()
+		}
+		</script>
+	</head>
+	<body>
+			<img src="img/0.png"/>
+			<img src="img/0.png"/>
+			:
+			<img src="img/0.png"/>
+			<img src="img/0.png"/>
+			:
+			<img src="img/0.png"/>
+			<img src="img/0.png"/>
+	</body>
+</html>

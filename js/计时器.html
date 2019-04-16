@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript">
+		    function changeNum(num){
+		    	if(num<10){
+		    		return '0'+num;
+		    	}else{
+		    		return ''+num;
+		    	}
+		    }
+			window.onload=function(){
+				var oDiv=document.getElementById('time');
+				setInterval(time,1000)
+				time();
+				function time(){
+					var oDate=new Date();
+					var year=oDate.getFullYear();
+					var month=oDate.getMonth();
+					var date=oDate.getDate();
+					var h=changeNum(oDate.getHours());
+					var m=changeNum(oDate.getMinutes());
+					var s=changeNum(oDate.getSeconds());
+					var str=year+'年'+(month+1)+'月'+date+'日  '+h+':'+m+':'+s;
+					oDiv.innerHTML=str;
+				}
+			}
+		</script>
+		<title></title>
+	</head>
+	<body>
+		<div id="time"></div>
+	</body>
+</html>

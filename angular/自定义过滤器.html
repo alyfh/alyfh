@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myLan">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.ng-cloak{display: none;}
+		</style>
+	</head>
+	<body class="ng-cloak">
+		<div ng-controller="ctrl">
+			<h3>{{str|myFilter}}</h3>
+			<h3>{{str|reverseStr}}</h3>
+		</div>
+		<script type="text/javascript">
+			var myModule=angular.module("myLan",[])
+			myModule.controller('ctrl',function($scope){
+				$scope.str="To sleep at the moment,you will make dream.To study at the moment,you will make your dream come true."
+			})
+			myModule.filter("myFilter",function(){
+				return function(str){
+					return str.toUpperCase();
+				}
+			})
+			myModule.filter("reverseStr",function(){
+				return function(str){
+					return str.split('').reverse().join('')
+				}
+			})
+		</script>
+	</body>
+</html>

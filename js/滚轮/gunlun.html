@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--<div id="div" style="width: 100px;height: 100px;background: red;"></div>-->
+<img src="../Bom/img/55cec681aa40e741.png!600x600.jpg">
+</body>
+</html>
+<script type="text/javascript">
+var img=document.getElementsByTagName('img')[0]
+//var oDiv=document.getElementById('div')
+var info=true
+//火狐
+if (document.addEventListener){
+    document.addEventListener('DOMMouseScroll',xx,true)
+}
+//
+    document.onmousewheel=xx
+            function xx(ev) {
+        var ev=ev||event;
+
+         (ev.detail)?(ev.detail>0?info=true:info=false):(ev.wheelDelta<0?info=true:info=false)
+
+        if(info){
+            img.style.width=img.offsetWidth+img.offsetWidth*0.1+'px'
+            img.style.height=img.offsetHeight+img.offsetHeight*0.1+'px'
+        }else {
+            img.style.width=img.offsetWidth-img.offsetWidth*0.1+'px'
+            img.style.height=img.offsetHeight-img.offsetHeight*0.1+'px'
+        }
+    }
+
+
+
+</script>

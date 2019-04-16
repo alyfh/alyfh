@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="myLan">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<div hello></div>
+		<div ng-controller="ctrl">
+			
+		</div>
+		<div></div>
+		<div my-directivea></div>
+		<my-directivee></my-directivee>
+		<div class="my-directivec"></div>
+		<!-- directive:my-directivem -->
+		<script type="text/javascript">
+			var myModule=angular.module("myLan",[])
+			myModule.controller("ctrl",function(){
+				
+			})
+			myModule.directive("hello",function(){
+				return {
+					template:"<input type='text' ng-model='aa'></input><h1>{{aa}}</h1>"
+				}
+			})
+			myModule.directive("myDirectivea",function(){
+				return {
+					restrict:"A",//attribute---属性
+					template:'<h1>蘭</h1>'
+				}
+			})
+			myModule.directive("myDirectivee",function(){
+				return {
+					restrict:"E",//element---元素
+					template:'<h1>兰</h1>'
+				}
+			})
+			myModule.directive("myDirectivec",function(){
+				return {
+					restrict:"C",//class
+					template:'<h1>LAN</h1>'
+				}
+			})
+			myModule.directive("myDirectivem",function(){
+				return {
+					restrict:"M",//注释
+					template:'<h1>lan</h1>',
+					replace:true
+				}
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		    *{
+		   	    margin: 0;
+		   	    padding: 0;
+		   	    list-style: none;
+		    }
+		    body{
+		    	text-align: center;
+		    }
+			#lan{
+				width: 200px;
+				height: 200px;
+				margin: 0 auto;
+				background: chartreuse;
+				display: none;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var btnX=document.getElementById('btnX');
+				var btnY=document.getElementById('btnY');
+				btnX.onclick=function(){
+				    lan.style.display='block'
+			        }
+			    btnY.onclick=function(){
+				    lan.style.display='none'
+			        }
+			    var ou1=document.getElementById('lAn');
+				var ali=ou1.getElementsByTagName('li')
+				//console.log(ali[4])
+				for(var i=0; i<ali.length; i++){
+					if(i%2==1){
+						ali[i].style.background='aqua';
+					}else if(i%3==1){
+						ali[i].style.background='yellowgreen';
+					}else if(i%4==0){
+						ali[i].style.background='yellow';
+					}else{
+						ali[i].style.background='blueviolet';
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" name="" id="btnX" value="显示" />
+		<div id="lan">
+			<ul id="lAn">
+			    <li>LAN0</li>
+			    <li>LAN1</li>
+			    <li>LAN2</li>
+			    <li>LAN3</li>
+			    <li>LAN4</li>
+			    <li>LAN5</li>
+			    <li>LAN6</li>
+			</ul>
+			<input type="button" name="" id="btnY" value="隐藏" />
+		</div>
+	</body>
+</html>

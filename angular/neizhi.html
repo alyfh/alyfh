@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html ng-app="myLan">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body class="ng-cloak">
+		<div class="" ng-controller="ctrl">
+			<table border="1" cellspacing="0" cellpadding="0">
+				<tr>
+					<th>name</th>
+					<th>age</th>
+					<th>sex</th>
+				</tr>
+				<tr ng-repeat="i in arr|orderBy:['age']">
+					<th>{{i.name}}</th>
+					<th>{{i.age}}</th>
+					<th>{{i.sex}}</th>
+				</tr>
+			</table>
+			<br />
+			<br />
+			<br />
+			<br />
+			<!--<input type="text" ng-model="orderBy:['lan']"/>-->
+			<table border="1" cellspacing="0" cellpadding="10">
+				<tr>
+					<th>name</th>
+					<th>age</th>
+					<th>sex</th>
+				</tr>
+				<tr ng-repeat="i in arr|filter:{'sex':'女'}">
+					<th>{{i.name}}</th>
+					<th>{{i.age}}</th>
+					<th>{{i.sex}}</th>
+				</tr>
+			</table>
+		
+		</div>
+		<script type="text/javascript">
+			var aglLan=angular.module("myLan",[])
+			aglLan.controller("ctrl",["$scope",function($scope){
+				$scope.arr=[
+				{
+					name:"lan",
+					age:20,
+					sex:"男"
+				},
+				{
+					name:"Lan",
+					age:21,
+					sex:"女"
+				},
+				{
+					name:"Lan",
+					age:28,
+					sex:"女"
+				},
+				{
+					name:"闌",
+					age:30,
+					sex:"女"
+				},
+				{
+					name:"兰",
+					age:28,
+					sex:"男"
+				},
+				{
+					name:"蘭",
+					age:22,
+					sex:"男"
+				}
+				]
+			}])
+		</script>
+	</body>
+</html>

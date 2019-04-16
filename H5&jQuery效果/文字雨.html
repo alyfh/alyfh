@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>黑客帝国文字雨(原创)-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<style>
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<script>
+var c = document.getElementById('c');
+var ctx = c.getContext('2d');
+
+c.height = window.innerHeight;
+c.width = window.innerWidth;
+
+var txts = "01";
+txts = txts.split("");
+
+var font_size = 16;
+var columns = c.width / font_size;
+
+var s = [];
+for (var x = 0; x < columns; x++)
+    s[x] = 1;
+
+function draw() {
+    ctx.fillStyle = "rgba(0,0,0, 0.05)";
+    ctx.fillRect(0, 0, c.width, c.height);
+    ctx.fillStyle = "#0F0";
+    ctx.font = font_size + "px arial";
+
+    for (var i = 0; i < s.length; i++) {
+        var text = Math.floor(Math.random() * 2);
+        ctx.fillText(text, i * font_size, s[i] * font_size);
+
+        if (s[i] * font_size > c.height || Math.random() > 0.95)
+            s[i] = 0;
+
+        s[i]++
+    }
+
+}
+setInterval(draw, 50);
+</script>
+
+</body>
+</html>

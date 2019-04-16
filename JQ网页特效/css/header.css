@@ -1,0 +1,55 @@
+.topnav{width: 100%;height: auto;border-bottom: solid 1px #E5E5E5;position: relative;position: fixed;top: 0;z-index: 11;}
+.rightsidebar{width: 100%;height: 30px;line-height: 30px;background: white;}
+.rightsidebar ul{float: right;}
+.rightsidebar ul li{float: left;margin: 0 10px;}
+.rightsidebar ul li a:hover{color: #006AD0;text-decoration: underline;}
+.mainbav{width: 100%;height: 50px;background: white;clear: both;}
+.mainbav .logo{width: 155px;height: 50px;padding: 0 15px;float: left;}
+.mainbav .logo img{width: 155px;}
+.mainbav .nav .subnav .subnavLi{float: left;line-height: 48px;margin: 0 10px;}
+.mainbav .nav .subnav .subnavLi.checked{border-bottom: solid 2px #DD0011;}
+.mainbav .nav .subnav .subnavLi.checked>a{color: #DD0011;}
+.mainbav .nav .subnav .subnavLi>a{display: inline-block;height: 45px;font-size: 16px;color: #323232;}
+.mainbav .nav .subnav .subnavLi .wx{width: 100px;text-align: center;background: #EEEEEE;border-radius: 4px;}
+.mainbav .nav .subnav .subnavLi .wx:hover{background: #DD0011;color: white;}
+.mainbav .nav .subnav .subnavLi .navLan{width: 100%;height: auto;position: absolute;left: 0;z-index: 10;display: none;background: #F1F1F1;}
+.mainbav .nav .subnav .subnavLi .wxContent .wxContentLan{width: 268px;height: 228px;background: /*yellow*/;float: right;padding: 40px 30px;position: relative;}
+.wxContent .wxContentLan img{float: left;margin-right: 10px;}
+.wxContent .wxContentLan ul{width: 180px;float: right;}
+.wxContent .wxContentLan ul li{line-height: 30px;}
+.wxContent .wxContentLan ul li a{font-size: 16px;color: #272727;}
+.wxContentLan ul li a:hover{color: #006AD0;text-decoration: underline;}
+.wxContentLan:hover .fwxfz{background: #DD0011;color: white;border-radius: 4px;padding: 5px;}
+.wxContentLan:hover .fwxfz:hover{text-decoration: none;}
+.wxContentLan .wxContentLanXy{width: 328px;height: 308px;background: #E5E5E5;position: absolute;top: 0;left: 0;z-index: -1;display: none;}
+.wxContentLan:hover .wxContentLanXy{display: block;}
+
+.grjycp{width: 100%;height: 300px;background: pink;}
+.grjycpLan{width: 200px;background: /*greenyellow*/;height: 300px;text-align: center;float: right;margin-left: 15px;position: relative;}
+.grjycpLan h3{font-size: 20px;font-weight: normal;color: #DD0011;line-height: 80px;}
+.grjycpLan ul li{line-height: 30px;}
+.grjycpLan ul li a{font-size: 16px;color: #272727;}
+.grjycpLan ul li a:hover{color: #006AD0;text-decoration: underline;}
+.grjycpLan:hover .fwxfz{background: #DD0011;color: white;border-radius: 4px;padding: 5px;}
+.grjycpLan:hover .fwxfz:hover{text-decoration: none;}
+.grjycpLan .grjycpLanXy{width: 200px;height: 300px;background: #E5E5E5;position: absolute;top: 0;left: 0;z-index: -1;display: none;}
+.grjycpLan:hover .grjycpLanXy{display: block;}
+
+.banner{height: 550px;width: 1347px;background: yellow;position: relative;overflow: hidden;clear: both;margin: 80px auto;}
+.banner ul.Bcon{width: 4041px;height: 550px;position: absolute;}
+.banner ul.Bcon li{width: 1347px;height: 550px;float: left;}
+.banner ul.Bcon .lany{background: url(../img/big-banner-hw-cloud-bg.jpg);background-size: 100% 550px;background-repeat: no-repeat;}
+.banner ul.Bcon .lane{background: url(../img/homepage_banner_bg_hc2017.jpg);background-size: 100% 550px;background-repeat: no-repeat;}
+.banner ul.Bcon li img{margin: 100px 240px 0;}
+.banner ul.Bcon li:first-child img{margin: 200px 300px 0;width: 50%;}
+.banner ul.Bcon li:last-child img{margin: 200px 300px 0;width: 50%;}
+.banner ul.Bcon li a{display: block;width: 112px;height: 40px;margin: 50px auto;line-height: 40px;text-align: center;background: #B02D2E;color: white;font-size: 20px;border-radius: 4px;}
+.banner ul.Bcon li a:hover{color: #006AD0;text-decoration: underline;}
+.banner div{width: 100px;height: 550px;position: absolute;line-height: 550px;text-align: center;font-size: 100px;color: #C3C5CA;display: none;}
+.banner div:hover{cursor: pointer;}
+.banner div.goL{left: 50px;}
+.banner div.goR{right: 50px;}
+.btnNum{position: absolute;top: 515px;left: 50%;margin-left: -40px;}
+.btnNum li{width: 15px;height: 15px;border-radius: 50%;background: darkgrey;list-style: none;float: left;margin-left: 10px;opacity: .8;color: darkgrey;}
+.btnNum li:hover{cursor: pointer;}		
+.btnNum li.checked{background: white;color: white;}

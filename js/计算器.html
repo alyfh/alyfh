@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function count(){
+				var lan=parseInt(document.getElementById('lan').value);
+				var lanf=parseInt(document.getElementById('lanf').value);
+				var lanfh=document.getElementById('select').value;
+				var alan;
+				switch (lanfh){
+					case'+':
+					alan=lan+lanf;
+					break;
+					
+					case'-':
+					alan=lan-lanf;
+					break;
+					
+					case'*':
+					alan=lan*lanf;
+					break;
+					
+					case'/':
+					alan=lan/lanf;
+					break;
+					
+					default:
+					alert('错误')
+					
+				}document.getElementById('fruit').value=alan;
+				
+			}
+		</script>
+	</head>
+	<body>
+		<input type="text" id="lan" />
+		<select id="select">
+			<option value="+">+</option>
+			<option value="-">-</option>
+			<option value="*">*</option>
+			<option value="/">/</option>
+		</select>
+		<input type="text" id="lanf" />
+		<input type="button" value='=' onclick="count()" />
+		<input type="text" id="fruit" />
+	</body>
+</html>

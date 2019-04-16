@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body class="ng-cloak">
+		<div ng-controller="ctrl">
+			<div>danjia: <input type="text" ng-model="price" ng-disabled="true" /></div>
+			<div>shuliang: <input type="text" ng-model="num" ng-readonly="true" /></div>
+			<button ng-click="add()">+1</button>
+			<button ng-click="sub()">-1</button>
+			<div>zongjia: <input type="text" ng-value="price*num" /></div>
+			<div>zongjia: {{price*num}}</div>
+		</div>
+		<script type="text/javascript">
+			var myModule=angular.module("myApp",[])
+			myModule.controller("ctrl",function($scope){
+				$scope.price=28;
+				$scope.num=1;
+				$scope.add=function (){
+					$scope.num++;
+					$scope.num=Math.min($scope.num,5)
+				}
+				$scope.sub=function (){
+					$scope.num--;
+					$scope.num=Math.max($scope.num,0)
+				}
+			})
+		</script>
+	</body>
+</html>

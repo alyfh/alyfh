@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>boom</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .box{
+            top: 10%;
+            left: 25%;
+            width: 640px;
+            height: 400px;
+            background-size:cover;
+            background: url("images/2.jpg");
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<div id="d" class="box"></div>
+<script type="text/javascript">
+    //创建一个大盒子d2和 d的大小一样
+    var d2=document.createElement('div');
+    d2.style.width= d.offsetWidth+'px';
+    d2.style.height= d.offsetHeight+'px';
+    //var d2=document.createElement('div')
+    //d2.style.width=d.offsetWidth+'px'
+    //d2.style.height=d.offsetHeight+'px'
+
+    //在这个d2盒子里 我们在创建25个盒子
+    for(var x=0;x<30;x++){
+        for(var y=0;y<30;y++){
+            var divEle=document.createElement('div');
+            divEle.style.width= d.offsetWidth/30+'px';
+            divEle.style.height= d.offsetHeight/30+'px';
+            divEle.style.float='left';
+            //在给每一个小盒子 设置背景图片位置
+            divEle.style.background='url(images/2.jpg)';
+            divEle.style.backgroundPositionX=-y*d.offsetWidth/30+'px';
+            divEle.style.backgroundPositionY=-x*d.offsetHeight/30+'px';
+            divEle.style.transition='all 1s';
+            d2.appendChild(divEle);
+        }
+    }
+    d.appendChild(d2);
+    //在点击的时候 给每一个小盒子添加动画效果
+    var bool=true;
+    d.style.backgroundImage='none';
+    d.onclick=function(){
+        //找到所有小盒子
+        bool=!bool;
+        if(bool){//爆炸
+            var divArr=document.querySelectorAll('div>div>div');
+            for(var i=0;i<divArr.length;i++){
+                divArr[i].style.transform='rotateX('+random(-90,50)+'deg)'+
+                        'rotateZ('+random(-90,90)+'deg)'+
+                        'rotateY('+random(-90,50)+'deg)'+
+                        'scale('+random(1,1.5)+')'+
+                        'perspective('+random(400,600)+'px)'+
+                        'translateX('+random(-150,150)+'px)'+
+                        'translateY('+random(-150,150)+'px)'+
+                        'translateZ('+random(-150,150)+'px)';
+                divArr[i].style.opacity='0';
+            }
+        }
+        else {//还原
+            //找到所有的小盒子
+            var divArr= document.querySelectorAll('div>div>div');
+            for (var i=0; i<divArr.length; i++) {
+                divArr[i].style.transform = 'rotateX(0deg)' +
+                        'rotateZ(0deg)' +
+                        'rotateY(0deg)' +
+                        'scale(1)' +
+                        'perspective(0px)' +
+                        'translateX(0px)' +
+                        'translateY(0px)' +
+                        'translateZ(0px)';
+                divArr[i].style.opacity = '1';
+            }
+        }
+        function random(min,max){//30   90
+            //一个取指定随机范围的函数
+            return Math.random()*(max-min)+min;
+        }
+    }
+</script>
+
+</body>
+</html>

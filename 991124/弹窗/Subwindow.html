@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+   
+</head>
+<body onUnload="doUnload()">
+<div align=center>
+      <select id="inpSource">
+        <option value="option1">option1</option>
+        <option value="option2">option2</option>
+        <option value="option3">option3</option>
+      </select>
+<input name="btnOk" id="btnOk" type="button" value=" ok " onClick="doOk()" class="inpBtn" onMouseOver="this.className='inpBtnOver';" onMouseOut="this.className='inpBtnOut'">
+</body>
+</html> 
+<script>
+  bOk=false;
+  function doOk(){
+    if(navigator.appName.indexOf('Microsoft')!=-1)
+      window.returnValue=inpSource.value;
+    else
+      window.opener.setAssetValue(document.getElementById("inpSource").value);
+      bOk=true;
+      self.close();
+  }
+  function doUnload(){
+    if(navigator.appName.indexOf('Microsoft')!=-1)
+      if(!bOk)window.returnValue="";
+    else
+      if(!bOk)window.opener.setAssetValue("");
+  }
+</script>

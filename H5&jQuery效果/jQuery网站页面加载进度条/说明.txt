@@ -1,0 +1,4 @@
+适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.
+
+
+脚本简介jQuery网站页面加载进度条是一款基于jquery实现的网站页面顶部加载进度条特效。

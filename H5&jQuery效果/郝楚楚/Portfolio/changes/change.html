@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>掉落变换效果</title>
+</head>
+<style>
+    *{
+        margin: 0 ;
+        padding: 0;
+    }
+    #box{
+        width: 200px;
+        height: 200px;
+        position: absolute;
+        top: 0;
+        left:50%;
+        margin-left:-100px;
+    }
+    #box>div {
+        width: 20px;
+        height: 20px;
+        transition: 1s all ease;
+        position: absolute;
+    }
+</style>
+<body>
+    <div id="box"></div>
+</body>
+<script>
+    var box=document.getElementById('box');
+    var timer=null;
+    var time=null;
+    var open=true;
+    function random(min,max){
+        return parseInt(Math.random()*(max-min+1))+(min);
+    }
+    for(var i=0;i<10;i++){
+        for(var j=0;j<10;j++) {
+            var oDiv=document.createElement('div');
+            oDiv.style.backgroundImage='url(img/1.png)';
+            oDiv.style.backgroundSize='200px 200px';
+            oDiv.style.left=20*j+'px';
+            oDiv.style.top=20*i+'px';
+            oDiv.style.backgroundPositionX=j*-20+'px';
+            oDiv.style.backgroundPositionY=i*-20+'px';
+            //oDiv.style.backgroundPositionX=i%10*-20+'px';
+            //oDiv.style.backgroundPositionY=parseInt(i/10)*-20+'px';
+            oDiv.style.transition =(Math.random(0,1)+'s');
+            box.appendChild(oDiv);
+        }
+    }
+    var alldiv = box.querySelectorAll('div');
+    var len=alldiv.length-1;
+    box.onclick=function(){
+            if(open==true){
+                clearInterval(timer);
+                timer=setInterval(function() {
+                    alldiv[len].style.backgroundImage='url(img/2.png)';
+                    alldiv[len].style.transform='translateY(400px)';
+                    len--;
+                    if(len==-1){
+                        clearInterval(timer);
+                        len=0;
+                        open=false;
+                    }
+                },30)
+            }
+            if(open==false){
+                clearInterval(time);
+                time = setInterval(function(){
+                    alldiv[len].style.backgroundImage = 'url(img/1.png)';
+                    alldiv[len].style.transform = 'translateY(0px)';
+                    len++;
+                    if (len == alldiv.length) {
+                        clearInterval(time);
+                        len = alldiv.length - 1;
+                        open = true;
+                    }
+                }, 30)
+            }
+    }
+</script>
+</html>

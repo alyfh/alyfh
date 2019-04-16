@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{margin: 0;padding: 0;}
+		.clear{
+			clear: both;
+		}
+			.out{
+				width: 1050px;
+				margin: 0 auto;
+				border: solid 2px red;
+				background: yellow;
+			}
+			#oDiv{
+				width: 200px;
+				height: 200px;
+				background: aqua;
+				float: left;
+				margin: 5px;
+				text-align: center;
+				line-height: 200px;
+			}
+			
+		</style>
+		<script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('#oDiv').click(function(){
+					$(this).clone(true).appendTo('.out').insertBefore('.clear')
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="out"><br class="clear" /></div>
+		<br /><br />
+		<div id="oDiv">蘭Y</div>
+		
+	</body>
+</html>

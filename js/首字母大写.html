@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>练习</title>
+		<style>
+	        .box{
+	            font-size: 30px;
+	        }
+	        a{
+	            display: inline-block;
+	            height: 30px;
+	            line-height: 30px;
+	            padding: 0 3em;
+	            background-color: #f49494;
+	            color: #FFF;
+	            text-decoration: none;
+	        }
+    	</style>
+	</head>
+	<body>
+	    <div class="box">you yi chuan ying wen bian cheng shou zi mu da xie</div>
+	    <a href="###" class="firstBig">首字母大写</a>
+			
+	</body>
+</html>
+<script type="text/javascript">
+	var oBox = document.querySelector('.box');
+    var oFirstBig = document.querySelector('.firstBig');
+		oFirstBig.onclick = function(){
+            var arr = oBox.innerHTML.toLowerCase().split(' ');
+            for(var i=0;i<arr.length;i++){
+                arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substring(1);
+            }
+            oBox.innerHTML = arr.join(' ');
+        }
+</script>

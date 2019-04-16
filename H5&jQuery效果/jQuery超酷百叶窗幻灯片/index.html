@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>jQuery超酷幻灯片</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+<link rel='stylesheet' href='css/style.css' type='text/css' />
+</head>
+<body>
+<script type='text/javascript' src='js/jquery-1.4.2.min.js'></script>
+<script type='text/javascript' src='js/jquery.nivo.slider.pack.js'></script>
+<script>
+$(document).ready(function(){
+
+	$('#slider').nivoSlider({
+		effect:'random',
+		slices:15,
+		animSpeed:500,
+		pauseTime:3000,
+		directionNav:true,
+		controlNav:true,
+		keyboardNav:true
+	});
+
+});	
+</script>
+
+<div class="theme-default">
+
+	<div id="slider" class="nivoSlider">
+		<a href="javascript:;"><img src="images/11.jpg" alt="汽车1" width="960" height="366" /></a>
+		<a href="javascript:;"><img src="images/22.jpg" alt="汽车2" width="960" height="366" /></a>
+		<a href="javascript:;"><img src="images/31.jpg" alt="汽车3" width="960" height="366" /></a>
+		<a href="javascript:;"><img src="images/41.jpg" alt="汽车4" width="960" height="366" /></a>      	 	    
+	</div> 
+
+</div>
+<div style="text-align:center;clear:both">
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera等</p>
+</div>
+</body>
+</html>

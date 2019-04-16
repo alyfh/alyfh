@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{margin: 0;padding: 0;}
+			dl{width: 200px;margin: 100px auto;}
+			dl dt{width: 200px;height: 40px;background: yellow;}
+			dl dt.checked{background: aqua;}
+			dl dd{width: 200px;height: 30px;background: pink;display: none;}
+		</style>
+		<script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('dl dt').hover(function(){
+					$(this).addClass('checked').siblings().removeClass('checked')
+					var lan=$(this).nextUntil('dt','dd')
+					if(lan.is(':visible')){
+						lan.slideUp()
+						$('dl dt').removeClass('checked')
+					}else{
+						$('dl dd').slideUp( )
+						lan.slideDown()
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<dl>
+			<dt></dt>
+			<dd></dd>
+			<dd></dd>
+			<dd></dd>
+			<dd></dd>
+			<dd></dd>
+			<dt></dt>
+			<dd></dd>
+			<dd></dd>
+			<dd></dd>
+			<dd></dd>
+			<dd></dd>
+			<dd></dd>
+			<dt></dt>
+			<dd></dd>
+			<dd></dd>
+			<dd></dd>
+		</dl>
+	</body>
+</html>

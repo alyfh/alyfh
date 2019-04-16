@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>工厂模式</title>
+		<script type="text/javascript">
+			function lan(name,age){
+				var obj=new Object();
+				obj.name=name;
+				obj.age=age;
+				obj.aihao=function(){
+					alert(this.name+this.age)
+				}
+				return obj
+			}
+			var Lan=lan()
+			Lan.aihao()
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

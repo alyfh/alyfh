@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{margin: 0;padding: 0;}
+			.wrap{width: 400px;height: 400px;border: solid 1px pink;margin: 50px auto;position: relative;transition: 1s;}
+			.wrap .lan{width: 80px;height: 80px;text-align: center;line-height: 80px;background: lime;position: absolute;transition: 2s;}
+			.wrap .lan1{top: 160px;left: 0;}
+			.wrap .lan2{top: 80px;left: 80px;}
+			.wrap .lan3{top: 0;left: 160px;}
+			.wrap .lan4{top: 80px;left: 240px;}
+			.wrap .lan5{top: 160px;right: 0;}
+			.wrap button{width: 40px;height: 40px;outline: none;background: pink;border: none;color: white;position: absolute;top: 180px;left: 180px;transition: 1s;}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="lan lan1">1</div>
+			<div class="lan lan2">2</div>
+			<div class="lan lan3">3</div>
+			<div class="lan lan4">4</div>
+			<div class="lan lan5">5</div>
+			<button>点击</button>
+		</div>
+		<script type="text/javascript">
+			var btn=document.querySelector("button"),
+				wRap=document.querySelector(".wrap"),
+				lan=document.querySelectorAll(".lan"),
+				num=0
+			btn.onclick=function(){
+				num+=90
+				wRap.style.transform="rotate("+num+"deg)";
+				for (var i=0;i<lan.length;i++) {
+					lan[i].style.transform+="rotate(-90deg)";
+					var color='rgb(';
+					for(j=0;j<=2;j++){
+						if(j==2){
+							color+=Math.floor(Math.random()*255)+')'
+						}else{
+							color+=Math.floor(Math.random()*255)+','
+						}
+					}
+					lan[i].style.background=color
+				}
+				btn.style.transform+="rotate(-90deg)";
+			}
+		</script>
+	</body>
+</html>

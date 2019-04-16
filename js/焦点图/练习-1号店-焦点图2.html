@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;list-style: none;}
+        .box{
+            width: 700px;
+            height: 400px;
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .imgs{
+            position: absolute;
+            left: 0; top: 0;
+            width: 500%;
+            transition: .35s ease-in-out;
+        }
+        .imgs li{
+            float: left;
+        }
+        .imgs img{
+            width: 700px;
+            height: 400px;
+            vertical-align: top;
+        }
+        .dian{
+            position: absolute;
+            left: 0; bottom: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .dian a{
+            display: inline-block;
+            height: 10px;
+            width: 50px;
+            background-color: #fff;
+        }
+        .dian i{
+            display: block;
+            height: 10px;
+            width: 0;
+        }
+        .dian .active i{
+            background-color: yellowgreen;
+        }
+        .prev,.next{
+            position: absolute;
+            top: 50%;
+            width: 40px;
+            height: 60px;
+            margin-top: -30px;
+            background-color: rgba(0,0,0,.5);
+        }
+        .prev{
+            left: 20px;
+        }
+        .next {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="imgs">
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+        </ul>
+        <div class="dian">
+            <a href="javascript:;" class="active"><i></i></a>
+            <a href="javascript:;"><i></i></a>
+            <a href="javascript:;"><i></i></a>
+            <a href="javascript:;"><i></i></a>
+            <a href="javascript:;"><i></i></a>
+        </div>
+        <a href="javascript:;" class="prev"></a>
+        <a href="javascript:;" class="next"></a>
+    </div>
+    <script>
+        var oBox = document.querySelector('.box');
+        var oImg = oBox.querySelector('.imgs');
+        var aLink = document.querySelectorAll('.dian a');
+        var oPrev = document.querySelector('.prev');
+        var oNext = document.querySelector('.next');
+        var iNow = 0;//索引值
+        var len = aLink.length;
+        
+        function tab(){
+            for(var i=0;i<aLink.length;i++){
+                aLink[i].className = '';
+            }
+//            console.log(this);
+            aLink[iNow].className = 'active';
+            oImg.style.left = -700 * iNow + 'px';
+            
+            clearInterval(timer);
+            timer = setInterval(function(){
+                bar();
+            },20);
+            
+        }
+        
+        for(var i=0;i<aLink.length;i++){
+            aLink[i].index = i;
+            aLink[i].onmouseover = function(){
+                //更新索引值
+                iNow = this.index;
+                tab();
+            }
+        }
+        
+        function next(){
+            iNow++;
+            if(iNow == len) iNow = 0;
+            tab();
+        }
+        oNext.onclick = function(){
+            next();
+        }
+        
+        oPrev.onclick = function(){
+            iNow--;
+            if(iNow == -1) iNow = len-1;
+            tab();
+        }
+        
+        var timer = null,n=0;
+        
+        
+        function bar(){
+            n++;
+            aLink[iNow].querySelector('i').style.width = n + '%';
+            if(n==100){
+                clearInterval(timer);
+                next();
+                n=0;
+            }
+        }
+        
+        timer = setInterval(function(){
+            bar();
+        },20);
+        
+        
+        oBox.onmouseover = function(){
+            aLink[iNow].querySelector('i').style.width = '100%';
+            clearInterval(timer);
+        }
+        
+        oBox.onmouseout = function(){
+            n=0;
+            clearInterval(timer);
+            timer = setInterval(function(){
+                bar();
+            },20);
+        }
+       
+        
+        
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>

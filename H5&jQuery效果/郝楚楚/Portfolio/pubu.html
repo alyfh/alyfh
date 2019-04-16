@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>瀑布流</title>
+    <style>
+        *{margin:0; padding:0;list-style:none;}
+        ul{ width:198px; margin:0 10px 0; border:1px solid #000; float:left;}
+        ul li{ margin:10px 0; width:100%;}
+        div{ width:660px; margin:0 auto;}
+    </style>
+</head>
+<body>
+<div>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+<script>
+    var UL=document.querySelectorAll('ul');
+    function random(min,max){
+        return parseInt(Math.random()*((max+1)-min)+min);
+    }
+    function color(x){
+       for(var i=0; i<UL.length; i++){
+           for(var k=0; k<x; k++){
+               var Li=document.createElement('li');
+               Li.style.backgroundColor='rgb('+random(0,255)+','+random(0,255)+','+random(0,255)+')';
+               var ran=random(100,150);
+               Li.style.height=ran+'px';
+               UL[i].appendChild(Li);
+           }
+       }
+    }
+    color(8);
+    window.onscroll=function(){
+        var Screen = document.documentElement.clientHeight;
+        var sTop =document.body.scrollTop||document.documentElement.scrollTop;
+        var sHeight = document.body.scrollHeight;
+        if(sTop+Screen>=sHeight-50) {
+            color(5);
+        }
+    }
+</script>
+</body>
+</html>

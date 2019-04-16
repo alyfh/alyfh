@@ -1,0 +1,4 @@
+适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.
+
+
+脚本简介jQuery倒计时插件FlipTimer是一款类似日历翻页效果的jQuery网站上线倒计时代码下载。

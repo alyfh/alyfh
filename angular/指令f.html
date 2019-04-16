@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="lan">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body class="ng-cloak">
+		<div class="" ng-controller="myLan">
+			<h1>{{name}}</h1>
+			<h1>{{526}}</h1>
+			<button ng-click="isShow=!isShow">dianji</button>
+			<h1 ng-if="isShow">{{str}}</h1>
+		</div>
+		<script type="text/javascript">
+			angular.module("lan",[])
+			.controller("myLan",function($scope){
+				$scope.name="angular"
+				$scope.isShow=true
+				$scope.str="To sleep at the moment,you will make dream.To study at the moment,you will make your dream come true."
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				width: 100px;
+				height: 30px;
+				display: block;
+				float: left;
+				margin: 15px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oB=document.getElementsByTagName('body')[0]				
+				for(var i=0;i<40;i++){
+					oB.innerHTML+='<span></span>'
+				}
+				var span=document.getElementsByTagName('span')
+				function lan(){
+				var color=[]
+				function _color(){
+					for(var i=0;i<9;i++){
+						color.push(i)
+					}
+					color.splice(11,0,'a','b','c','d','e','f')
+					return color[parseInt(Math.random()*16)]
+				}
+				for(var i=0;i<span.length;i++){
+					span[i].style.background='#'+_color()+_color()+_color()+_color()+_color()+_color()
+				}
+				}
+				setInterval(lan,30)
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

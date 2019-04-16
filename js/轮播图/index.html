@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#lunbo{
+				position: relative;
+				width: 1200px;
+				height: 500px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#lunbo #lunboCon{
+				position: absolute;
+				width: 3600px;
+				z-index: 10;
+			}
+			#lunbo #btnL,#lunbo #btnR{
+				position: absolute;
+				z-index: 11;
+				top: 250px;
+			}
+			#lunbo  img{
+				float: left;
+				display: block;
+				width: 1200px;
+				height: 500px;
+			}
+			#lunbo #btnL{
+				margin-left: 15px;
+			}
+			#lunbo #btnR{
+				margin-left: 1175px;
+			}
+			#lunbo #lunboNum{
+				position: absolute;
+				z-index: 11;
+				left: 50%;
+				margin-left: -30px;
+				bottom: 15px;
+			}
+			#lunbo #lunboNum li{
+				float: left;
+				margin: 0 5px;
+				list-style: none;
+				width: 10px;
+				height: 10px;
+				border-radius: 5px;
+				background: aqua;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="lunbo">
+			<div id="lunboCon">
+				<img src="img/lan1.jpg"/>
+			</div>
+			<ul id="lunboNum">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<button id="btnL"><</button>
+			<button id="btnR">></button>
+		</div>
+	</body>
+</html>

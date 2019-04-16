@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="lan" style="width: 200px; height: 200px; background: aqua; display: none; position: absolute; left: 0; top: 0;">
+			
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+var lan=document.getElementById('lan')
+//	document.oncontextmenu=function(){
+//		lan.style.display='block'
+//	}
+//	document.onclick=function(){
+//		lan.style.display="none"
+//	}
+    document.oncontextmenu=function(ev){
+    	var ev=ev||event;
+    	lan.style.left=ev.clientX+'px'
+    	lan.style.top=ev.clientY+'px'
+    	lan.style.display="block"
+    	return false;
+    }
+    document.onclick=function(){
+		lan.style.display="none"
+	}
+</script>

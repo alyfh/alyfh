@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<ul>
+			<li>5</li>
+			<li>2</li>
+			<li>6</li>
+			<li>5</li>
+			<li>2</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	var oUl=document.getElementsByTagName('ul')[0];
+	function firstChild(obj){
+		if(oUl.firstElementChild){
+		return obj.firstElementChild
+	}{
+		return obj.firstChild
+	}
+	}
+	firstChild(oUl).style.background='red'
+
+	function lastChild(obj){
+		if(oUl.lastChild){
+		return obj.lastElementChild
+	}{
+		return obj.lastChild
+	}
+	}
+	lastChild(oUl).style.background='red'
+
+	
+</script>

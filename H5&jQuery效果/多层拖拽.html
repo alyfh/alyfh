@@ -1,0 +1,71 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>多层拖拽(原创)-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<style>
+.outer {
+	width:800px;
+	height:600px;
+	border:1px solid #ccc;
+	overflow:hidden;
+	margin:auto;
+}
+.middle {
+	width:200px;
+	height:200px;
+	margin:auto;
+	overflow:hidden;
+	border:1px solid blue;
+}
+.inside {
+	width:50px;
+	height:50px;
+	margin:auto;
+	border:1px solid red;
+}
+</style>
+</head>
+<body>
+<div class="outer">
+    <div class="middle">
+        <p class="inside"></p>
+    </div>
+</div>
+
+<script>
+$(function() {
+    var move = {},
+        curr;
+    move.x = move.y = move.mousekey = 0;
+    $(document).on("mousedown", function(e) {
+        curr = e.originalEvent.srcElement; //获取当前选中的标签对象  
+        e.stopPropagation(); //阻止事件冒泡（事件穿透）  
+        move.mousekey = true;
+        $(curr).css("cursor", "move");
+        $(curr).css('position', 'relative');
+        $(curr).parent().css('position', 'relative');
+        var left = $(curr).css("left");
+        var top = $(curr).css("top");
+        move.x = e.pageX - parseInt(left == 'auto' ? 0 : left);
+        move.y = e.pageY - parseInt(top == 'auto' ? 0 : top);
+    }).on('mouseout', function() {
+        move.mousekey = false;
+        $(curr).css("cursor", "default");
+    }).on('mousemove', function(e) {
+        if (move.mousekey) {
+            $(curr).css({
+                top: e.pageY - move.y,
+                left: e.pageX - move.x
+            });
+        }
+    }).on('mouseup', function() {
+        move.mousekey = false;
+        $(curr).css("cursor", "default");
+    });
+});
+</script>
+
+</body>
+</html>

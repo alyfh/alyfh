@@ -1,0 +1,75 @@
+
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+				list-style: none;
+			}
+			.box{
+				width: 300px;
+				padding: 30px 0;
+				margin: 30px auto;
+				background: pink;
+				text-align: center;
+			}
+			input{
+				outline: none;
+				width: 200px;
+				height: 40px;
+				margin-top: 60px;
+				text-indent: 16px;
+			}
+			p{
+				width: 200px;
+				height: 40px;
+				background-color: lime;
+				margin: 30px auto 0;
+				color: white;
+				line-height: 40px;
+			}
+			.lan{
+				font-size: 30px;
+				line-height: 80px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<input type="text" />
+			<p>你敢玩吗？？？</p>
+			<div class="lan"></div>
+		</div>
+		<script type="text/javascript">
+			var lanInp=document.querySelector('input'),
+				lanP=document.querySelector('p'),
+				lanBox=document.querySelector(".lan"),
+				lanSjs=parseInt(Math.random()*10),
+				n=3;
+			lanBox.innerHTML=lanSjs
+			lanInp.onfocus=function(){
+				lanP.innerHTML='请输入您的答案';
+			}
+			lanInp.onblur=function(){
+				if(lanInp.value==''){
+					lanP.innerHTML='请输入您的答案';
+				}else if(lanInp.value==lanSjs){
+					lanP.innerHTML='您赢了！！！';
+				}else if(lanInp.value!=lanSjs){
+					n--;
+					lanP.innerHTML='您还有'+n+'次机会';
+					lanP.style.color="blue"
+					if(n==0){
+						n=0;
+						lanP.innerHTML='终结！！！';
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

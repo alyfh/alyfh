@@ -1,0 +1,4 @@
+适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.
+
+
+脚本简介pikaday轻量级日期选择插件是一款令人耳目一新的JavaScript日期选择器，没有依赖其它JS框架，但能够与Moment.js一起使用。

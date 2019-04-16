@@ -1,0 +1,247 @@
+面向对象：
+
+1、对象构成：属性和方法
+
+2、工厂模式：工厂模式解决了创建多个相似对象的问题，
+            但却没有解决对象识别的问题（即怎样知道一个对象的类型）
+
+3、构造函数：构造函数本身也是函数，只不过可以用来创建对象而已
+            -用new来调用，
+            -不需要特殊定义，
+            -构造函数本身也是函数，只不过可以用来创建对象而已。
+            -【按照惯例，构造函数始终都应该以一个大写字母开头，
+               而非构造函数则应该以小写字母开头。】
+
+03、与工厂模式区别：
+           -没有现实地创建对象
+           -直接将属性和方法赋予了this对象；
+           -没有return语句
+
+4、原型模式
+
+5、组合模式
+
+6、面向对象实现选项卡
+
+7、什么是构造函数？构造函数模式创建对象与工厂模式相比有什么不同？
+     1、构造函数也是函数，仅仅在调用时使用了new
+     2、与工厂模式相比：
+        1）没有现实的创建对象；
+        2）所有属性和方法都给了this对象
+        3）没有return
+
+8、下拉菜单：slideDown,slideUp,
+            show显示,hide隐藏
+
+jQuery：
+
+1、选择器：  基本选择器 表单选择器 层次选择器 过滤选择器
+            过滤选择器可以分为：简单过滤选择器、内容过滤选择器、可见性过滤选择器、
+            属性过滤选择器、子元素过滤选择器、表单对象属性过滤选择器
+            input  eq
+
+2、筛选元素
+.filter.eq(index).first().last().slice(start,[end])
+.not(selector).has(selector).find(selector).contents().children([selector])
+
+02、同辈元素
+.next([selector]).nextAll([selector]).nextUntil([selector],[filter])
+.prev([selector]).prevAll([selector]).prevUntil([selector],
+.parent([selector]).parents([selector]).parentsUntil([selector],[filter])
+siblings([selector])
+
+.closest(selector).offsetParent().add(selector)
+.addBack().end()[filter])
+
+
+3、DOM操作
+   
+   html(),text()
+   attr(),prop()
+   css()
+   addClass添加样式,removeClass删除样式,toggleClass切换样式
+
+   插入：
+   append,appendTo
+   prepend,prependTo
+   after,before
+   insertAfter,insertBefore
+   
+   复制：clone()  clone(true)
+
+   替换： replaceWith(content)  replaceAll(selector)
+   
+   包裹：wrap wrapAll
+   
+   遍历：each
+  
+   删除：remove
+   
+   清空：empty
+
+4、事件(bind,unbind,on,one,delegate,undelegate,trigger)
+ 
+   阻止事件冒泡：retur false    e.stopPropagation()阻止事件冒泡
+
+   阻止事件默认行为：prevenDefault   e.preventDefault()阻止事件默认行为
+
+5、动画(show,hide,slideDown,slideUp,fadeIn,fadeOut,animate)
+
+   两种缓动风格：swing和linear     swing动画 由慢到快   linear匀速
+   stop()/stop(true)
+
+
+Ajax：
+
+原生Ajax---四步-获取对象-创建请求-设置回调函数-发送请求
+
+jQuery---$.get,$.post,$.ajax,$.getJSON
+
+一、A.replaceWidth(B)用B来替换A
+
+二、fadeIn()和fadeOut()只改变不透明度
+
+四、$(this)和this的区别：
+            $(this)是jquery对象，能调用jquery的方法
+            this是html元素对象，能调用元素属性
+
+五、JavaScript window.onload 事件和 jQuery ready 函数有何不同？ 
+      （1）.执行时间不同（ jQuery ready在资源加载完成前执行，window.onload 在资源加载完成后）
+      （2）.执行个数不同（jQuery ready一个页面可以有多个，window.onload一个页面只有一个）
+
+六、1.append() 方法在被选元素的结尾（仍然在内部）插入指定内容
+      2.toggle() 方法切换元素的可见状态
+      3.slideToggle() 方法通过使用滑动效果（高度变化）来切换元素的可见状态
+
+七、$('li:even')与$('li:nth-child(even)')区别：
+      $('li:even')索引从0开始，选中所有索引为偶数的li
+      $('li:nth-child(even)'),索引从1开始，选中每一个父级下的索引为偶数的li
+
+八、如何使用jquery中的ajax？
+       使用load(),$.get(),$.post()，$.ajax()等方法，传相应的参数来设置
+
+九、clone(true)中true代表什么？
+      true:可以复制元素的所有事件处理。
+
+十、:parent与.parent区别：
+       :parent获取含有子元素或者文本的元素
+       .parent([selector])每个选中元素的父元素，可以传入可选的选择符selector进一步筛选
+
+十一、在jquery中，如果想要自定义一个动画，用什么函数来实现。
+          animate(params, options)
+
+十二、js内置对象有哪些？
+        Object,Array,String,Number,Boolean,Date,Function,Math
+
+十三、animate(properties,time,easing,function)参数分别代表什么？
+           修改的样式，时间，缓动风格，回调函数【动画执行完执行】
+                       
+          $(window).scroll(）    $(window).s4 crollTop       goTop
+
+
+十四、数组
+            arr.length 长度
+            arr[?]  下标
+            arr.push()  推  从后面添加
+            arr.unshift()  从前面添加
+            arr.pop()  从尾部弹出
+            arr.shift()  从头部弹出
+            arr.splice(起始位置,删除个数,新的要替换的...)
+                arr.splice(3,0,1,2,3); 添加
+                arr.splice(2,2);  删除
+                arr.splice(2,2,1,2,3); 替换
+            arr.concat(要连接的数组)连接数组，将会产生新的数组
+                
+            arr.sort() 排序
+            arr.reverse(); 数组反转
+            arr.join('生成的字符串以什么为分割');  把数组 转成字符串
+
+一：
+1.angular适用场景/不适用的场景
+        AngularJS主要考虑的是构建CRUD应用
+       （增加Create、查询Retrieve、更新Update、删除Delete）
+        如酷炫的特效，动画，游戏等，这种DOM操作很频繁也很复杂的应用，和CRUD应用就有很大的不同，它们不适合用AngularJS来构建
+2.angular特性：指令系统，模块系统，MVC模式，依赖注入，数据双向绑定
+
+3.Angular的MVC
+	M-Model
+	V-view
+	C-controller
+4.ng-init初始化
+5.ng-bind绑定数据
+
+6.ng-app  无
+                有   angular.module("lan",[])
+
+
+7.controller 一个页面可以有很多controller，一个控制器可以被多次调用，每一次调用都会创建一个scope,每个scope上面的属性和方法都是私有的。
+
+8.	$scope 局部作用域 -ng-controller
+	$rootScope 全局作用域 -ng-app
+
+9.ng-model 数据双向绑定 (MVVM)
+
+补充：  1.创建对象         原型    工厂    构造     组合   字面量
+            2.作用域
+
+
+二：
+1.数据绑定有几种？
+   3
+   ng-bind 绑定非表单元素 优点：不会出现闪屏
+   {{}} 方便快捷 缺点：会出现闪屏
+   ng-model  绑定表单元素
+2.ng-cloak 解决闪屏
+   .ng-cloak{
+        display: none;
+   }
+3. ng-if true 显示，false-消失
+    false ---惰性加载
+    ng-show true 显示，false-消失
+    false----display:none;
+    ng-hide true 消失 false-出现
+    true  ----display:none;
+	注意：0false ,非0-true
+
+4.ng-src
+   ng-href
+
+5. ng-repeat ********
+    ng-repeat="(key,value) in json"
+    $index 下标
+    $first 第一个true,其他false
+    $last 最后一个true,其他false
+    $middle 除了第一个，最后一个，其他true
+    $even 下标偶数true
+    $odd 下标奇数true
+    
+    原生js:
+        for,while,do-while都可以遍历array
+        while:先判断，后执行  
+        do-while:先执行，后判断
+        for：知道执行次数
+        for-in：可以遍历json
+
+三：
+1.ng-value--绑定的是表单经过计算的表达式
+   ng-model--绑定的是一个属性
+	
+2.ng-disabled="bool"
+   true-禁用
+   false-可用
+3.ng-readonly=“bool"
+   true-只读
+   false-可用
+
+4.ng-options="i.name as i.name group by i.type for i in job"
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app="app">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body class="ng-cloak">
+		<div ng-controller="ctrl">
+			{{x}}
+		</div>
+		<script type="text/javascript">
+			var app1=angular.module("app1",[])
+			app1.service("ser1",function(){
+				this.name="angular";
+				
+			})
+			app1.service("ser2",function(){
+				this.age=30
+			})
+			var app2=angular.module("app2",[])
+			app2.factory("fac1",function(){
+				return {
+					x:10,
+					y:20
+				}
+			})
+			app2.value("z","how do you do")
+			var myModule=angular.module("app",["app1","app2"])
+			myModule.controller("ctrl",function($scope,ser1,fac1){
+				$scope.x=fac1.y
+			})
+		</script>
+	</body>
+</html>

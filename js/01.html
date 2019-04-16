@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{margin: 0;padding: 0;list-style: none;}
+			ul li{width: 200px;height: 50px;line-height: 50px;border: solid 2px darkgrey;text-align: center;float: left;margin: 15px;}
+			ul li:hover{border: solid 2px red;cursor: pointer;}
+			ul li.active{border: solid 2px red;background-image: url(lan.jpg);background-repeat: no-repeat;background-position: 170px 18px;}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var aLi=document.querySelectorAll('li')
+				for (var i=0;i<aLi.length;i++) {
+					aLi[i].bfalse=false
+					aLi[i].onclick=function(){
+						if(this.bfalse){
+							this.className=''
+							this.bfalse=false
+						}else{
+							this.className='active'
+							this.bfalse=true
+						}
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="">
+			<ul>
+				<li>纸张不错</li>
+				<li>纸面光滑</li>
+				<li>不错的相纸</li>
+				<li>照片打印</li>
+				<li>复印不卡纸</li>
+				<li>这个纸不错</li>
+				<li>厚度还可以</li>
+				<li>打照片不错</li>
+				<li>超顺滑</li>
+				<li>高品质纸张</li>
+			</ul>
+		</div>
+	</body>
+</html>

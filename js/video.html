@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	*{
+		margin: 0px;
+		padding: 0px;
+		list-style: none;
+	}
+	.pause{
+		width: 0px;
+		height: 0px;
+		border: 20px solid transparent;
+		border-left-color: #000;
+		margin: 20px;
+		cursor: pointer;
+		display: inline-block;
+	}
+	.play{
+		width: 15px;
+		height: 40px;
+		border-left: 5px solid #000;
+		border-right: 5px solid #000;
+		margin: 20px;
+		cursor: pointer;
+		display: inline-block;
+
+	}
+	button{
+		font-size: 40px;
+	}
+	</style>
+</head>
+<body>
+	<video src="s/tongtiandadao.mp4" controls poster="img/lan.jpg"></video>
+	<div class="pause" id="play"></div>
+	<button>快进</button>
+	<button>快退</button>
+	<button>全屏</button>
+	<script>
+	var vdo=document.getElementsByTagName('video')[0];
+	var play=document.getElementById('play');
+	var btn=document.getElementsByTagName('button');
+	play.onclick=function(){
+		if(vdo.paused){
+			vdo.play();
+			play.className="play";
+		}else{
+			vdo.pause();
+			play.className="pause";
+		}
+	}
+	btn[0].onclick=function(){
+		vdo.currentTime=vdo.currentTime+10;
+	}
+	btn[1].onclick=function(){
+		vdo.currentTime=vdo.currentTime-10;
+	}
+	btn[2].onclick=function(){
+		if(vdo.webkitRequestFullScreen){
+			vdo.webkitRequestFullScreen();
+			console.log()
+		}else if(vdo.mozRequestFullScreen){
+			vdo.mozRequestFullScreen();
+		}else if(vdo.msRequestFullscreen){
+			vdo.msRequestFullscreen();
+		}else{
+			alert("你的浏览器不支持全屏");
+		}
+	}
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,192 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>canvas  五子棋-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+<style>
+* {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+body,html {
+	width:100%;
+	height:100%;
+}
+canvas {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+	background:#fdd69f;
+}
+input {
+	border:none;
+	outline:none;
+	padding:3px 5px;
+	color:#fff;
+	background:plum;
+	position:fixed;
+	position:absolute;
+	top:20px;
+	left:50px;
+	z-index:5;
+}
+.box {
+	width:600px;
+	height:600px;
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin:auto;
+	background:#fdd69f;
+	box-shadow:0 0 0 900px rgba(0,0,0,0.8);
+	transform:scale(0,0);
+	transition:all 0.7s;
+}
+.active {
+	transform:scale(1,1);
+}
+</style>
+</head>
+<body>
+<input type="button" value="查看棋谱">
+<canvas width="600" height="600"></canvas>
+<div class="box"></div>
+
+<script>
+//40*40  14个  左右留白20
+var input = $('input');
+var box = $('.box');
+var canvas = $('canvas');
+var ctx = canvas.get(0).getContext('2d');
+var flag = true;
+var obj = {};
+input.on('click', function() {
+    box.toggleClass('active');
+    var url = canvas.get(0).toDataURL('image/png');
+    var a = $('<a>');
+    var img = new Image();
+    $(img).attr('src', url);
+    a.attr('href', url);
+    a.attr('download', 'aa.png');
+    a.append(img);
+    box.html();
+    box.append(a);
+})
+for (var i = 0; i < 15; i++) {
+    ctx.beginPath();
+    ctx.moveTo(line(i), line(0));
+    ctx.lineTo(line(i), line(14));
+    ctx.moveTo(line(0), line(i));
+    ctx.lineTo(line(14), line(i));
+    ctx.stroke();
+}
+arcle(line(3), line(3));
+arcle(line(3), line(11));
+arcle(line(11), line(11));
+arcle(line(7), line(7));
+arcle(line(11), line(3));
+
+function arcle(x, y) {
+    ctx.beginPath();
+    ctx.arc(x, y, 5, 0, 2 * Math.PI);
+    ctx.closePath();
+    ctx.fill();
+}
+
+function line(x) {
+    return 20 + 40 * x;
+}
+canvas.on('click', function(a) {
+    var x = Math.floor(a.offsetX / 40);
+    var y = Math.floor(a.offsetY / 40);
+    if (obj[`${x}-${y}`]) {
+        return;
+    }
+    if (flag) {
+        Chress(x, y, 'black');
+        setTimeout(function() {
+            if (check(x, y, 'black') == 5) {
+                alert('黑方棋手获胜');
+                parent.location.reload();
+            }
+        }, 300)
+
+    } else {
+        Chress(x, y, 'white');
+        setTimeout(function() {
+            if (check(x, y, 'white') == 5) {
+                Chress(x, y, 'white');
+                alert('白方棋手获胜');
+                parent.location.reload();
+            }
+        }, 300)
+
+    }
+})
+
+function Chress(x, y, color) {
+    ctx.beginPath();
+    ctx.arc(line(x), line(y), 18, 0, 2 * Math.PI);
+    ctx.fillStyle = color;
+    ctx.closePath();
+    ctx.fill();
+    obj[`${x}-${y}`] = color;
+    flag = !flag;
+}
+
+function check(x, y, color) {
+    let row = 1;
+    let i = 1;
+    while (obj[`${x+i}-${y}`] == color) {
+        i++;
+        row++;
+    }
+    i = 1;
+    while (obj[`${x-i}-${y}`] == color) {
+        i++;
+        row++;
+    }
+    i = 1;
+    let col = 1;
+    while (obj[`${x}-${y+i}`] == color) {
+        i++;
+        col++;
+    }
+    i = 1;
+    while (obj[`${x}-${y-i}`] == color) {
+        i++;
+        col++;
+    }
+    i = 1;
+    let ax = 1;
+    while (obj[`${x-i}-${y-i}`] == color) {
+        i++;
+        ax++;
+    }
+    i = 1;
+    while (obj[`${x+i}-${y+i}`] == color) {
+        i++;
+        ax++;
+    }
+    i = 1;
+    let bx = 1;
+    while (obj[`${x-i}-${y+i}`] == color) {
+        i++;
+        bx++;
+    }
+    i = 1;
+    while (obj[`${x+i}-${y-i}`] == color) {
+        i++;
+        bx++;
+    }
+    return Math.max(row, col, ax, bx);
+}
+</script>
+
+</body>
+</html>

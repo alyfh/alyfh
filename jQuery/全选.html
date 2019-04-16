@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$("[name='qx']").click(function(){
+					if($(this).is(":checked")){
+						$("[name='aihao']").prop('checked',true)
+					}else{
+						$("[name='aihao']").prop('checked',false)
+					}
+				})
+				$("[name='aihao']").click(function(){
+					var a=$("[name='aihao']").length
+					var b=$("[name='aihao']:checked").length
+					if(a==b){
+						$("[name='qx']").prop('checked',true)
+					}else{
+						$("[name='qx']").prop('checked',false)
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<label><input type="checkbox" name="qx" id="" value="全选" />全选</label>
+		<input type="checkbox" name="aihao" id="" value="" />蘭
+		<input type="checkbox" name="aihao" id="" value="" />兰
+		<input type="checkbox" name="aihao" id="" value="" />LAN
+		<input type="checkbox" name="aihao" id="" value="" />lan
+	</body>
+</html>

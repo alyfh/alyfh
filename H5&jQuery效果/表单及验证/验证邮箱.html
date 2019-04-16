@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"> 
+<html> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=GB2312" /> 
+<title>Untitled Document</title> 
+<script language="JavaScript" type="text/javascript"> 
+  function $(obj){ 
+      return document.getElementById(obj); 
+  } 
+  function checkEmail() 
+  { 
+      var str = $("myText").value; 
+  //如果为空，则通过校验 
+      if(str == ""){ 
+           alert("输入为空"); 
+          return; 
+       } 
+       
+   if (str.charAt(0) == "." || str.charAt(0) == "@" || str.indexOf('@', 0) == -1|| str.indexOf('.', 0) == -1 || str.lastIndexOf("@") == str.length-1 || str.lastIndexOf(".") == str.length-1) 
+        alert("不是一个邮箱"); 
+       else 
+       alert("是一个邮箱"); 
+  } 
+</script> 
+</head> 
+<body> 
+  <input type="text" id="myText" /> 
+  <input type="button" onclick="checkEmail()" value="验证是否邮箱" /> 
+</body> 
+</html> 
+
+
+

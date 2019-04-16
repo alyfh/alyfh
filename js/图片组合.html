@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.wrap{width: 700px;height: 600px;margin: 30px auto 0;background: lime;}
+		    .wrap .lan{width: 100px;height: 100px;background: pink;float: left;background-image: url(lan.jpg);transition: 1s;}
+			.wrap .lan:hover{transform: scale(.8);}
+		</style>
+	</head>
+	<body>
+		<div class="wrap"></div>
+		<script type="text/javascript">
+			var wRap=document.querySelector(".wrap")
+			for (var i=0;i<6;i++) {
+				for (var j=0;j<7;j++) {
+					var lan = document.createElement('div'),
+						num=0
+					lan.setAttribute("class","lan")
+					wRap.appendChild(lan)
+					lan.style.backgroundPositionX=-j*100+"px"
+					lan.style.backgroundPositionY=-i*100+"px"
+					lan.style.opacity="0"
+					lan.onmouseover=function(){
+						this.style.opacity="1"
+						
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

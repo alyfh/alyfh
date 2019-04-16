@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .box{
+            width: 200px;
+            border:1px solid #b0b0b0;
+            margin:0 auto;
+        }
+        .box h2{
+            line-height: 30px;
+            cursor: pointer;
+            padding-left: 10px;
+            border-bottom: 1px solid #b0b0b0;
+        }
+        .box ul{
+            display:none;
+        }
+        .box ul li{
+            line-height: 20px;
+            padding-left: 10px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>账户管理</h2>
+    <ul>
+    	<li>活动总览</li>
+    	<li>各活动专场</li>
+    	<li>活动商家问题</li>
+    	
+    </ul>
+    <h2>账户管理</h2>
+    <ul>
+    	<li>活动总览</li>
+    	<li>各活动专场</li>
+    	<li>活动商家问题</li>
+    	
+    </ul>
+    <h2>账户管理</h2>
+    <ul>
+    	<li>活动总览</li>
+    	<li>各活动专场</li>
+    	<li>活动商家问题</li>
+    	
+    </ul>
+    <h2>账户管理</h2>
+    <ul>
+    	<li>活动总览</li>
+    	<li>各活动专场</li>
+    	<li>活动商家问题</li>
+    	
+    </ul>
+</div>
+
+</body>
+</html>
+<script type="text/javascript">
+
+    var oBox=document.getElementsByTagName('div')[0];
+    var aUl=oBox.getElementsByTagName('ul');
+    var aH2=oBox.getElementsByTagName('h2');
+    for (var i=0;i<aH2.length;i++) {
+        aH2[i].index=i;
+        aH2[i].onclick=function(){
+            if (aUl[this.index].style.display=='block'){
+                aUl[this.index].style.display='none';
+            }else{
+                for(var i=0;i<aH2.length;i++){
+                	aUl[i].style.display='none';
+                }
+                aUl[this.index].style.display='block';
+            }
+        }
+    }
+
+</script>

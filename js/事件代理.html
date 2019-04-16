@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			body{
+				width: 500px;
+				margin: 0 auto;
+				
+			}
+			span{
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<li>蘭<span>删除</span></li>
+		<input type="text" name="" id="tet" value="" />
+	    <input type="button" name="" id="btn" value="蘭" />
+	</body>
+</html>
+<script type="text/javascript">
+	var li=document.getElementsByTagName('li')
+	var tet=document.getElementById('tet')
+	var btn=document.getElementById('btn')
+	var ob=document.getElementsByTagName('body')[0]
+	for(var i=0;i<li.length;i++){
+//		li[i].children[0].onclick=function(){
+//			ob.removeChild(this.parentNode)
+//		}
+		btn.onclick=function(){
+			var li=document.createElement('li')
+			li.innerHTML=tet.value+'<span>删除</span>'
+			ob.appendChild(li)
+		}
+		ob.onclick=function(ev){
+			var ev=ev||event
+			var tar=ev.target||ev.srcElement
+			if(tar.tagName=='SPAN'){
+				ob.removeChild(tar.parentNode)
+			}
+		}
+	}
+</script>

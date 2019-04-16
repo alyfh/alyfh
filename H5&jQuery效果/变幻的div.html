@@ -1,0 +1,103 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>变幻的盒子(原创)-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<style>
+ #content {
+	margin:20px auto 0;
+}
+.d2 {
+	width:50px;
+	height:50px;
+	color:white;
+	text-align:center;
+	font-size:14px;
+	background:red;
+	line-height:50px;
+	position:absolute;
+	left:10px;
+	top:40px;
+}
+</style>
+</head>
+<body>
+<input id="Div100" type="button" value="生成100个DIV">
+<input id="Div10" type="button" value="每10个DVI换行">
+<input id="DivCol" type="button" value="每隔一个DIV换颜色">
+<input id="DivV" type="button" value="生成V">
+<input id="DivDv" type="button" value="生成倒V">
+<div id="content"></div>
+
+<script>
+  window.onload = function() {
+      var onOff = true;
+      //获取body里面的所有div
+      var d2 = $('content').getElementsByTagName('div');
+      var arr = ['red', 'blue', 'black', 'green'];
+      //生成100个div事件
+      $('Div100').onclick = function() {
+          $('content').innerHTML = '';
+          if (onOff) {
+              for (var i = 0; i < 100; i++) {
+                  $('content').innerHTML += '<div class="d2">' + i + '</div>';
+                  d2[i].style.left = 10 + (i * 60) + 'px';
+              }
+              onOff = true;
+          }
+      }
+      //每隔10个换行
+      $('Div10').onclick = function() {
+          for (var i = 0; i < 100; i += 10) {
+              for (var j = 0; j < 10; j++) {
+                  d2[i + j].style.left = 10 + (j * 60) + 'px';
+                  d2[i + j].style.top = 40 + (i * 6) + 'px';
+              }
+          }
+      }
+      //每隔一个换色,4个换一次
+      $('DivCol').onclick = function() {
+          for (var i = 0; i < 100; i += 4) {
+              for (var j = 0; j < 4; j++) {
+                  d2[i + j].style.background = arr[j];
+              }
+          }
+      }
+      //生成V字DIV
+      $('DivV').onclick = function() {
+          $('content').innerHTML = '';
+          for (var i = 0; i < 11; i++) {
+              $('content').innerHTML += '<div class="d2">' + i + '</div>';
+              if (i < 6) {
+                  d2[i].style.left = 10 + (i * 60) + 'px';
+                  d2[i].style.top = 40 + (i * 60) + 'px';
+              } else {
+                  d2[i].style.left = 10 + (i * 60) + 'px';
+                  d2[i].style.top = 400 - ((i - 4) * 60) + 'px';
+              }
+          }
+      }
+      //生成倒V字DIV
+      $('DivDv').onclick = function() {
+          $('content').innerHTML = '';
+          for (var i = 0; i < 11; i++) {
+              $('content').innerHTML += '<div class="d2">' + i + '</div>';
+              if (i < 6) {
+                  d2[i].style.left = 10 + (i * 60) + 'px';
+                  d2[i].style.top = 340 - (i * 60) + 'px';
+              } else {
+                  d2[i].style.left = 10 + (i * 60) + 'px';
+                  d2[i].style.top = 40 + (i * 60) - 300 + 'px';
+              }
+          }
+      }
+  };
+
+  function $(id) {
+      return document.getElementById(id);
+  }
+</script>
+
+</body>
+</html>

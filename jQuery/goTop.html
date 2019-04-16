@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>goTop</title>
+		<style type="text/css">
+		*{margin: 0;padding: 0;}
+			div{height: 5000px;background: pink;}
+			a{position: fixed;bottom: 30px;right: 30px;display: inline-block;width: 50px;height: 50px;background: white;border-radius: 50%;text-align: center;line-height: 50px;text-decoration: none;color: greenyellow;font-size: 30px;}
+		</style>
+		<script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				(function mov(){
+					$('a').animate({
+						'bottom':'60px'
+					},1000,'swing',function(){
+						$('a').animate({
+							'bottom':'30px'
+						},1000,'swing',mov)
+					})
+				})()
+				$(window).scroll(function(){
+					var lan=$(window).scrollTop()
+					if (lan>300) {
+						$('a').show()
+					}else{
+						$('a').hide()
+					}
+				})
+				$('a').click(function(){
+					$('html,body').animate({
+						scrollTop:'0px'
+					},5000,'swing')
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="">
+			
+		</div>
+		<a>蘭</a>
+	</body>
+</html>

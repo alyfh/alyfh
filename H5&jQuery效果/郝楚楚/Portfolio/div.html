@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标绘制方块</title>
+    <style>
+        body { margin: 0; padding: 0; }
+        #container {
+            width: 700px;
+            height: 300px;
+            border: 1px solid #000;
+            margin: 60px auto 10px auto;
+            position: relative;
+            cursor: pointer;
+        }
+        #container div {
+            position: absolute;
+        }
+        p {
+            text-align: center;
+            margin: 0;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<p>可以在上面的方框中任意拉出方块</p>
+</body>
+</html>
+<script>
+    var divCon=document.querySelector('#container');
+    divCon.onmousedown=function (e) {
+        var ev= e || event;
+        var divX=ev.clientX;
+        var divY=ev.clientY;
+        var adiv=document.createElement('div');
+        adiv.style.left=divX-this.offsetLeft+'px';
+        adiv.style.top=divY-this.offsetTop+'px';
+        divCon.appendChild(adiv);
+        var DivLef=divX-this.offsetLeft;
+        var DivTop=divY-this.offsetTop;
+        document.onmousemove=function (e) {
+            var ev = e || event;
+            var newle=ev.clientX;
+            var newht=ev.clientY;
+            var newdivX = ev.clientX - divX;
+            var newdivY = ev.clientY - divY;
+            adiv.style.border='1px dashed #ccc';
+            adiv.style.height=newdivY+'px';
+            adiv.style.width=newdivX+'px';
+            console.log(-700-adiv.offsetLeft);
+            if(newdivX<0){
+                if(newdivX<-DivLef){
+                    newdivX=-DivLef;
+                }
+                adiv.style.left=divX-divCon.offsetLeft+newdivX+'px';
+                adiv.style.width=-newdivX+'px';
+            }
+            if(newdivY<0){
+                if(newdivY<=-DivTop){
+                    newdivY=-DivTop;
+                }
+                adiv.style.top=divY-divCon.offsetTop+newdivY+'px';
+                adiv.style.height=-newdivY+'px';
+            }
+            if(700-(adiv.offsetLeft+adiv.offsetWidth)<=0){
+                adiv.style.width=700-adiv.offsetLeft+'px';
+            }
+            if(newle>divCon.offsetWidth+divCon.offsetLeft){
+                adiv.style.width=(divCon.offsetWidth-adiv.offsetLeft-2)+'px';
+            }
+            if(300-(adiv.offsetTop+adiv.offsetHeight)<=0){
+                adiv.style.height=300-adiv.offsetTop+'px';
+            }
+            if(newht>divCon.offsetHeight+divCon.offsetTop){
+                adiv.style.height=(divCon.offsetHeight-adiv.offsetTop-2)+'px';
+            }
+        };
+        document.onmouseup=function (e) {
+            adiv.style.border='1px solid #ccc';
+            adiv.style.background='rgb('+parseInt(Math.random()*256)+
+                ','+parseInt(Math.random()*256)+
+                ','+parseInt(Math.random()*256)+')';
+            adiv.style.transition='0.5s';
+            document.onmousemove=document.onmouseup=null;
+        }
+        return false
+    }
+</script>

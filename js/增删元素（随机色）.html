@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;border: 0;outline: initial;}
+			input{border: solid 1px lime;width: 200px;height: 30px;text-indent: 16px;}
+			button{width: 50px;height: 30px;border: solid 1px lime;background: lime;color: white;}
+			.lanW{width: 300px;margin: 50px auto;}
+			p{width: 300px;height: 30px;color: white;line-height: 30px;text-indent: 16px;}
+			p:hover{cursor: pointer;}
+			p span{float: right;color: white;margin-right: 5px;}
+		</style>
+	</head>
+	<body>
+		<div class="lanW">
+			<input type="text" name="" id="" value="" /><button id="btn">确定</button>
+		</div>
+		<script type="text/javascript">
+			var lanDiv=document.querySelector('.lanW'),
+			 	lanInput=lanDiv.querySelector('input'),
+			 	lanBtn=lanDiv.querySelector("#btn");
+			 	
+			lanBtn.onclick=function(){
+				var lanp = document.createElement('p');
+				lanDiv.appendChild(lanp)
+				lanp.innerHTML=lanInput.value+"<span>删除</span>"
+				var color='rgb(';
+					for(j=0;j<=2;j++){
+						if(j==2){
+							color+=Math.floor(Math.random()*255)+')'
+						}else{
+							color+=Math.floor(Math.random()*255)+','
+						}
+					}
+				lanp.style.background=color
+				lanp.onclick=function(){
+					lanDiv.removeChild(lanp)
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

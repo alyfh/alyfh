@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#tab{width: 500px;height: 300px;border: solid 1px yellow;margin: 100px auto;}
+			#tab button{width: 60px;height: 30px;outline: none;border: none;}
+			#tab button.checked{background: yellow;}
+			#tab div{width: 500px;height: 270px;background: yellow;text-align: center;line-height: 270px;display: none;}
+			#tab .show{display: block;}
+		</style>
+		<script type="text/javascript">
+			function Lan(id,nav,con,navClass,showClass){
+				var _this=this;
+				this.tadId=document.getElementById(id);
+				this.oBtn=this.tadId.getElementsByTagName(nav);
+				this.oCon=this.tadId.getElementsByTagName(con);
+				this.navClass=navClass;
+				this.showClass=showClass;
+				for(var i=0;i<this.oBtn.length;i++){
+					this.oBtn[i].index=i;
+					this.oBtn[i].onclick=function(){
+						_this.lan(this)
+					}
+				}
+			}
+			
+			Lan.prototype.lan=function(thisf){
+				for(var j=0;j<this.oBtn.length;j++){
+					this.oBtn[j].className='';
+					this.oCon[j].className='';
+				}
+				thisf.className=this.navClass;
+				this.oCon[thisf.index].className=this.showClass;
+			}
+			
+			window.onload=function(){
+				new	Lan('tab','button','div','checked','show')
+			}
+		</script>
+	</head>
+	<body>
+		<div id="tab">
+			<button class="checked">1</button>
+			<button>2</button>
+			<button>3</button>
+			<div class="show">蘭</div>
+			<div>兰</div>
+			<div>闌</div>
+		</div>
+	</body>
+</html>

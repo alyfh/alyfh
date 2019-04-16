@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="myLan">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			.ng-cloak{display: none;}
+		</style>
+	</head>
+	<body class="ng-cloak">
+		<div ng-controller="ctrl">
+			<h1>{{str | uppercase}}</h1>
+			<h1>{{str | lowercase}}</h1>
+			
+			<h1>{{json}}</h1>
+			
+			<h1>{{num | number}}</h1>
+			<h1>{{num1 | number:2}}</h1>
+			<h1>{{num2 | number:2 | currency}}</h1>
+			<h1>{{num2 | number:2 | currency:"lan"}}</h1>
+			<h1>{{num2 | number:2 | currency:"￥"}}</h1>
+		</div>
+		<script type="text/javascript">
+			var aglLan=angular.module("myLan",[])
+			aglLan.controller("ctrl",function($scope){
+				$scope.str="Lan"
+				$scope.json={
+					name:'lan',
+					age:20
+				}
+				$scope.num=526526
+				$scope.num1=5.26526
+				$scope.num2=5.26526
+			})
+		</script>
+	</body>
+</html>

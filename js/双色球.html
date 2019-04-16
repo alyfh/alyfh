@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var arr=[]
+				function num(n){
+				    for(var i=1;i<=n;i++){
+					    arr.push(i)
+				    }	
+				}
+				num(33)
+				var s=[]
+				var sj;
+				for(var i=0;i<7;i++){
+					sj=parseInt(Math.random()*arr.length)
+					s.push(arr[sj])
+					arr.splice(sj,1)
+				}
+				s.sort(function(a,b){return a-b})
+				document.write('红色：'+s)
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			.banner{width: 1000px;height: 500px;position: relative;overflow: hidden;margin: 50px auto;}
+			.banner ul.Bcon{width: 4000px;height: 500px;position: absolute;}
+			.banner ul.Bcon li{width: 1000px;height: 500px;float: left;list-style: none;}
+			.banner ul.Bcon li img{width: 1000px;height: 500px;}
+			.banner div{opacity: .5;width: 50px;height: 50px;position: absolute;top: 230px;border: 1px solid white;line-height: 50px;text-align: center;font-size: 30px;color: white;border-radius: 50%;}
+			.banner div:hover{cursor: pointer;border: solid 1px chartreuse;color: chartreuse;}
+			.banner div.goL{left: 50px;}
+			.banner div.goR{right: 50px;}
+			.btnNum{position: absolute;top: 450px;left: 50%;margin-left: -45px;}
+			.btnNum li{width: 20px;height: 20px;border-radius: 50%;background: pink;list-style: none;float: left;text-align: center;margin-left: 10px;color: blueviolet;opacity: .5;}
+			.btnNum li:hover{cursor: pointer;}
+			.btnNum li.checked{background: yellow;color: white;}
+		</style>
+		<script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				var timer=null;
+				var w=1000;
+				var num=0;
+				var speed=1000;
+				
+				$('.Bcon li').first().clone().appendTo('.Bcon')
+				
+				//右键
+				$('.goR').click(function(){
+					if (!$('.Bcon').is(':animated')) {
+						if(num==$('.Bcon li').length-1){
+							$('.Bcon').css('left','0px')
+							num=0
+						}
+						num++;
+						$('.Bcon').animate({
+							'left':-w*num+'px'
+						},speed)
+					}
+					changeNum(num)
+				})
+				
+				//左键
+				$('.goL').click(function(){
+					if(!$('.Bcon').is(':animated')){
+						if(num==0){
+							$('.Bcon').css('left',-w*($('.Bcon li').length-1)+'px')
+							num=$('.Bcon li').length-1
+						}
+						num--;
+						$('.Bcon').animate({
+							'left':-w*num+'px'
+						},speed)
+					}
+					changeNum(num)
+				})
+				
+				//btnNum
+				function changeNum(index){
+					if(index==$('.Bcon li').length-1){index=0}
+					$('.btnNum li').eq(index).addClass('checked').siblings().removeClass('checked')
+				}
+				
+				//自动轮播
+				timer=setInterval(function(){
+					$('.goR').click()
+				},3000)
+				$('.banner').hover(function(){
+					clearInterval(timer)
+				},function(){
+					timer=setInterval(function(){
+						$('.goR').click()
+					},3000)
+				})
+				
+				//btnNumnav
+				$('.btnNum li').click(function(){
+					if (!$('.Bcon').is(':animated')) {
+						var index=$(this).index();
+						if (num>index) {
+							$('.Bcon').css('left',-w*(index+1)+'px')
+							$('.Bcon').animate({
+								'left':-w*index+'px'
+							},speed)
+						}else{
+							$('.Bcon').css('left',-w*(index-1)+'px')
+							$('.Bcon').animate({
+								'left':-w*index+'px'
+							},speed)
+						}
+						num=index
+						changeNum(num)
+					}
+				})
+				
+				
+				
+			/////////////	
+			})
+		</script>
+	</head>
+	<body>
+		<div class="banner">
+			<ul class="Bcon">
+				<li><img src="img/lan2.jpg"/></li>
+				<li><img src="img/lan.jpg"/></li>
+				<li><img src="img/lan1.jpg"/></li>
+			</ul>
+			<div class="goL">&lt;</div>
+			<div class="goR">&gt;</div>
+			<ul class="btnNum">
+				<li class="checked">1</li>
+				<li>2</li>
+				<li>3</li>
+			</ul>
+		</div>
+	</body>
+</html>

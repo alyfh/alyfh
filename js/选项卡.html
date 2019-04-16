@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			body{
+				text-align: center;margin: 0 auto;width: 215px;
+			}
+			div{
+				width: 213px;
+				height: 120px;
+				background: #ccc;
+				display: inline-block;
+				border: 1px solid #c00;
+				line-height: 120px;
+				font-size: 36px;
+				font-weight: bold;
+				display: none;
+			}
+			.active{
+				background: #f90;
+				width: 60px;
+			}
+			.show{
+				display: block;
+			}
+		</style>
+		<script type="text/javascript">
+		    function lan(aBtn,aDiv){
+					for(var i=0;i<aBtn.length;i++){
+					aBtn[i].index=i;
+					aBtn[i].onclick=function(){
+						for(var i=0;i<aBtn.length;i++){
+							aBtn[i].className='';
+							aDiv[i].className='';
+							
+						}
+						this.className='active';
+						aDiv[this.index].className='show'
+					}
+				}
+				}
+			window.onload=function(){
+				
+				var aBtn=document.getElementsByTagName('input');
+				var aDiv=document.getElementsByTagName('div');
+//				for(var i=0;i<aBtn.length;i++){
+//					aBtn[i].index=i;
+//					aBtn[i].onclick=function(){
+//						for(var i=0;i<aBtn.length;i++){
+//							aBtn[i].className='';
+//							aDiv[i].className='';
+//							
+//						}
+//						this.className='active';
+//						aDiv[this.index].className='show'
+//					}
+//				}
+				lan(aBtn,aDiv)
+			}
+		</script>
+	</head>
+	<body>
+		<input type="button" value="电影" class="active" />
+		<input type="button" value="综艺" />
+		<input type="button" value="动漫" />
+		<input type="button" value="东宇" />
+		<input type="button" value="抄抄" />
+		<div class="show">电影</div>
+		<div>综艺</div>
+		<div>动漫</div>
+		<div>东宇</div>
+		<div>抄抄</div>
+	</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 200px;
+            height: 200px;
+            background-color: lime;
+            position: absolute;
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+        var oBox = document.querySelector('.box');
+        
+        oBox.onmousedown = function(e){
+            var oEv = e || event;
+            var x = oEv.clientX - oBox.offsetLeft,
+                y = oEv.clientY - oBox.offsetTop;
+            document.onmousemove = function(e){
+                var oEv = e || event;
+                var newx = oEv.clientX - x,
+                    newy = oEv.clientY - y;
+                oBox.style.left = newx + 'px';
+                oBox.style.top = newy + 'px';
+            }
+            
+            document.onmouseup = function(){
+                document.onmousemove = null;
+                document.onmouseup = null;
+            }
+        }
+    </script>    
+</body>
+</html>

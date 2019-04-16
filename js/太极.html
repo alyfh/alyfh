@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#taiji{
+			    width: 200px;
+				height: 100px;
+				border-radius :50%;
+				border: 3px solid lime;
+				border-top: 100px solid lime;
+				position: relative;
+			}
+			#taiji::after{
+			  	content: "";
+				width: 10px;
+				height: 10px;
+				border: 45px solid lime;
+				position: absolute;
+				border-radius: 50%;
+				left: 0;
+				top: -44px;
+
+			}
+			#taiji::before{
+				content: "";
+				width: 10px;
+				height: 10px;
+				border: 45px solid #fff;
+				position: absolute;
+				border-radius: 50%;
+				left:100px;
+				top:-55px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="taiji"></div>
+	</body>
+</html>

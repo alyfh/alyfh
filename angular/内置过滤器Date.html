@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myLan">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body class="ng-cloak">
+		<div class="" ng-controller="ctrl">
+			
+			<h1>medium----->{{d|date:"medium"}}</h1>
+			<h1>short----->{{d|date:"short"}}</h1>
+			<h1>fullDate----->{{d|date:"fullDate"}}</h1>
+			<h1>longDate----->{{d|date:"longDate"}}</h1>
+			<h1>mediumDate----->{{d|date:"mediumDate"}}</h1>
+			<h1>shortDate----->{{d|date:"shortDate"}}</h1>
+			<h1>shortTime----->{{d|date:"shortTime"}}</h1>
+		
+		</div>
+		<script type="text/javascript">
+			var aglLan=angular.module("myLan",[])
+			aglLan.controller("ctrl",["$scope",function($scope){
+				$scope.d=new Date();
+			}])
+		</script>
+	</body>
+</html>

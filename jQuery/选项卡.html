@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+			.tab{
+				width: 400px;
+				height: 260px;
+				border: solid 1px #ccc;
+				margin: 50px auto;
+				
+			}
+			.tab ul li{
+				list-style: none;
+				float: left;
+				line-height: 30px;
+				width: 130px;
+				text-align: center;
+				background: aqua;
+				margin-right: 3px;
+			}
+			.tab ul li.checked{
+				background: yellowgreen;
+				color: white;
+			}
+			.tab dl{
+				clear: both;
+			}
+			.tab dl dd{
+				width: 400px;
+				height: 230px;
+				text-align: center;
+				line-height: 230px;
+				font-size: 30px;
+				display: none;
+			}
+			.tab dl dd p{
+				width: 400px;
+				height: 230px;
+				text-align: center;
+				line-height: 230px;
+				font-size: 30px;
+				background: greenyellow;
+			}
+			.tab dl dd:nth-child(1) p{
+				width: 400px;
+				height: 230px;
+				text-align: center;
+				line-height: 230px;
+				font-size: 30px;
+				background: pink;
+			}
+			.tab dl dd:nth-child(1){
+				display: block;
+			}
+		</style>
+		<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				
+				$('#tab li').click(function(){
+					$('#tab li').removeClass('checked').eq($(this).index()).addClass('checked')
+					$('#tab dd').slideUp().eq($(this).index()).slideDown()
+				})
+				
+			})
+		</script>
+	</head>
+	<body>
+		<div class="tab" id="tab">
+			<ul>
+				<li class="checked">蘭1</li>
+				<li>蘭2</li>
+				<li>蘭3</li>
+			</ul>
+			<dl>
+				<dd><p>兰1</p></dd>
+				<dd>兰2</dd>
+				<dd><p>兰3</p></dd>
+			</dl>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>继承---指针</title>
+		<script type="text/javascript">
+			function Lan(name,age){
+				this.name=name;
+				this.age=age;
+			}
+			Lan.prototype.sayName=function(){
+				alert(526)
+			}
+			var lan=new Lan(18)
+			lan.sayName();
+			console.log(lan.constructor)
+			console.log(lan.prototype)
+			console.log(Lan.prototype)
+			console.log(Lan.constructor)
+//			console.log(Lan.prototype.constructor)
+			console.log(Lan.prototype.constructor)
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"> 
+<head> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"> 
+<title>在线演示</title> 
+<style type="text/css"> 
+<!-- 
+*{margin:0; padding:0} 
+li{list-style:none} 
+img{border:0} 
+body{background-color:#fff; font-size:12px; color:#2c2c2c; font-family:Arial, Helvetica, sans-serif} 
+a{color:#444; text-decoration:none} 
+a:hover{color:#900; text-decoration:underline} 
+#n{margin:10px auto; width:920px; border:1px solid #CCC;font-size:14px; line-height:30px;}
+#n a{ padding:0 4px; color:#333}
+.con{overflow:hidden; margin:30px auto; width:442px; height:100%; padding:10px 15px; border:solid 1px #FCBA79; background-color:#FFFBEC;} 
+#carousel_container{position:relative; height:100px; overflow:hidden;} 
+#carousel_inner{width:391px; height:95px; overflow: hidden; position:absolute;left:25px; top:5px;} 
+#left_scroll{position: absolute;left:0;top:43px;width:9px;height:9px;cursor: pointer;cursor: hand; background:url(left.gif) no-repeat;} 
+#right_scroll{position: absolute;top:43px;right:0; width: 9px;height: 9px;cursor: pointer;cursor: hand; background: url(right.gif) no-repeat;} 
+#carousel_ul{width:9999px; height:95px; position:relative;} 
+#carousel_ul li{float: left;width:84px; height:86px; border:solid 1px #FEDDAB; margin-right:15px; display:inline;} 
+#carousel_ul li img{width:84px; height:86px;}
+--> 
+</style> 
+<script type="text/javascript" src="jquery-1.3.2.min.js"></script> 
+<script type="text/javascript"> 
+<!-- 
+var SellerScroll = function(options){ 
+this.SetOptions(options); 
+this.lButton = this.options.lButton; 
+this.rButton = this.options.rButton; 
+this.oList = this.options.oList; 
+this.showSum = this.options.showSum; 
+
+this.iList = $("#" + this.options.oList + " > li"); 
+this.iListSum = this.iList.length; 
+this.iListWidth = this.iList.outerWidth(true); 
+this.moveWidth = this.iListWidth * this.showSum; 
+
+this.dividers = Math.ceil(this.iListSum / this.showSum);//Ϊٿ 
+this.moveMaxOffset = (this.dividers - 1) * this.moveWidth; 
+this.LeftScroll(); 
+this.RightScroll(); 
+}; 
+SellerScroll.prototype = { 
+SetOptions: function(options){ 
+this.options = { 
+lButton: "left_scroll", 
+rButton: "right_scroll", 
+oList: "carousel_ul", 
+showSum: 4//һιٸitems 
+}; 
+$.extend(this.options, options || {}); 
+}, 
+ReturnLeft: function(){ 
+return isNaN(parseInt($("#" + this.oList).css("left"))) ? 0 : parseInt($("#" + this.oList).css("left")); 
+}, 
+LeftScroll: function(){ 
+if(this.dividers == 1) return; 
+var _this = this, currentOffset; 
+$("#" + this.lButton).click(function(){ 
+currentOffset = _this.ReturnLeft(); 
+if(currentOffset == 0){ 
+for(var i = 1; i <= _this.showSum; i++){ 
+$(_this.iList[_this.iListSum - i]).prependTo($("#" + _this.oList)); 
+} 
+$("#" + _this.oList).css({ left: -_this.moveWidth }); 
+$("#" + _this.oList + ":not(:animated)").animate( { left: "+=" + _this.moveWidth }, { duration: "slow", complete: function(){ 
+for(var j = _this.showSum + 1; j <= _this.iListSum; j++){ 
+$(_this.iList[_this.iListSum - j]).prependTo($("#" + _this.oList)); 
+} 
+$("#" + _this.oList).css({ left: -_this.moveWidth * (_this.dividers - 1) }); 
+} } ); 
+}else{ 
+$("#" + _this.oList + ":not(:animated)").animate( { left: "+=" + _this.moveWidth }, "slow" ); 
+} 
+}); 
+}, 
+RightScroll: function(){ 
+if(this.dividers == 1) return; 
+var _this = this, currentOffset; 
+$("#" + this.rButton).click(function(){ 
+currentOffset = _this.ReturnLeft(); 
+if(Math.abs(currentOffset) >= _this.moveMaxOffset){ 
+for(var i = 0; i < _this.showSum; i++){ 
+$(_this.iList[i]).appendTo($("#" + _this.oList)); 
+} 
+$("#" + _this.oList).css({ left: -_this.moveWidth * (_this.dividers - 2) }); 
+
+$("#" + _this.oList + ":not(:animated)").animate( { left: "-=" + _this.moveWidth }, { duration: "slow", complete: function(){ 
+for(var j = _this.showSum; j < _this.iListSum; j++){ 
+$(_this.iList[j]).appendTo($("#" + _this.oList)); 
+} 
+$("#" + _this.oList).css({ left: 0 }); 
+} } ); 
+}else{ 
+$("#" + _this.oList + ":not(:animated)").animate( { left: "-=" + _this.moveWidth }, "slow" ); 
+} 
+}); 
+} 
+}; 
+$(document).ready(function(){ 
+var ff = new SellerScroll(); 
+}); 
+//--> 
+</script> 
+</head> 
+<body> 
+<p id="n"><a href="http://www.divcss5.com/">CSS</a>
+<a href="http://www.divcss5.com/">divcss5</a>：
+<a href="http://www.divcss5.com/html/">Html基础</a>
+<a href="http://www.divcss5.com/htmlrumen/">html入门</a>
+<a href="http://www.divcss5.com/rumen/">CSS基础</a>
+<a href="http://www.divcss5.com/cssrumen/">CSS入门</a>
+<a href="http://www.divcss5.com/css-hack/">CSS Hack</a>
+<a href="http://www.divcss5.com/css-texiao/">CSS模块特效</a>
+<a href="http://www.divcss5.com/wenji/">CSS知答</a>
+<a href="http://www.divcss5.com/peixun/">CSS培训</a>
+<a href="http://www.css5.com.cn/">CSS切图</a>
+<a href="http://www.divcss5.com/css-tool/">CSS工具</a>
+<a href="http://www.divcss5.com/jiqiao/">CSS技巧</a>
+<a href="http://www.divcss5.com/">DIV+CSS</a></p>
+<div class="con"> 
+<div id="carousel_container"> 
+<div id="left_scroll"></div> 
+<div id="carousel_inner"> 
+<ul id="carousel_ul"> 
+<li><img src="http://www.divcss5.com/uploads/allimg/130306/1-1303062156230-L.jpg" /></li> 
+<li><img src="http://www.divcss5.com/uploads/allimg/130306/1-1303062156230-L.jpg" /></li> 
+<li><img src="http://www.divcss5.com/uploads/allimg/130306/1-1303062156230-L.jpg" /></li> 
+<li><img src="http://www.divcss5.com/uploads/allimg/130306/1-1303062156230-L.jpg" /></li> 
+<li><img src="http://www.divcss5.com/uploads/allimg/130306/1-1303062156230-L.jpg" /></li> 
+<li><img src="http://www.divcss5.com/uploads/allimg/130306/1-1303062156230-L.jpg" /></li> 
+<li><img src="http://www.divcss5.com/uploads/allimg/130306/1-1303062156230-L.jpg" /></li> 
+<li><img src="http://www.divcss5.com/uploads/allimg/130306/1-1303062156230-L.jpg" /></li> 
+<li><img src="http://www.divcss5.com/uploads/allimg/130306/1-1303062156230-L.jpg" /></li> 
+<li><img src="http://www.divcss5.com/uploads/allimg/130306/1-1303062156230-L.jpg" /></li> 
+<li><img src="http://www.divcss5.com/uploads/allimg/130306/1-1303062156230-L.jpg" /></li> 
+<li><img src="http://www.divcss5.com/uploads/allimg/130306/1-1303062156230-L.jpg" /></li> 
+</ul> 
+</div> 
+<div id="right_scroll"></div> 
+</div> 
+</div> 
+<p>返回下载 <a href="http://www.divcss5.com/css-texiao/texiao454.shtml">CSS图片滚动特效</a>：<a href="http://www.divcss5.com/css-texiao/texiao454.shtml">http://www.divcss5.com/css-texiao/texiao454.shtml</a></p>
+</body> 
+</html>

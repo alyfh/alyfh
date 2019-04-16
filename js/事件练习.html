@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#lan{
+				width: 50px;
+				height: 50px;
+				border-radius: 50px;
+				background-image: url(../speed/img/lan.jpg);
+				background-size: 100%;
+				background-repeat: no-repeat;
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		<div id="lan">
+			
+		</div>
+		
+	</body>
+</html>
+<script type="text/javascript">
+	var oDiv=document.getElementById('lan');
+	var oD=document.getElementsByTagName('div')
+	document.onmousemove=function(a){
+		var a=a||event
+		with(oDiv.style){
+			left=a.clientX+'px'
+			top=a.clientY+'px'
+		}
+		for(var i=oD.length-1;i>0;i--){
+			oD[i].style.left=oD[i-1].offsetLeft+'px'
+			oD[i].style.top=oD[i-1].offsetTop+'px'
+			oD[i].style.width=oD[i-1].offsetWidth+'px'
+			oD[i].style.height=oD[i-1].offsetHeight+'px'
+		}
+	}
+</script>

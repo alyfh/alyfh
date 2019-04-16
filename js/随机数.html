@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			span{
+				width: 50px;
+				height: 50px;
+				border-radius: 50px;
+				display: block;
+				float: left;
+				margin: 40px;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oB=document.getElementsByTagName('body')[0]				
+				for(var i=0;i<30;i++){
+					oB.innerHTML+='<span></span>'
+				}
+				var span=document.getElementsByTagName('span')
+				function lan(){
+					var color=[]
+					function _color(){
+						for(var i=0;i<9;i++){
+							color.push(i)
+						}
+						color.splice(11,0,'a','b','c','d','e','f')
+						return color[parseInt(Math.random()*16)]
+					}
+					for(var i=0;i<span.length;i++){
+						span[i].style.background='#'+_color()+_color()+_color()+_color()+_color()+_color()
+					}
+				}
+				setInterval(lan,100)
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

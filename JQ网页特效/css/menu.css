@@ -1,0 +1,28 @@
+.menu{width: 100%;height: 284px;border-bottom: solid 1px #424141;background: #272727;}
+.menuContent{width: 1140px;height: 284px;margin: 0 auto;background: /*yellow*/;}
+.menuContent ul{width: 200px;float: left;}
+.menuContent ul h3{line-height: 50px;font-size: 16px;font-weight: normal;color: #CCCCCC;}
+.menuContent ul li{line-height: 25px;font-size: 16px;color: #CCCCCC;}
+.menuContent ul li a{line-height: 25px;font-size: 14px;color: #CCCCCC;}
+.menuContent ul li a:hover{text-decoration: underline;}
+.menuContent ul li a img{margin: 20px 5px;}
+.copyright{width: 100%;height: 67px;background: #272727;}
+.copyrightContent{width: 1140px;margin: 0 auto;}
+.copyrightContent p,.copyrightContent p span,.copyrightContent p a{line-height: 67px;color: #CCCCCC;}
+.copyrightContent p span{float: right;}
+.copyrightContent p a:hover{text-decoration: underline;}
+
+.goTop{width: 48px;height: 208px;background: /*yellow*/;position: relative;position: fixed;right: 0;top: 280px;}
+.goTop ul li{width: 48px;height: 48px;margin-bottom: 4px;}
+.goTop ul li a{display: block;width: 48px;height: 48px;}
+.goTop ul .gotop{background-image: url(../img/goTop.jpg);display: none;}
+.goTop ul .gotop:hover{background-image: url(../img/goToph.jpg);cursor: pointer;}
+
+.goTop ul .zxfk{background-image: url(../img/zxfk.jpg);position: absolute;top: 52px;}
+.goTop ul .zxfk:hover{background-image: url(../img/zxfkh.jpg);cursor: pointer;}
+
+.goTop ul .yjgw{background-image: url(../img/yjgw.jpg);position: absolute;top: 104px;}
+.goTop ul .yjgw:hover{background-image: url(../img/yjgwh.jpg);cursor: pointer;}
+
+.goTop ul .dhlx{background-image: url(../img/dhlx.jpg);position: absolute;top: 156px;}
+.goTop ul .dhlx:hover{background-image: url(../img/dhlxh.jpg);cursor: pointer;}

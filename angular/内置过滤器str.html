@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="myLan">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body class="ng-cloak">
+		<div class="" ng-controller="ctrl">
+			<h1>{{str | limitTo:7}}</h1>
+			<ul>
+				<li ng-repeat="i in arr | limitTo:2">{{i}}</li>
+			</ul>
+		
+		</div>
+		<script type="text/javascript">
+			var aglLan=angular.module("myLan",[])
+			aglLan.controller("ctrl",["$scope",function($scope){
+				$scope.str="你现在岁月安好，是因为有人为你负重前行";
+				$scope.arr=["蘭","兰","lan"]
+			}])
+		</script>
+	</body>
+</html>

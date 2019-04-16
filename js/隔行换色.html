@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			li{
+				list-style: none;
+				display: block;
+				width: 100%;
+				height: 30px;
+			}
+		</style>
+		<script type="text/javascript">
+		  window.onload=function(){
+			var lan=document.getElementsByTagName('li');
+			for(var i=0;i<=7;i++){
+				if(i%2==0){
+					lan[i].style.background='aqua'
+					
+				}else{
+					lan[i].style.cssText='background: blueviolet;'
+				}
+				lan[i].onmouseover=function(){
+					color=this.style.background
+					this.style.background='black'
+					
+				}
+				lan[i].onmouseout=function(){
+					this.style.background=color
+				}
+				lan[i].onclick=function(){
+					this.style.background='yellowgreen'
+				}
+			}
+		  }	
+		</script>
+	</head>
+	<body>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</body>
+</html>

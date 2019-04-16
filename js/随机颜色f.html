@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var color='rgb(';
+				var oDiv='';
+				
+				for(i=0;i<10;i++){
+				for(j=0;j<=2;j++){
+					if(j==2){
+						color+=Math.floor(Math.random()*255)+')'
+					}else{
+						color+=Math.floor(Math.random()*255)+','
+					}
+				}
+				    
+				    oDiv+="<dd style=\'background-color:"+color+"\'></dd>"
+				    color='rgb('
+				}
+				
+				    document.getElementsByTagName('dl')[0].innerHTML=oDiv
+			}
+		</script>
+		<style type="text/css">
+			dl dd{
+				float: left;
+				width: 100px;
+				height: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<dl></dl>
+	</body>
+</html>

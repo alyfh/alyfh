@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="btn" id="btn" value="变色" />
+	</body>
+</html>
+<script type="text/javascript">
+	var oB=document.getElementsByTagName('body')[0]	
+	var btn=document.getElementById('btn')
+	var color=[]
+	function _color(){
+		for(var i=0;i<9;i++){
+				color.push(i)
+		}
+		color.splice(11,0,'a','b','c','d','e','f')
+		return color[parseInt(Math.random()*16)]
+	}			
+	btn.onclick=function(){
+		oB.style.background='#'+_color()+_color()+_color()+_color()+_color()+_color()
+		
+	}
+</script>

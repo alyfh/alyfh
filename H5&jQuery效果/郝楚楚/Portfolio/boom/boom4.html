@@ -1,0 +1,144 @@
+<!doctype html> 
+<html> 
+<head> 
+    <meta charset="utf-8"> 
+    <title></title> 
+    <style type="text/css">
+*{margin: 0;padding: 0;list-style: none;}
+#boomNode{width: 600px;height:400px;border: 1px solid black;position: absolute;left: 50%;top: 50%;margin: -200px 0 0 -300px;}
+
+    </style>
+</head>
+<body>
+<div id='boomNode'></div>
+<script type="text/javascript">
+
+function boom(opt){
+	this.opt = opt;
+	this.index = 99999;
+	this.imgLeg = 0;
+
+	//生成元素的模块
+	this.createNode();
+
+	//爆炸模块
+	this.chartBoom();
+
+};
+boom.prototype = {
+	'createNode':function(){
+		//this.needRandomTimer = this.opt.timer.split('-');
+		//console.log(this.needRandomTimer);
+		//console.log()
+		this.imgLeg == this.opt.imgUrl.length && (this.imgLeg = 0);
+
+		this.newDiv = document.createElement('div');
+
+		this.newDiv.style.cssText ='width:100%;height:100%;position:absolute;';
+		this.newDiv.style.zIndex=this.index;
+		this.index--;
+		for(var i = 0;i < this.opt.y;i++){
+			for(var j = 0;j < this.opt.x;j++){
+				this.smallDiv = document.createElement('div');
+
+				this.smallDiv.style.width = this.opt.obj.clientWidth / this.opt.x + 'px';
+				this.smallDiv.style.height = this.opt.obj.clientHeight / this.opt.y + 'px';
+				this.smallDiv.style.float = 'left';
+				this.smallDiv.style.background = 'url('+this.opt.imgUrl[this.imgLeg]+')';
+				this.smallDiv.style.backgroundPositionX = this.opt.obj.clientWidth / this.opt.x * -j+'px';
+				this.smallDiv.style.backgroundPositionY = this.opt.obj.clientHeight / this.opt.y * -i+'px';
+				this.smallDiv.style.transition = this.random(Number(this.opt.timer.split('-')[0]),Number(this.opt.timer.split('-')[1]))+'s all ease';
+				this.newDiv.appendChild(this.smallDiv);
+			};
+		};
+		this.imgLeg++;
+
+		this.opt.obj.appendChild(this.newDiv);
+	},
+	'returnArr':function(){
+		this.str='';
+		for(var i =0;i <this.opt.style.length;i++ ){
+			//this.str='';
+			this.str+= ' '+this.opt.style[i].split(':')[0]+'(';
+			this.str+= this.random(Number(this.opt.style[i].split(':')[1].split('*')[0]),Number(this.opt.style[i].split(':')[1].split('*')[1]));
+			this.str+= this.opt.style[i].split(':')[2] +')';
+			//this.arr.push(this.str);
+		};
+		this.str = this.str.replace('undefined','');
+		return this.str;
+		//this.arr.push(this.str);
+	},
+	'chartBoom':function(){
+		var _this = this;
+
+		//console.log(this.returnArr());
+		//
+
+		//console.log(this.opt.style)
+		
+		//console.log(this.arr);
+		//this.opt.style
+
+		
+
+		setTimeout(function(){
+			for(var i = 0;i<_this.newDiv.children.length;i++){
+				console.log(_this.returnArr())
+				_this.newDiv.children[i].style.transform = _this.returnArr();
+				_this.newDiv.children[i].style.opacity = 0;
+			};
+
+
+			_this.createNode();
+			_this.chartBoom();
+			//_this.index--;
+		},1000);
+
+		setTimeout(function(){
+			boomNode.children[0].remove();
+			//alert(1);
+		//	console.log()
+			//_this.index++;
+			//document.getElementById('div'+_this.index).remove();
+			
+			//_this.newDiv.remove();
+			//_this.createNode();
+			//_this.chartBoom();
+
+		},Number((this.opt.timer.split('-')[1])*1000)+1000)
+
+	},
+	'random':function(min,max){
+		return Number(Math.random()*((max-min))+min);
+	}
+}
+
+new boom({
+	'obj':boomNode,
+	'x':10,
+	'y':8,
+	'timer':'0.8-1.7',
+	'imgUrl':['1.jpg','2.jpg','3.jpg','4.jpg'],
+	'style':['perspective:800*800:px','translateX:-500*500:px','translateY:-400*300:px','rotate:-180*180:deg','rotateX:-180*180:deg','rotateY:-180*180:deg','scale:1*3:']
+	//rotate(37deg) rotateX(69deg)
+
+})
+//cssText = 'transform:rotate'
+
+
+/*
+	{
+		obj:boom,
+		x:10,
+		y:8,
+		imgUrl:[1.jpg,2.jpg,3.jpg],
+		timer: 1.3-2.5,
+		style:['rotate:30*90:deg','rotateY:-90*360:deg'],
+		setTimer : 3000
+	}
+*/
+
+
+</script>
+</body>
+</html>

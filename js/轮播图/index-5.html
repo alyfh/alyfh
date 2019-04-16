@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#lunbo{
+				position: relative;
+				width: 1200px;
+				height: 500px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#lunbo #lunboCon{
+				position: absolute;
+				width: 4800px;
+				z-index: 10;
+			}
+			#lunbo #btnL,#lunbo #btnR{
+				position: absolute;
+				z-index: 11;
+				top: 250px;
+			}
+			#lunbo  img{
+				float: left;
+				display: block;
+				width: 1200px;
+				height: 500px;
+			}
+			#lunbo #btnL{
+				margin-left: 15px;
+				background: rgba(255,255,255,.1);
+				border: none;
+				color: aqua;
+				outline: none;
+			}
+			#lunbo #btnR{
+				margin-left: 1175px;
+				background: rgba(255,255,255,.1);
+				border: none;
+				color: aqua;
+				outline: none;
+			}
+			#lunbo #lunboNum{
+				position: absolute;
+				z-index: 11;
+				left: 50%;
+				margin-left: -30px;
+				bottom: 15px;
+			}
+			#lunbo #lunboNum li{
+				float: left;
+				margin: 0 5px;
+				list-style: none;
+				width: 10px;
+				height: 10px;
+				border-radius: 5px;
+				background: white;
+			}
+			#lunbo #lunboNum .checked{
+				background: greenyellow;
+			}
+		</style>
+		
+		<script type="text/javascript">
+		    function getStyle(element,attribute){
+		    	if('currentStyle' in element){
+		    		return element.currentStyle[attribute];
+		    	}else{
+		    		return getComputedStyle(element)[attribute];
+		    	}
+		    }
+			window.onload=function(){
+				var lunbo=document.getElementById('lunbo'),
+				    lunboCon=document.getElementById('lunboCon'),
+				    lunboImg=lunboCon.getElementsByTagName('img'),
+				    lunboNum=document.getElementById('lunboNum'),
+				    lunboNumli=lunboNum.getElementsByTagName('li'),
+				    btnL=document.getElementById('btnL'),
+				    btnR=document.getElementById('btnR');
+				
+				//定义相关变量
+				var imgW=1200,   //单张图片宽度
+				    speed=20,    //每次移动的距离
+				    num=1,       //记录步数
+				    index=0,     //图片索引
+				    max=2,       //最大图片索引
+				    time,        //定时器
+				    onOff=true;
+				 
+				//定义移动
+				function nove(w,speed){
+					time=setInterval(function(){
+						if(num>=Math.abs(w/speed)){
+							clearInterval(time);
+							num=0;
+							onOff=true;
+						}
+						lunboCon.style.marginLeft=parseInt(getStyle(lunboCon,'marginLeft'))
+					    +speed+'px';
+					    num++;
+					},30)
+				}
+				
+				function changeNum(index){
+					for(i=0;i<lunboNumli.length;i++){
+						lunboNumli[i].className='';
+						
+					}
+					if(index==lunboImg.length-1){
+						lunboNumli[0].className='checked';
+					}else{lunboNumli[index].className='checked';}
+				}
+				
+				btnR.onclick=function(){
+					if(onOff){
+						onOff=false;
+						if(index>=lunboImg.length-1){
+							lunboCon.style.marginLeft='0';
+						    index=0;
+						}
+						nove(imgW,-speed);
+					    index++;
+					    changeNum(index)
+					}
+				}
+				
+				btnL.onclick=function(){
+					if(onOff){
+						onOff=false;
+						if(index<=0){
+							lunboCon.style.marginLeft=-imgW*(lunboImg.length-1)+'px';
+						    index=lunboImg.length-1;
+						}
+						nove(imgW,speed);
+					    index--;
+					    changeNum(index)
+					}
+				}
+				
+				//自动轮播
+				var autoTime=setInterval(function(){
+					btnR.onclick();
+					
+				},5000)
+				
+				lunbo.onmouseover=function(){
+					clearInterval(autoTime);
+				}
+				
+				lunbo.onmouseout=function(){
+					autoTime=setInterval(function(){
+						btnR.onclick();
+					},5000)
+				}
+				
+				//圆点
+			    for(i=0;i<lunboNumli.length;i++){
+				lunboNumli[i].index=i;
+				lunboNumli[i].onclick=function(){
+					if(onOff){
+						onOff=false;
+						changeNum(this.index);
+						console.log(index);
+						var dianW=imgW*Math.abs(index-this.index)
+						
+						if(dianW!=0){
+							if(this.index>index){
+								nove(dianW,-speed)
+							}else{
+								nove(dianW,speed)
+							}
+							index=this.index;
+						}else{
+							index=this.index;
+							onOff=true;
+					    }
+				    }
+			    }
+			
+			}
+		}
+		</script>
+	</head>
+	<body>
+		<div id="lunbo">
+			<div id="lunboCon">
+				<img src="img/lan1.jpg"/>
+				<img src="img/lan2.jpg"/>
+				<img src="img/lan3.jpg"/>
+				<img src="img/lan1.jpg"/>
+			</div>
+			<ul id="lunboNum">
+				<li class="checked"></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<button id="btnL"><</button>
+			<button id="btnR">></button>
+		</div>
+	</body>
+</html>

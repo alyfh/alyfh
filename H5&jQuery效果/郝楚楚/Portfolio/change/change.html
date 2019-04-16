@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>变换</title>
+    <style>
+        *{margin:0;padding: 0;list-style: none}
+        #div1{ width: 200px; height: 200px; position: absolute; margin-top:-100px; margin-left:-100px; left:50%; top:50%;}
+    </style>
+</head>
+<body>
+    <div id="div1"></div>
+    <script>
+        for(var i = 0;i < 10;i++){
+            for(var j = 0;j < 10;j ++){
+                var oDiv = document.createElement('div');
+                oDiv.style.float = 'left';
+                oDiv.style.backgroundImage = 'url(img/1.png)';
+                oDiv.style.backgroundSize = '200px 200px';
+                oDiv.style.width = 200/10+'px';
+                oDiv.style.height = 200/10+'px';
+                oDiv.style.backgroundPositionX = j*-20 + 'px';
+                oDiv.style.backgroundPositionY = i*-20 + 'px';
+                oDiv.style.transition = Math.random(0,1)+'s';
+                div1.appendChild(oDiv);
+            }
+        }
+        function random(min,max){
+            return parseInt(Math.random()*(max-min+1))+(min);
+        }
+        var allDiv=div1.children;
+        var idx = allDiv.length - 1;
+        var t = null;
+        var open = false;
+        div1.onclick = function(){
+            var Node = [];
+            var Nodes = [];
+            for (var i=0;i<allDiv.length;i++) {
+                Node.push(i);
+            }
+            for (var i=0;i<allDiv.length;i++) {
+                var ran = random(0,Node.length-1);
+                var num = Node.splice(ran,1);
+                Nodes.push(num);
+            }
+            if(idx == -1){
+                if(open)return;
+                open = true;
+                t = setInterval(function(){
+                    if(idx == allDiv.length-1){
+                        clearInterval(t);
+                        open = false;
+                        return;
+                    }
+                    idx++;
+                    allDiv[Nodes[idx]].style.backgroundImage='url(img/1.png)';
+                },20);
+            }else{
+                if(open)return;
+                open = true;
+                t = setInterval(function(){
+                    if(idx == -1){
+                        clearInterval(t);
+                        open = false;
+                        return;
+                    }
+                    allDiv[Nodes[idx]].style.backgroundImage='url(img/2.png)';
+                    idx--;
+                },20);
+            }
+        }
+    </script>
+</body>
+</html>

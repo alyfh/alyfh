@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{padding: 50px;}
+			.one{background: aqua;}
+			.two{background: yellow;}
+			.three{background: blueviolet;}
+		</style>
+		<script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('.one').click(function(){
+					alert('最外层one')
+				})
+				$('.two').click(function(){
+					alert('中间层two')
+				})
+				$('.three').click(function(e){
+					alert('最内层three')
+					//阻止事件默认行为
+					e.preventDefault()
+					//仅阻止事件冒泡
+//					e.stopPropagation()
+					//同时阻止
+//					return false
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<div class="one">
+			<div class="two">
+				<div class="three">
+					<a href="http://www.baidu.com">百度</a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

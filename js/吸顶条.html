@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>吸顶条</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            text-indent: 10px;
+            outline-style: none;
+            border: none;
+        }
+        .box{
+        	position: absolute;
+            height: 50px;
+            background: rgba(0,0,0,0.3);
+            display: none;
+        }
+        .lsa{
+            width: 400px;
+            height: 300px;
+            background: rgba(0,0,0,0.3);
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+        .lsa input{
+            float: left;
+            width: 300px;
+            height: 30px;
+            margin-left: 50px;
+            margin-top: 20px;
+        }
+        .box .in{
+            float: left;
+            width: 300px;
+            height: 30px;
+            margin-top:10px;
+            margin-left: 30px;
+        }
+        .box .ip{
+            float: left;
+            width: 100px;
+            height: 30px;
+            margin-top:10px;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="lsa">
+
+<input type="text" value="" placeholder="卡号/邮箱/手机号">
+<input type="text" value="" placeholder="密码">
+<input type="button" value="登陆" style="background: #F0B10F;">
+<input type="button" value="企业注册" style="background: #0495FC;">
+
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="box">
+    <input class="in" type="text" value="" placeholder="卡号/邮箱/手机号">
+    <input class="in" type="text" value="" placeholder="密码">
+    <input class="ip" type="button" value="登陆" style="background: #F0B10F;">
+    <input class="ip" type="button" value="企业注册" style="background: #0495FC;">
+</div>
+<script>
+    var oBox = document.querySelector('.box');
+    var oLsa = document.querySelector('.lsa');
+    window.onscroll = function(){
+        var st = document.documentElement.scrollTop || document.body.scrollTop;
+        if(st>=oLsa.offsetHeight+50){
+            with(oBox.style){
+                position = 'fixed';
+                left = 0;
+                top = 0;
+                width = '100%'
+                display = 'block'
+            }
+        }
+        else{
+            with(oBox.style){
+                position = 'static';
+            }
+        }
+    }
+</script>
+</body>
+</html>

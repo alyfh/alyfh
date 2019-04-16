@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{ margin:0;padding:0;list-style:none;}
+.div1{ position:relative;display:inline-block;width:100px;height:50px;line-height:50px;text-align:center;border:1px #00F solid;}
+.div1 span{ display:inline-block;width:100px;height:50px;line-height:50px;text-align:center;}
+.div1 ul{ position:absolute;top:50px;left:0;border:1px #00F solid;display:none;}
+.div1 li{ display:inline-block;width:37px;height:25px;line-height:20px;text-align:center;float:left;margin:5px;}
+</style>
+<script src="下拉列表.js"></script>
+<script>
+window.onload=function(oSel){
+	var oSel=document.getElementById("sel1");
+		MakeUpSelect(oSel);
+ }
+</script>
+</head>
+<body>
+    <form action="Http://www.baidu.com"/>
+        <!-- <div class="div1">
+            <span>客户服务</span>
+            <ul>
+                <li>北京</li>
+                <li>天津</li>
+                <li>上海</li>
+                <li>福建</li>
+            </ul>
+    	</div> -->
+    	<select name="user" id="sel1">
+        	<option value="a">北京</option>
+            <option value="b">天津</option>
+            <option value="c">上海</option>
+            <option value="d">福建</option>
+        </select>
+        <input type="submit"/>
+    </form>
+
+</body>
+</html>

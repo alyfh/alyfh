@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.checked{
+				color: chartreuse;
+				border-bottom: solid 1px chartreuse;
+			}
+			div{display: none;width: 100px;height: 50px;background: aqua;text-align: center;line-height: 50px;}
+			.checkedf{display: block;}
+		</style>
+		<script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('li').click(function(){
+//					console.log($(this))
+//					console.log(this)
+//					$('li').removeClass('checked')
+//					$(this).addClass('checked')
+//					console.log($(this).index())
+					$('li').removeClass('checked').eq($(this).index()).addClass('checked')
+					$('div').removeClass('checkedf').eq($(this).index()).addClass('checkedf')
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li class="checked">dfaf</li>
+			<li>dfaf</li>
+			<li>dfaf</li>
+			<li>dfaf</li>
+		</ul>
+		<div class="checkedf">123456</div>
+		<div>12345</div>
+		<div>1234</div>
+		<div>123</div>
+	</body>
+</html>

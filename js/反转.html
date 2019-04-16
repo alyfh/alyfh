@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="box">abcdef</div>
+    <script>
+        var oBox = document.querySelector('#box');
+        
+        oBox.onclick = function(){
+            var str = oBox.innerHTML;
+          	var newstr = '';
+            for(var i=str.length-1;i>=0;i--){
+                newstr+=str.charAt(i);
+            }
+            oBox.innerHTML = newstr;
+        }
+        
+        
+        
+    
+    </script>
+	</body>
+</html>

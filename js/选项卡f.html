@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>选项卡</title>
+    <style>
+        *{margin: 0;padding: 0;list-style: none;}
+        .list{
+            height: 30px;
+        }
+        .list li{
+            height: 29px;
+            line-height: 30px;
+            width: 100px;
+            text-align: center;
+            float: left;
+            border-bottom: aqua solid 1px;
+            
+        }
+        .list .active{
+            background: #B0B0B0;
+            color: aqua;
+            border: aqua solid 1px;
+            height: 29px;
+            border-bottom: none;
+        }
+        .item{
+            height: 300px;
+            background: #B0B0B0;
+            display: none;
+            font-size: 40px;
+            text-align: center;
+        }
+        .cont .active{
+            display: block;
+        }
+        .cont .item .lAn,
+        .cont .item .lan{
+        	width: 15%;
+        	height: 260px;
+        	margin-top: 20px;
+        	background: white;
+        	float: left;
+        }
+        .cont .item .lan{
+        	margin-left: 2%;
+        }
+        .cont .item .lAn img,
+        .cont .item .lan img{
+        	width: 100%;
+        	height: 150px;
+        }
+        .cont .item .lAn dt,
+        .cont .item .lan dt{
+        	font-size: 20px;
+        	text-align: left;
+        }
+        .cont .item .lAn dd,
+        .cont .item .lan dd{
+        	font-size: 16px;
+        	text-align: left;
+        	color: #B0B0B0;
+        }
+    </style>
+</head>
+<body>
+    <ul class="list" id="list">
+        <li class="active">星期一</li>
+        <li>星期二</li>
+        <li>星期三</li>
+        <li>星期四</li>
+        <li>星期五</li>
+        <li>星期六</li>
+        <li>星期日</li>
+    </ul>
+    <div class="cont" id="cont">
+        <div class="item active">
+        	<div class="lAn">
+        		<img src="img/1.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/2.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/3.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/4.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/5.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/6.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        </div>
+        <div class="item">
+        	<div class="lAn">
+        		<img src="img/2.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/3.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/4.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/5.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/6.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/1.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        </div>
+        <div class="item">
+        	<div class="lAn">
+        		<img src="img/3.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/4.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/5.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/6.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/1.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/2.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        </div>
+        <div class="item">
+        	<div class="lAn">
+        		<img src="img/4.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/5.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/6.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/1.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/2.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/3.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        </div>
+        <div class="item">
+        	<div class="lAn">
+        		<img src="img/5.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/6.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/1.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/2.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/3.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/4.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        </div>
+        <div class="item">
+        	<div class="lAn">
+        		<img src="img/6.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/1.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/2.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/3.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/4.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/5.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        </div>
+        <div class="item">
+        	<div class="lAn">
+        		<img src="img/6.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/lan-3.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/lan-4.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/lan-4.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/lan-3.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        	<div class="lan">
+        		<img src="img/6.jpg"/>
+        		<dl>
+        			<dt>打发打发</dt>
+        			<dd>打发打发打发打发打发打发</dd>
+        		</dl>
+        	</div>
+        </div>
+    </div>
+   
+   
+    <script>
+        var oUl = document.getElementById('list');
+        var aLi = oUl.getElementsByTagName('li');
+        
+        var oCont = document.querySelector('#cont');
+        var aDiv = oCont.querySelectorAll('.item');
+        
+        for(var i=0;i<aLi.length;i++){
+            aLi[i].索引 = i;
+            aLi[i].onclick = function(){
+                for(var i=0;i<aLi.length;i++){
+                    aLi[i].className = '';
+                    aDiv[i].className = 'item';
+                }
+                this.className = 'active';
+                console.log(this.索引);
+                aDiv[this.索引].className = 'item active';
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>

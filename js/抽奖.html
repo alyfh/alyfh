@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			p{
+				width: 450px;
+				height: 450px;
+				line-height: 450px;
+				text-align: center;
+				margin: 0 auto;
+				font-size: 100px;
+				margin-bottom: 10px;
+				background: #CCCCCC;
+				color: aqua;
+				border-radius: 450px;
+				background-image: url(../图片切换/imgs/lan2.jpg);
+				background-repeat: no-repeat;
+				background-size: 100%;
+			}
+			body{
+				text-align: center;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var arr=['巫姐姐','姐大','姐二','姐三','姐四','姐五','姐六','姐七','姐八','丝']
+				var P=document.getElementsByTagName('p')[0];
+				
+				function R(){
+					P.innerHTML=arr[Math.round(Math.random()*(arr.length-1))]
+				}
+				
+				var tim=null;
+				var btn=document.getElementsByTagName('button');
+				
+				btn[0].onclick=function(){
+					clearInterval(tim)
+					tim=setInterval(R,100)
+				}
+				btn[1].onclick=function(){
+					clearInterval(tim)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<p></p>
+		<button>蘭</button>
+		<button>闌</button>
+	</body>
+</html>

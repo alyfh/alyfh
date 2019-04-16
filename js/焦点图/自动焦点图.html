@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;list-style: none;}
+        .box{
+            width: 700px;
+            height: 400px;
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .imgs{
+            position: absolute;
+            left: 0; top: 0;
+            width: 500%;
+            transition: .35s ease-in-out;
+        }
+        .imgs li{
+            float: left;
+        }
+        .imgs img{
+            width: 700px;
+            height: 400px;
+            vertical-align: top;
+        }
+        .dian{
+            position: absolute;
+            left: 0; bottom: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        .dian a{
+            display: inline-block;
+            height: 10px;
+            width: 40px;
+            background-color: #fff;
+        }
+        .dian .active{
+            background-color: yellowgreen;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="imgs">
+            <li><img src="img/lan-3.jpg" alt=""></li>
+            <li><img src="img/lan-1.jpg" alt=""></li>
+            <li><img src="img/lan-4.jpg" alt=""></li>
+        </ul>
+        <div class="dian">
+            <a href="javascript:;" class="active"></a>
+            <a href="javascript:;"></a>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+    <script>
+        var oBox = document.querySelector('.box');
+        var oImg = oBox.querySelector('.imgs');
+        var aLink = document.querySelectorAll('.dian a');
+        var iNow = 0;
+        var len = aLink.length;
+        
+        function tab(){
+            for(var i=0;i<aLink.length;i++){
+                aLink[i].className = '';
+            }
+            aLink[iNow].className = 'active';
+            oImg.style.left = -700 * iNow + 'px';
+        }
+        
+        for(var i=0;i<aLink.length;i++){
+            aLink[i].index = i;
+            aLink[i].onmouseover = function(){
+                
+                iNow = this.index;
+                tab();
+            }
+        }
+        
+        function next(){
+            iNow++;
+            if(iNow == len) iNow = 0;
+            tab();
+        }
+        
+        var timer = null;
+        
+        timer = setInterval(function(){
+            next();
+        },1000);
+        
+        oBox.onmouseover = function(){
+            clearInterval(timer);
+        }
+        oBox.onmouseout = function(){
+            clearInterval(timer);
+            timer = setInterval(function(){
+                next();
+            },1000);
+        }
+        
+        
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>

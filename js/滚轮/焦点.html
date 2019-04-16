@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style type="text/css">
+.green{color:green;}
+.red{color:red;}
+        </style>
+    </head>
+    <body>
+    <form action="gunlun.html" method="get" accept-charset="utf-8">
+        用户名：<input type="text" name='usename' value='请输入用户名'><span></span><br>
+        密码：<input type="password" name="password"><span></span><br>
+        电话：<input type="text" name='tel'><span></span><br>
+        <input type='submit' value='提交'>
+    </form>
+    </body>
+</html>
+<script type="text/javascript">
+    var for1=document.forms[0];
+    var usename=document.getElementsByName('usename')[0];
+var pass=document.getElementsByName('password')[0];
+function start(obj,te,fn){
+    obj.onfocus=function (){
+        this.value='';
+        this.nextSibling.innerHTML=te
+
+    }
+
+    obj.onblur=function (){
+        if(fn(this.value)){
+            this.nextSibling.innerHTML='输入正确'
+            this.nextSibling.className='green'
+        }
+        else{
+         this.nextSibling=te
+        this.nextSibling.className='red'
+  
+        }
+    }
+
+
+}
+
+
+start(usename,'请输入6-12位字母或数字组合',function (val){
+    if(val.length>=6&&val.length<=12){
+    	info=true
+    	return true
+    }else{
+    	info=false
+    	return false
+    }
+})
+
+
+start(pass,'请输入8-18密码',function (val){
+    if(val.length>=8&&val.length<=18){return true}else{return false}
+})
+
+
+
+	for1.onsubmit=function (){
+        return info
+    }
+</script>

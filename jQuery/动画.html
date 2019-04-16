@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		*{margin: 0;padding: 0;}
+		ul{width: 703px;margin: 100px auto;}
+			ul li{width: 200px;height: 200px;background: pink;float: left;list-style: none;text-align: center;line-height: 200px;border-left: solid 1px yellow;}
+			ul li.checked{width: 300px;}
+		</style>
+		<script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$(function(){
+				$('ul').delegate('li',{
+					mouseenter:function(){
+						$(this).css('background-color','blueviolet').siblings().css('background-color','')
+						$(this).stop(true).animate({
+							'width':'300px'
+						},1000).siblings().stop(true).animate({
+							'width':'200px'
+						},1000)
+					}
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li class="checked">1</li>
+			<li>2</li>
+			<li>3</li>
+		</ul>
+	</body>
+</html>

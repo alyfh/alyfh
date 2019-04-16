@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="dist/sweetalert.css">
+	<script src="dist/sweetalert.min.js"></script>
+
+</head>
+<body>
+	<div class="demo_1">
+		基本示例：<button>点击这里</button>
+	</div>
+	<div class="demo_2">
+		提示成功：<button>点击这里</button>
+	</div>
+	<div class="demo_3">
+		提示失败：<button>点击这里</button>
+	</div>
+	<div class="demo_4">
+		提示确认：<button>点击这里</button>
+	</div>
+	<div class="demo_5">
+		提示确认2：<button>点击这里</button>
+	</div>
+	<div class="demo_6">
+		展示图片：<button>点击这里</button>
+	</div>
+	<div class="demo_7">
+		自动关闭：<button>点击这里</button>
+	</div>
+	<div class="demo_8">
+		用户输入：<button>点击这里</button>
+	</div>
+	<div class="demo_8">
+		请求数据：<button>点击这里</button>
+	</div>
+</body>
+<script>
+	var btn=document.getElementsByTagName('button');
+	btn[0].onclick=function(){
+		swal("這是一个信息提示框");
+	}
+	btn[1].onclick=function(){
+		swal("Good","弹出一个操作成功的提示框","success");
+	}
+	btn[2].onclick=function(){
+		swal("OMG","弹出一个操作失败的提示框","error");
+	}
+	btn[3].onclick=function(){
+		swal({
+			title:"你确定吗?",
+			text:"你将删掉这个文件",
+			type:"warning",
+			showCancelButton:true,
+			confirmButtonColor:"#dd6b55",
+			confirmButtonText:"删掉",
+			closeOnConfirm:false
+		},function(){
+			swal("Deleted","已删掉","success");
+		})
+	}
+	btn[4].onclick=function(){
+		swal({
+			title:"你确定吗？",
+			text:"你将删掉这个文件",
+			type:"warning",
+			showCancelButton:true,
+			confirmButtonText:"删掉",
+			confirmButtonColor:"#dd6b55",
+			cancelButtonText:"取消",
+			closeOnConfirm:false,
+			closeOnCancel:false
+		},function(isConfirm){
+			if(isConfirm){
+				swal("删掉","已删除文件","success");
+			}else{
+				swal("取消","您已取消","error");
+			}
+		})
+	}
+	btn[5].onclick=function(){
+		swal({
+			title:"Vue.js",
+			text:"这是我要展示的图片",
+			imageUrl:"1.png"
+		})
+	}
+	btn[6].onclick=function(){
+		swal({
+			title:"自动关闭",
+			text:"2秒后我将自动关闭！",
+			timer:2000,
+			showConfirmButton:false
+		})
+	}
+	btn[7].onclick=function(){
+		swal({
+			title:"输入框",
+			text:"写点东西吧！",
+			type:"input",
+			showCancelButton:true,
+			closeOnConfirm:false,
+			animation:"slide-from-top",
+			inputPlaceholder:"write something"
+		},function(iptValue){
+			if(iptValue==false){
+				return false;
+			}else if(iptValue==''){
+				swal.showInputError("you need to write something!");
+				return false;
+			}else{
+				swal("Nice","您输入了："+iptValue,"success");
+			}
+		})
+	}
+	btn[8].onclick=function(){
+		swal({
+			title:"ajax请求案例",
+			text:"提交ajax请求",
+			type:"info",
+			showCancelButton:true,
+			closeOnConfirm:false,
+			showLoaderOnConfirm:true
+		},function(){
+			setTimeout(function(){
+				swal("ajax请求结束！");
+			},2000)
+		})
+	}
+</script>
+</html>

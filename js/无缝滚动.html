@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style>
+        #lan {
+            background: #FFF;
+            overflow:hidden;
+            border: 1px dashed #CCC;
+            width: 500px;
+            margin: 0 auto;
+            background: black;
+        }
+        #lAn {
+            float: left;
+            width: 800%;
+        }
+        #lanf {
+            float: left;
+        }
+        #lAnf {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="lan">
+    <div id="lAn">
+        <div id="lanf">
+            <div style="width: 190px;height: 80px;background: aqua;float: left; margin: 5px 10px; line-height: 80px; text-align: center;">蘭</div>
+            <div style="width: 190px;height: 80px;background: yellow;float: left; margin: 5px 10px; line-height: 80px; text-align: center;">闌</div>
+            <div style="width: 190px;height: 80px;background: #CCCCCC;float: left; margin: 5px 10px; line-height: 80px; text-align: center;">兰</div>
+            <div style="width: 190px;height: 80px;background: pink;float: left; margin: 5px 10px; line-height: 80px; text-align: center;">蘭</div>
+            <div style="width: 190px;height: 80px;background: blueviolet;float: left; margin: 5px 10px; line-height: 80px; text-align: center;">闌</div>
+            <div style="width: 190px;height: 80px;background: yellowgreen;float: left; margin: 5px 10px; line-height: 80px; text-align: center;">兰</div>
+        </div>
+        <div id="lAnf"></div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    var speed=20;
+    var lan=document.getElementById("lan");
+    var lanf=document.getElementById("lanf");
+    var lAnf=document.getElementById("lAnf");
+    lAnf.innerHTML=lanf.innerHTML;
+    function Marquee(){
+        if(lAnf.offsetWidth-lan.scrollLeft<=0)
+            lan.scrollLeft-=lanf.offsetWidth
+        else{
+            lan.scrollLeft++;
+        }
+    }
+    var MyMar=setInterval(Marquee,speed);
+    lan.onmouseover=function() {clearInterval(MyMar)};
+    lan.onmouseout=function() {MyMar=setInterval(Marquee,speed)};
+</script>

@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script>
+var str = window.navigator.userAgent.toLowerCase();
+
+    if(str.indexOf('chrome')!=-1){
+
+    	alert('chrome');
+	
+    }else if(str.indexOf('firefox')!=-1){
+
+	alert('firefox');
+	
+    }else if(str.indexOf('msie')!=-1){
+		
+		if(str.indexOf('msie 6')!=-1){
+			alert('IE6');			
+		}else if(str.indexOf('msie 7')!=-1){
+			alert('IE7');
+		}else if(str.indexOf('msie 8')!=-1){
+			alert('IE8');
+		}
+	
+	
+    }
+
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

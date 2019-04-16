@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
+	<title>Document</title>
+    <script src="jquery.js"></script>
+	<style>
+	*{ margin:0;padding:0;list-style: none;}
+	body,html{height: 100%;background:#ccc;}
+	a{ text-decoration:none;}
+	em,var,strong{ font-style:normal;}
+
+.txt1{ font-size:12px;text-align: center;}
+
+	/*iphone手机端*/
+	@media all and (max-width:320px){
+		.login{ overflow:hidden;}
+			.box_top{ width:150px;height:40px;background:#c02d2d;float:right;}
+		.mb{  width:100%; height:100%; background:url(bj.png) 0 0 no-repeat;position: absolute;top: 0;left: 0;}
+		#outer{width:240px;height:350px;margin: 0 auto;position: absolute;top: 0;left: 0;z-index: 10;}
+		.con{ width:240px;height:350px;overflow:hidden;background: #f43b3b;
+			float: right;
+			
+			position:relative;
+			box-shadow: 0px 2px 3px #98b4c4,0px -2px 3px #333,2px 0px 10px #333;
+			-moz-box-shadow: 0px 2px 3px #98b4c4,0px -2px 3px #333,2px 0px 10px #333;
+			-webkit-box-shadow: 0px 2px 3px #333,0px -2px 3px #333,2px 0px 10px #333;
+			transition:all 2s ease;
+			-moz-transition:all 2s ease;
+			-webkit-transition:all 2s ease;
+			text-align:center;
+		}
+		.con span{ display:block;color:#fff;font-size:24px;font-weight:bold;width:90px;height:40px;line-height:40px;float:left;}
+		.box_btn{ width:240px;height:60px;line-height:60px;color:#fff;font-size:20px;text-align:center;margin-top:8px;}
+		#outer ul{position: absolute;top: 0;left: 0;width:400px;height:350px;z-index: -1;
+			box-shadow: 0px 2px 3px #98b4c4,0px -2px 3px #333,2px 0px 10px #333;
+			-moz-box-shadow: 0px 2px 3px #98b4c4,0px -2px 3px #333,2px 0px 10px #333;
+			-webkit-box-shadow: 0px 2px 3px #333,0px -2px 3px #333,2px 0px 10px #333;
+		}
+		#outer .baiye{height: 350px;float: left;width:40px;
+		}
+		#outer .bianse{height: 350px;background: url(4.jpg) 0 0 no-repeat;
+			transition:all 1s ease;
+			-moz-transition:all 1s ease;
+			-webkit-transition:all 1s ease;
+		}
+		.success{position: absolute;top: 0;left: 0;width:240px;height:350px;background: url(4.jpg) 0 0 no-repeat;font-size: 20px;font-weight: bold;text-align: center;line-height: 350px;color: white;
+
+		}
+		.dl{position: absolute;left: 0;top:0;}
+		.tjiao {height: 100%;}
+		form { width:204px;margin:0 auto;margin-top:8%;}
+		em{ font-size:16px;color: #808080;}
+		.f1{ overflow:hidden;width:205px;}
+		.txt1,.txt2{ position:relative;}
+		.e1{ position: absolute;top:4px;left:6px;}
+		.e2{ position: absolute;top:4px;left:6px;}
+		 input:nth-child(1),form input:nth-child(3){			
+			border: 1px solid #ccc;
+			border-radius: 12px;
+			height: 28px;
+			width:193px;
+			padding: 0 0 0 5px;
+			vertical-align: middle;			
+			-webkit-box-shadow: 0px 1px 1px 2px #eaeaea inset ;
+			-moz-box-shadow: 0px 1px 1px 2px #eaeaea inset;
+			box-shadow: 0px 1px 1px 1px #eaeaea inset;
+			margin-bottom:10px;
+		}
+		input[type="button"]{
+
+			cursor: pointer;
+			width:110px;
+			height:30px;
+			border:none;
+			border-radius:5px;
+			
+			font-size:14px;
+			
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+			background:#fff;
+			color:red;
+			margin-bottom:10px;
+			float:left;
+		}
+		
+		.error,.error2{ display:none;color:#fff;font-size:12px;float:right;margin-top:7px;}
+		span.err1{ background:url(1.png) 0 -50px;width:16px;height:16px;display:inline-block;}
+		span.err2{ background:url(1.png) 0 -50px;width:16px;height:16px;display:inline-block;}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/*pc端*/
+	@media all and (min-width:1100px){
+			.login{ overflow:hidden;}
+			.box_top{ width:291px;height:40px;background:#c02d2d;float:right;}
+		.mb{  width:100%; height:100%; background:url(bj.png) 0 0 no-repeat;position: absolute;top: 0;left: 0;}
+		#outer{width:400px;height:350px;margin: 0 auto;position: absolute;top: 0;left: 0;z-index: 10;}
+		.con{ width:400px;height:350px;overflow:hidden;background: #f43b3b;
+			float: right;
+			
+			position:relative;
+			box-shadow: 0px 2px 3px #98b4c4,0px -2px 3px #333,2px 0px 10px #333;
+			-moz-box-shadow: 0px 2px 3px #98b4c4,0px -2px 3px #333,2px 0px 10px #333;
+			-webkit-box-shadow: 0px 2px 3px #333,0px -2px 3px #333,2px 0px 10px #333;
+			transition:all 2s ease;
+			-moz-transition:all 2s ease;
+			-webkit-transition:all 2s ease;
+			text-align:center;
+		}
+		.con span{ display:block;color:#fff;font-size:24px;font-weight:bold;width:90px;height:40px;line-height:40px;float:left;}
+		.box_btn{ width:400px;height:60px;line-height:60px;color:#fff;font-size:25px;text-align:center;margin-top:8px;}
+		#outer ul{position: absolute;top: 0;left: 0;width:400px;height:350px;z-index: -1;
+			box-shadow: 0px 2px 3px #98b4c4,0px -2px 3px #333,2px 0px 10px #333;
+			-moz-box-shadow: 0px 2px 3px #98b4c4,0px -2px 3px #333,2px 0px 10px #333;
+			-webkit-box-shadow: 0px 2px 3px #333,0px -2px 3px #333,2px 0px 10px #333;
+		}
+		#outer .baiye{height: 350px;float: left;width:40px;
+		}
+		#outer .bianse{height: 350px;background: url(4.jpg) 0 0 no-repeat;
+			transition:all 1s ease;
+			-moz-transition:all 1s ease;
+			-webkit-transition:all 1s ease;
+		}
+		.success{position: absolute;top: 0;left: 0;width:400px;height:350px;background: url(4.jpg) 0 0 no-repeat;font-size: 20px;font-weight: bold;text-align: center;line-height: 350px;color: white;
+
+		}
+		.dl{position: absolute;left: 0;top:0;}
+		.tjiao {height: 100%;}
+		form { width:204px;margin:0 auto;margin-top:8%;}
+		em{ font-size:16px;color: #808080;}
+		.f1{ overflow:hidden;width:203px;}
+		.txt1,.txt2{ position:relative;}
+		.e1{ position: absolute;top:6px;left:12px;}
+		.e2{ position: absolute;top:6px;left:12px;}
+		 input:nth-child(1),form input:nth-child(3){			
+			border: 1px solid #ccc;
+			border-radius: 12px;
+			height: 28px;
+			width:193px;
+			padding: 0 0 0 5px;
+			vertical-align: middle;			
+			-webkit-box-shadow: 0px 1px 1px 2px #eaeaea inset ;
+			-moz-box-shadow: 0px 1px 1px 2px #eaeaea inset;
+			box-shadow: 0px 1px 1px 1px #eaeaea inset;
+			margin-bottom:10px;
+		}
+		input[type="button"]{
+
+			cursor: pointer;
+			width:110px;
+			height:30px;
+			border:none;
+			border-radius:5px;
+			
+			font-size:14px;
+			
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+			background:#fff;
+			color:red;
+			margin-bottom:10px;
+			float:left;
+		}
+		
+		.error,.error2{ display:none;color:#fff;font-size:12px;float:right;margin-top:7px;}
+		span.err1{ background:url(1.png) 0 -50px;width:16px;height:16px;display:inline-block;}
+		span.err2{ background:url(1.png) 0 -50px;width:16px;height:16px;display:inline-block;}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*ipad端*/
+	@media screen and (min-width:320px) and (max-width:1099px){
+		.login{ overflow:hidden;}
+			.box_top{ width:291px;height:40px;background:#c02d2d;float:right;}
+		.mb{  width:100%; height:100%; background:url(bj.png) 0 0 no-repeat;position: absolute;top: 0;left: 0;}
+		#outer{width:400px;height:350px;margin: 0 auto;position: absolute;top: 0;left: 0;z-index: 10;}
+		.con{ width:400px;height:350px;overflow:hidden;background: #f43b3b;
+			float: right;
+			
+			position:relative;
+			box-shadow: 0px 2px 3px #98b4c4,0px -2px 3px #333,2px 0px 10px #333;
+			-moz-box-shadow: 0px 2px 3px #98b4c4,0px -2px 3px #333,2px 0px 10px #333;
+			-webkit-box-shadow: 0px 2px 3px #333,0px -2px 3px #333,2px 0px 10px #333;
+			transition:all 2s ease;
+			-moz-transition:all 2s ease;
+			-webkit-transition:all 2s ease;
+			text-align:center;
+		}
+		.con span{ display:block;color:#fff;font-size:24px;font-weight:bold;width:90px;height:40px;line-height:40px;float:left;}
+		.box_btn{ width:400px;height:60px;line-height:60px;color:#fff;font-size:25px;text-align:center;margin-top:8px;}
+		#outer ul{position: absolute;top: 0;left: 0;width:400px;height:350px;z-index: -1;
+			box-shadow: 0px 2px 3px #98b4c4,0px -2px 3px #333,2px 0px 10px #333;
+			-moz-box-shadow: 0px 2px 3px #98b4c4,0px -2px 3px #333,2px 0px 10px #333;
+			-webkit-box-shadow: 0px 2px 3px #333,0px -2px 3px #333,2px 0px 10px #333;
+		}
+		#outer .baiye{height: 350px;float: left;width:40px;
+		}
+		#outer .bianse{height: 350px;background: url(4.jpg) 0 0 no-repeat;
+			transition:all 1s ease;
+			-moz-transition:all 1s ease;
+			-webkit-transition:all 1s ease;
+		}
+		.success{position: absolute;top: 0;left: 0;width:400px;height:350px;background: url(4.jpg) 0 0 no-repeat;font-size: 20px;font-weight: bold;text-align: center;line-height: 350px;color: white;
+
+		}
+		.dl{position: absolute;left: 0;top:0;}
+		.tjiao {height: 100%;}
+		form { width:204px;margin:0 auto;margin-top:8%;}
+		em{ font-size:16px;color: #808080;}
+		.f1{ overflow:hidden;width:203px;}
+		.txt1,.txt2{ position:relative;}
+		.e1{ position: absolute;top:4px;left:6px;}
+		.e2{ position: absolute;top:4px;left:6px;}
+		 input:nth-child(1),form input:nth-child(3){			
+			border: 1px solid #ccc;
+			border-radius: 12px;
+			height: 28px;
+			width:193px;
+			padding: 0 0 0 5px;
+			vertical-align: middle;			
+			-webkit-box-shadow: 0px 1px 1px 2px #eaeaea inset ;
+			-moz-box-shadow: 0px 1px 1px 2px #eaeaea inset;
+			box-shadow: 0px 1px 1px 1px #eaeaea inset;
+			margin-bottom:10px;
+		}
+		input[type="button"]{
+
+			cursor: pointer;
+			width:110px;
+			height:30px;
+			border:none;
+			border-radius:5px;
+			
+			font-size:14px;
+			
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+			background:#fff;
+			color:red;
+			margin-bottom:10px;
+			float:left;
+		}
+		
+		.error,.error2{ display:none;color:#fff;font-size:12px;float:right;margin-top:7px;}
+		span.err1{ background:url(1.png) 0 -50px;width:16px;height:16px;display:inline-block;}
+		span.err2{ background:url(1.png) 0 -50px;width:16px;height:16px;display:inline-block;}
+	}
+	</style>
+</head>
+<body>
+	<div class="tjiao">			
+			<div id="outer">
+				<div class="con">
+					<div class="login">
+						<span>Login</span>
+						<div class="box_top"></div>
+					</div>
+				
+					<p class="box_btn">欢迎登录测试223WIFI热点</p>
+					<form  action=""  method="get">
+						<div class="txt1">
+							<input type="text" >
+							<em class="e1">请输入手机号</em>	
+						</div>				
+						<div class="f1">
+							<input type="button" value="获取验证码" class="btn">					
+							<p class="error">
+								<span class="err1"></span>请输入手机号
+							</p>	
+						</div>
+						<div class="f2">
+							<div class="txt2">
+								<input type="text" >
+								<em class="e2">请输入验证码</em>
+							</div>
+							
+							<p class="error2">
+								<span class="err2"></span>请输入验证码
+							</p>	
+						</div>				
+						<input type="button" class="btn1" value="登录">
+					</form>	
+				</div>		
+				
+			</div>
+			<div class="mb">
+			</div>
+	</div>
+	<script>
+	function byClass(parent,name){
+	if (parent.getElementsByClassName){
+		var aEl=parent.getElementsByClassName(name);
+		var arr=[];
+		for (var i=0; i<aEl.length; i++){
+			arr.push(aEl[i]);
+			}
+		return arr;
+		}
+	var aEl=parent.getElementsByTagName("*");
+	var arr=[];
+	var re=new RegExp("\\b"+name+"\\b");
+	for (var i=0; i<aEl.length;i++){
+	if (re.test(aEl[i].className)){
+			arr.push(aEl[i]);
+			}
+		}
+	return arr;
+	}
+	var oShouji=document.getElementsByTagName("input")[0];
+	var oYanzheng=document.getElementsByTagName("input")[2];
+	var oE1=byClass(document,"e1")[0];
+	var oE2=byClass(document,"e2")[0];
+	var oBtn=byClass(document,"btn")[0];
+	var oError=byClass(document,"error")[0];
+	var oError2=byClass(document,"error2")[0];
+	
+	var arr_yanzheng=[];//ld new
+	/*输入框的样式*/
+	oYanzheng.onfocus=function(){
+		oE2.style.display="none";
+	}
+	oYanzheng.onblur=function(){
+		//ld top
+		if(oYanzheng.value==''){
+			oE2.style.display="block";	
+			oError2.style.display="block";
+			arr_yanzheng[1]=1;
+		}
+		else{//可以再次添加验证码的验证的返回值。。跟下面的手机判断一样
+			oError2.style.display="none";
+			arr_yanzheng[1]=0;
+		}
+		//ld end
+	}
+	oE2.onclick=function(){
+		oE2.style.display="none";
+		oYanzheng.focus();
+	}
+	oShouji.onfocus=function(){
+		oE1.style.display="none";
+	}
+	oShouji.onblur=function(){
+		//ld top
+		if(oShouji.value==''){
+			oE1.style.display="block";
+			oError.style.display="block";
+			arr_yanzheng[0]=1;
+		}
+		else{//当手机号不为空的时候判断位数
+			if (!rel.test(oShouji.value)) {
+				oError.style.display="block";
+				arr_yanzheng[0]=1;
+			}
+			else{
+				oError.style.display="none";
+				arr_yanzheng[0]=0;
+			}
+		}
+		//ld end
+	}
+
+
+
+	oE1.onclick=function(){
+		oE1.style.display="none";
+		oShouji.focus();
+	}
+
+	/*对btn按钮进行判断*/
+	var rel=/1[0-9]{10}/;//ld 判断第一位为1的11位数字。。。
+	oBtn.onclick=function(){
+		if(oShouji.value==""){
+			oError.style.display="block";
+			arr_yanzheng[0]=1;
+		}
+
+	}
+
+
+
+
+	var oOut=document.getElementById("outer");
+	oOut.style.left=(document.documentElement.clientWidth-oOut.clientWidth)/2+"px";
+	oOut.style.top=(document.documentElement.clientHeight-oOut.clientHeight)/2+"px";
+	//$(".con").css({"margin-top":($("#outer").height()-$(".con").height())/2+"px"});
+	$(".btn1").click(function(){
+		if(oShouji.value==''){
+			alert("您的手机号码为空");
+			return false;
+		}
+		if(oYanzheng.value==''){
+			alert("您的验证码为空");
+			return false;
+		}
+		for(i=0;i<arr_yanzheng.length;i++){
+			if(arr_yanzheng[i]==1){
+				return false;
+			}
+		}
+		
+		$("#outer ul").css({"z-index":1});
+		$("#outer .bianse").css({"width":$("#outer").width()/$("#outer .bianse").length+"px"})
+
+		for(i=0;i<$("#outer .bianse").length;i++){
+			$("#outer .bianse").eq(i).css({"background-position-x":-40*i+"px"})
+		}
+		setTimeout(function(){
+			$("#outer ul").css({"z-index":-1});
+			$("#outer").append("<div class='success'>登陆成功</div>")
+		},1000)
+	});
+	</script>
+</body>
+</html>

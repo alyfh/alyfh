@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#lan{
+				width: 200px;
+				height: 200px;
+				background: aqua;
+				position: absolute;
+				left: 0;
+				top: 0;
+				cursor: move;
+			}
+			#lan span{
+				display: block;
+				width: 20px;
+				height: 200px;
+				background: lime;
+				position: absolute;
+				right: 0;
+				cursor: e-resize;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload=function(){
+				var oDiv=document.getElementById('lan');
+				oDiv.onmousedown=function(ev){
+					var ev=ev||event;
+					var a=ev.clientX-oDiv.offsetLeft
+					var b=ev.clientY-oDiv.offsetTop
+					document.onmousemove=function(ev){
+					    var ev=ev||event;
+						oDiv.style.left=ev.clientX-a+'px';
+						oDiv.style.top=ev.clientY-b+'px';
+					}
+					oDiv.onmouseup=function(){
+						document.onmousemove=null;
+					}
+				}
+				
+				var oS=document.getElementsByTagName('span')[0];
+				oS.onmousedown=function(ev){
+//					ev.cancelBubble=true;
+					if(ev.stopPropagation){
+						ev.stopPropagation()
+					}else{
+						ev.cancelBubble=true
+					}
+					document.onmousemove=function(ev){
+						var ev=ev||event;
+						oDiv.style.width=ev.clientX+3-oDiv.offsetLeft+'px'
+					}
+					oS.onmouseup=function(){
+						document.onmousemove=null;
+						
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="lan">
+			<span id="">
+				
+			</span>
+		</div>
+	</body>
+</html>

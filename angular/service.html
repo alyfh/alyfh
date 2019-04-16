@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="myLan">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body class="ng-cloak">
+		<div ng-controller="ctrl">
+			<h1 ng-click="say()">{{str}}</h1>
+		</div>
+		<script type="text/javascript">
+			var myModule=angular.module("myLan",[])
+			myModule.service("myService",function(){
+				this.str="沉舟侧畔千帆过，病树前头万木春";
+				this.speak=function(){
+					alert("刘禹锡")
+				}
+			})
+			myModule.controller("ctrl",function($scope,myService){
+				$scope.str=myService.str;
+				$scope.say=myService.speak;
+			})
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>双色球</title>
+		<style type="text/css">
+			span{
+				width: 50px;
+				height: 50px;
+				background: red;
+				border-radius: 50%;
+				float: left;
+				margin: 5px;
+				text-align: center;
+				line-height: 50px;
+			}
+			#lan{
+				background: blue;
+			}
+			#btn{
+				margin: 20px;
+				background: aqua;
+				width: 50px;
+				height: 30px;
+				border: none;
+				outline-style: none;
+			}
+		</style>
+	</head>
+	<body>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span id="lan"></span>
+		<input type="button" name="" id="btn" value="点击" />
+	</body>
+</html>
+<script type="text/javascript">
+	var sPan=document.getElementsByTagName('span')
+	var btn=document.getElementById('btn')
+	var arr=[]
+		function num(n){
+	        for(var i=1;i<=n;i++){
+			    arr.push(i)
+		    }	
+		}
+		num(33)
+		
+		for(var i=0;i<7;i++){
+			sPan[i].innerHTML=parseInt(Math.random()*arr.length)
+		}
+		btn.onclick=function(){
+			for(var i=0;i<7;i++){
+				sPan[i].innerHTML=parseInt(Math.random()*arr.length)
+			}
+		}
+		
+		
+</script>

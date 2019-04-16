@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title></title>
+	<style type="text/css">
+		*{margin: 0;padding: 0;}
+		div {
+			width:500px;
+			text-align:center;
+			margin: 30px auto 0;
+		}
+		div:hover{cursor: crosshair;}
+		#lan {
+			background: #dcdcdc;
+		}
+		
+		input[type='range'] {
+			vertical-align:middle;
+			margin:0 10px;
+		}
+		span[linecolor]{
+			display:inline-block;
+			padding:5px;
+			cursor:pointer;
+			color:#fff;
+			background:#ccc;
+		}
+	</style>
+	<script src="js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		window.onload = function() {
+		    function getId(id) {
+		        var canvas = document.getElementById(id);
+		        var context = canvas.getContext("2d");
+		        return context;
+		    }
+			var canvasLan = document.getElementById("lan");
+		    var lan = getId("lan");
+		    canvasLan.onmousedown = function(e) {
+		        var e = e || window.event;
+		        lan.beginPath();
+		        lan.moveTo(e.clientX - canvasLan.offsetLeft, e.clientY - canvasLan.offsetTop + $(window).scrollTop());
+		        document.onmousemove = function(e) {
+		            var e = e || window.event;
+		            lan.lineTo(e.clientX - canvasLan.offsetLeft, e.clientY - canvasLan.offsetTop + $(window).scrollTop());
+		            lan.stroke();
+		        }
+		        document.onmouseup = function() {
+		            document.onmousemove = null;
+		            document.onmouseup = null;
+		        }
+		    }
+		    $("input[type='range']").change(function() {
+		        lan.lineWidth = $(this).val();
+		        $(".rangeNum").html($(this).val());
+		    })
+		    $("input[type='color']").change(function() {
+		        var lineColor = $(this).val();
+		        lan.strokeStyle = lineColor;
+		    })
+		    $("span[linecolor]").click(function() {
+		        var lineColor = $(this).attr("lineColor");
+		        lan.strokeStyle = lineColor;
+		    })
+		}
+	</script>
+</head>
+<body>
+	<div>
+	    <canvas width="400" height="550" id="lan"></canvas>
+	    <br>
+	    <input type="color" value="#000000">
+	    <span linecolor="#DCDCDC">橡皮</span>
+	    <p>画笔大小
+	        <input type="range" min="1" max="50" value="10">
+	        <span class="rangeNum">10</span>
+	    </p>
+	</div>
+</body>
+</html>

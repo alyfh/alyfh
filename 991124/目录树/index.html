@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="all.css">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="jtree.js"></script>
+    <script type="text/javascript" src="uitool.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+</head>
+
+<body>
+    <div id="sidebar">
+        <div class="toggleCollapse">
+            <div class="navigationbar">
+                <div id="searchMenu">
+                    <input id="searchTree" type="text" class="span2" data-autofocus="autofocus" x-webkit-speech="" lang="zh-CN"
+                        x-webkit-grammar="builtin:translate" onwebkitspeechchange="$('#searchTreeBtn').trigger('click')" />
+                    <a id="searchTreeBtn" title="搜索菜单" class="treesearchbtn"><i class="myicons iconfont icon-search tree-search"></i>搜索</a>
+                </div>
+                <div id="searchMenuBar" style="line-height: 30px">
+                    <a title="折叠全部" onclick="$('ul.tree').colExpAll({clickType:'expAll'})" id="expandBtn" class="treebar">折叠<i
+                            class="myicons iconfont icon-zhedie collapse-all"></i></a>
+                    <a title="展开全部" onclick="$('ul.tree').colExpAll({clickType:'colAll'})" id="collapseBtn" class="treebar">展开<i
+                            class="myicons iconfont icon-1 expand-all"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="accordion" fillSpace="sidebar">
+            <div class="accordionContent">
+                <ul id="a" class="tree treeFolder collapse">
+                    <li><a autobypy="bz" dataType="topmenu" childMneu="bzmenus" keyboard="A">帮助</a>
+                        <ul id="bzmenus" class="bzmenus_sub">
+                            <li><a autobypy="tyhs">通用函数common.js</a>
+                                <ul>
+                                    <li><a autobypy="cjbg" href="#">创建表格[creatGrid]</a></li>
+                                    <li><a autobypy="ybtj" href="#"><span class="font_pos"><i class="external_small"></i></span>异步提交[ajaxTodo]</a></li>
+                                    <li><a autobypy="ybtj" href="#"><span class="font_pos"><i class="external_small"></i></span>异步提交[submitForm]</a></li>
+                                    <li><a autobypy="ybtj" href="#"><span class="font_pos"><i class="external_small"></i></span>异步提交[ajaxToSeaver]</a></li>
+                                    <li><a autobypy="dkck" href="#"><span class="font_pos"><i class="external_small"></i></span>打开窗口[openMDialog]</a></li>
+                                    <li><a autobypy="dkbq" href="#"><span class="font_pos"><i class="external_small"></i></span>打开标签[openMTabs]</a></li>
+                                    <li><a autobypy="bgcx" href="#"><span class="font_pos"><i class="external_small"></i></span>表格查询[mysearch]</a></li>
+                                    <li><a autobypy="gshbd" href="#"><span class="font_pos"><i class="external_small"></i></span>格式化表单[clearForm]</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul id="b" class="tree treeFolder collapse">
+                    <li><a autobypy="sl" dataType="topmenu" childMneu="slmenus" keyboard="A"><span class="font_pos"><i
+                                    class="external_small"></i></span>示例</a>
+                        <ul id="slmenus" class="slmenus_sub">
+                            <li><a autobypy="zh"><span class="font_pos"><i class="external_small"></i></span>综合</a>
+                                <ul>
+                                    <li><a autobypy="zh1" href="#"><span class="font_pos"><i class="external_small"></i></span>综合1</a></li>
+                                    <li><a autobypy="xwlb" href="#"><span class="font_pos"><i class="external_small"></i></span>新闻列表</a></li>
+                                    <li><a autobypy="xwck" href="#"><span class="font_pos"><i class="external_small"></i></span>新闻查看</a></li>
+                                </ul>
+                            </li>
+                            <li><a autobypy="s"><span class="font_pos"><i class="external_small"></i></span>树</a>
+                                <ul>
+                                    <li class="treehelp"><a autobypy="jbs" href="#"><span class="font_pos"><i class="external_small"></i></span>基本树</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

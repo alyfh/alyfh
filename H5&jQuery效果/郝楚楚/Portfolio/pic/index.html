@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>图片按块显示</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .pic{width: 500px;height:500px; margin: 50px auto ;position: relative;}
+        .pic div{ width:50px; height: 50px; float: left; position: relative; cursor: pointer;  }
+        .pic div p{ width:48px; height: 48px; border:1px solid #fff; position: absolute; top:0; left:0; transition:0.5s; background-image: url("img.jpg"); transform: scale(0);}
+    </style>
+</head>
+<body>
+<script>
+    var Div=document.createElement('div');
+    document.body.appendChild(Div);
+    Div.className = 'pic';
+    for(var i=0;i<10;i++){
+        for(var s=0;s<10;s++){
+            var sDiv=document.createElement("div");
+            Div.appendChild(sDiv);
+            var p=document.createElement('p');
+            sDiv.appendChild(p);
+            p.style.backgroundPosition=-s*50+'px '+-i*50+'px';
+        }
+    }
+    var oDiv=Div.children;
+    for(var i=0;i<oDiv.length;i++){
+        oDiv[i].onmouseover=function () {
+            this.children[0].style.transform='scale(1)';
+        }
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .box{
+            width: 300px;
+            height: 100px;
+            background: aqua;
+        }
+    </style>
+    <script>
+        window.onload=function(){
+            var oBox=document.querySelector('.box'),
+                    fan=document.querySelector('.fan'),
+                    da=document.querySelector('.da'),
+                    xiao=document.querySelector('.xiao'),
+                    shou=document.querySelector('.shou');
+            var arr = ['my','name','is','hmm','Mmh','si'];
+            var str = 'my name is lilei';
+            fan.onclick=function(){
+                oBox.innerHTML='' ;
+                oBox.innerHTML=str.split(' ').reverse().join(' ');
+            }
+            da.onclick=function(){
+                oBox.innerHTML='';
+                oBox.innerHTML=str.toUpperCase();
+            }
+            xiao.onclick=function(){
+                oBox.innerHTML='' ;
+                oBox.innerHTML=str.toLowerCase();
+            }
+            shou.onclick = function(){
+	            var arr = str.toLowerCase().split(' ');
+	            
+	            for(var i=0;i<arr.length;i++){
+	                arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].substring(1);
+	            }
+	            oBox.innerHTML = arr.join(' ');
+	        }
+		}
+    </script>
+</head>
+<body>
+<input class="fan" type="button" value="反转"/>
+<input class="da" type="button" value="大写"/>
+<input class="xiao" type="button" value="小写"/>
+<input class="shou" type="button" value="首字母大写"/>
+my name is lilei
+<div class="box"></div>
+
+
+</body>
+</html>

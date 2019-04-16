@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{margin: 0;padding: 0;font-size: 12px;}
+			body{background: lime;}
+			.wrap{background: white;width: 260px;height: 280px;margin: 50px auto;position: relative;background: /*yellow*/;padding: 10px 20px;overflow: hidden;}
+			.lanSe{width: 260px;height: 150px;background: rgb(103,184,187);}
+			h4,p{margin: 10px 0;}
+			span{margin-left: 50px;}
+			.lanty{border: 1px solid red;position: absolute;}
+			.lanl{height: 300px;width: 0;top: -302px;left: 0;}
+			.lanb{height: 0;width: 300px;top: 298px;left: -302px;}
+			.lanr{height: 300px;width: 0;top: 302px;left: 298px;}
+			.lant{height: 0;width: 300px;top: 0;left: 302px;}
+			.yyh{width: 296px;background: rgba(0,0,0,.5);position: absolute;left: 2px;text-align: center;color: white;top: -80px;}
+			.yyh p{line-height: 40px;}
+			.wrap:hover .lanl{transition: 1s;top: 0;left: 0;}
+			.wrap:hover .lanb{transition: 1s .3s;left: 0;top: 298px;}
+			.wrap:hover .lanr{transition: 1s;top: 0;left: 298px;}
+			.wrap:hover .lant{transition: 1s .3s;left: 0;top: 0;}
+			.wrap:hover .yyh{transition: 1s;top: 2px;}
+			
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="lanSe"></div>
+			<h4>jQuery基础课程</h4>
+			<p>让jQuery带您进入网页动态交互世界，为...</p>
+			<p>更新完毕<span>15783人学习</span></p>
+			<div class="lanl lanty"></div>
+			<div class="lanb lanty"></div>
+			<div class="lanr lanty"></div>
+			<div class="lant lanty"></div>
+			<div class="yyh">
+				<p>9小时17分钟|初级</p>
+			</div>
+		</div>
+	</body>
+</html>

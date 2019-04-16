@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+//			var lan="蘭";
+//			
+//			console.log(lan);
+//			
+//		    var lan="兰";
+//			
+//			alert(lan);
+//			
+//			lan="LAN";
+//			
+//			document.write(lan);
+            
+            window.onload=function(){
+            	var num1=document.getElementById('num01');
+            	var num2=document.getElementById('num02');
+            	var btn=document.getElementById('sum');
+            	btn.onclick=function(){
+            		if(num1.value==''){
+            			alert('您输入的第一个数字为空，请重新输入')
+            		}else if(isNaN(num1.value)){
+            			alert('您输入的第一个数字有问题，请重新输入')
+            		}else if(num2.value==''){
+            			alert('您输入的第一个数字为空，请重新输入')
+            		}else if(isNaN(num2.value)){
+            			alert('您输入的第一个数字有问题，请重新输入')
+            		}else{
+            		alert(parseFloat(num1.value)+parseFloat(num2.value))
+            		}
+            	}
+            }
+
+//          var a=123;
+//          var b='中国人';
+//          var c=[5,2,6,8];
+//          var d=null;
+//          var e;
+//          var f=function(){};
+//          var g=document;
+//          
+//          console.log(typeof a);
+//          console.log(typeof b);
+//          console.log(typeof c);
+//          console.log(typeof d);
+//          console.log(typeof e);
+//          console.log(typeof f);
+//          console.log(typeof g);
+
+            
+//        var a='123abc';
+//        alert(parseInt(a))
+//          alert(Number(a));
+//          
+//        b=null;
+//        alert(parseInt(b))
+//          alert(Number(b));
+//          
+//        c=undefined;
+//        alert(parseInt(c))
+//          alert(Number(c));
+//          
+//        d='hello456';
+//        alert(parseInt(d))
+//          alert(Number(d));
+//          
+//        e=true;
+//        alert(parseInt(e))
+//          alert(Number(e));
+//          
+//        f=false;
+//        alert(parseInt(f))
+//          alert(Number(f));
+//          
+//        g='000011';
+//        alert(parseInt(g))
+//          alert(Number(g));
+//          
+//        h=NaN;
+//        alert(parseInt(h))
+//          alert(Number(h))
+
+//        var a=true;
+//        var b=false;
+//        var c=12;
+//        var d=15.5;
+//        var e='12aaa';
+//        var f='12.56aa';
+//        var g=null;
+//        var h='dskfjsadld';
+//        var i='北京欢迎你'
+ 
+//        console.log(parseFloat(a))   //nan
+//        alert(typeof parseFloat(a))  //number
+//        console.log(parseFloat(b))   //nan
+//        console.log(parseFloat(c))   //12
+//        console.log(parseFloat(d))   //15.5
+//        console.log(parseFloat(e))   //12
+//        console.log(parseFloat(f))   //12.5
+//        console.log(parseFloat(g))   //nan
+//        console.log(parseFloat(h))   //nan
+//        console.log(parseFloat(i))   //nan
+
+//      var b=false;
+//      var c=12;
+//      var d=15.5;
+//      var e='12aaa';
+//      
+//      e=Boolean(parseInt(e))
+//      console.log(e)
+//      
+//      var f='12.56aa';
+//      
+//      f=Boolean(Number(f));
+//      console.log(f);
+//      
+//      var g=null;
+//      
+//      g=Boolean(parseFloat(g));
+//      console.log(g);
+//      
+//      var h='dskfjsadld';
+//      
+//      h=Boolean(Number(h));
+//      console.log(h);
+//      
+//      var i='北京欢迎你';
+//      var k;
+//      var o=0;
+            
+//      b=Boolean(b);
+//      console.log(b);
+//      alert(typeof b);
+//      c=Boolean(c);
+//      console.log(c);
+//      alert(typeof c);
+//      d=Boolean(d);
+//      console.log(d);
+//      alert(typeof d);
+//      e=Boolean(e);
+//      console.log(e);
+//      alert(typeof e);
+//      f=Boolean(f);
+//      console.log(f);
+//      alert(typeof f);
+//      g=Boolean(g);
+//      console.log(g);
+//      alert(typeof g);
+//      h=Boolean(h);
+//      console.log(h);
+//      alert(typeof h);
+//      i=Boolean(i);
+//      console.log(i);
+//      alert(typeof i);
+//      k=Boolean(k);
+//      console.log(k);
+//      alert(typeof k);
+//      o=Boolean(o);
+//      console.log(o);
+//      alert(typeof o);
+        
+		</script>
+	</head>
+	<body>
+		<input type="text" id="num01" />
+		<input type="text" id="num02" />
+		<input type="button" id="sum" value="求和" />
+	</body>
+</html>

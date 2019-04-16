@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var js=document.getElementById('js')
+				var lAn=document.getElementById('lAn')
+				var cj=document.getElementById('cj')
+				
+				js.onclick=function(){
+					if(parseInt(lAn.innerHTML)>0){
+						lAn.innerHTML=parseInt(lAn.innerHTML)-1
+					}
+				}
+				cj.onclick=function(){
+					lAn.innerHTML=parseInt(lAn.innerHTML)+1
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<input type="button" name="" id="js" value="-" />
+		<span id="lAn">
+			0
+		</span>
+		<input type="button" name="" id="cj" value="+" />
+	</body>
+</html>

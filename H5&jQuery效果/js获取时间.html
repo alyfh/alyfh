@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>js获取时间-jq22.com</title>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<style>
+* {
+	font-family:"Scerh eng",Scerh,"Scerh Kor","Scerh Geo"
+}
+</style>
+</head>
+<body>
+<div style="font-size:48px" class="time"></div>
+
+<script>
+function get10(i) {
+    if (i < 10) {
+        i = "0" + i
+    };
+    return i
+}
+setInterval(function() {
+    var d = new Date()
+    var t = d.getHours()
+    var m = d.getMinutes()
+    var s = d.getSeconds()
+    $(".time").html(get10(t) + ":" + get10(m) + " <font color='#808080' style='font-size:32px'>" + get10(s) + "</font>")
+}, 100)
+</script>
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+*{padding: 0;margin: 0;}
+.wrapper{width:1125px;height:600px;margin:50px auto;}
+#left{width:500px ;height:500px;}
+#top{  position:relative;  width: 500px;  height: 500px;  }
+#top>img{  width: 500px;  height: 500px;  }
+#top>div{  position:absolute;  top:0;  left:0;  background:rgba(225,225,225,0.5);  width:90px;  height:100px;  display:none;  cursor:move;  z-index: 9999;  }
+#bottom{  width: 500px;  height:100px;  margin-top:5px;  }
+#bottom>div{  float:left;  width: 65px;  height: 65px;  margin: 10px;  }
+#bottom>div:last-child{  margin-right:0;  }
+#bottom>div>img{  width: 50px;  height: 50px;  }
+#left>p>a{text-decoration: none;color: #999;}
+#left>p>a:hover{color: #0000CC}
+#rightf{  float:left;  width: 575px;  height: 575px;    margin-left:50px;  overflow:hidden; display:none; position:relative;}
+#rightf img{width:2000px;height:1200px; position:absolute; z-index: 9999;}
+#left{  float:left;}
+.right{width:500px;height:430px; margin-top: 20px; position: absolute; left: 650px; top: 28px; z-index: 999;}
+.right p:first-of-type{font-size: 16px;font-weight: bold;line-height: 20px;}
+.right p:nth-of-type(2){font-size: 12px;color: #6d6d6d;line-height: 20px;}
+.right p:nth-of-type(3){font-size: 16px;line-height: 25px;}

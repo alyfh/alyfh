@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			function Parent(name,age){
+				this.name=name;
+				this.age=age;
+				this.aihao=function(){
+					alert('电影')
+				}
+			}
+			Parent.prototype.jiachan=function(){
+				alert('房子')
+			}
+			
+			function Child(){}
+			Child.prototype=new Parent('zhangsan',18)
+			Child.prototype.constructor=Child
+			
+			var P=new Child('lisi',19)
+			P.aihao();
+			P.jiachan();
+			
+			console.log(P.constructor)
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

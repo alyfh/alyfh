@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				padding: 40px;
+				border: 2px solid #00FFFF;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="ab">
+			<div id="aa">
+				<div id="bb">
+					
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script type="text/javascript">
+	var oD=document.getElementsByTagName('div');
+//	oD[0].onclick=function(){
+//		alert(this.id)
+//	}
+//	oD[1].onclick=function(){
+//		alert(this.id)
+//	}
+//	oD[2].onclick=function(){
+//		alert(this.id)
+//	}
+
+	function xx(){
+			alert(this.id)
+		}
+	oD[0].addEventListener('click',xx,true)
+	oD[1].addEventListener('click',xx,true)
+	oD[2].addEventListener('click',xx,true)
+	
+</script>

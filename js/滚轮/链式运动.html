@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+      <script type="text/javascript" src='../js.js'></script>
+        <script type="text/javascript">
+        function getStyle(obj,attr){
+if(obj.currentStyle){
+  
+ return parseFloat(obj.currentStyle[attr]);
+}else{
+   return parseFloat(getComputedStyle(obj,null)[attr]);
+}
+}
+ var timer=null;
+var speed=0;
+function move(obj,L,attr,fn){
+    var opa=0
+     clearInterval(obj.timer)
+    obj.timer=setInterval(function (){
+        speed=(L-getStyle(obj,attr))/7;
+        speed>0?speed=Math.ceil(speed):speed=Math.floor(speed);
+        if(getStyle(obj,attr)==L){
+
+            fn()
+            clearInterval(obj.timer);
+            
+        }
+            else{
+
+
+        if(attr=='opacity'){
+          obj.style[attr]=opa/100   
+        }else{        
+      obj.style[attr]=getStyle(obj,attr)+speed+'px';
+}
+
+
+
+
+       }
+       opa=opa+2
+    },26)
+}
+    function previousSibling(obj){
+if(obj.previousElementSibling){
+   return obj.previousElementSibling
+}else{
+    return obj.previousSibling
+}
+}
+        window.onload=function (){
+            var oDiv=document.getElementById('div1')
+            var oD=document.getElementById('div2');
+            oD.onmouseover=function (){
+                move(oD.parentNode,'0','left',function (){
+                    move(oDiv,400,'height',function (){})
+                })
+             
+            }
+        }
+        </script>
+        <style type="text/css">
+        #main{position: absolute;top:100px;left:-260px;}
+#div1{width:300px;height:20px;background:lime;}
+#div2{width:300px;height:40px;background:red; }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div id="div1"></div>
+            <div id="div2"></div>
+         </div>
+    </body>
+</html>

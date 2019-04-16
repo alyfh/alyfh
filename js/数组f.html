@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var arr=['蘭','闌','兰']
+				var btn=document.getElementById('btn')
+				btn.onclick=function(){
+					var num=parseInt(Math.random()*arr.length)
+					alert(arr[num])
+					arr.splice(num,1)
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<button id="btn">蘭闌兰</button>
+	</body>
+</html>

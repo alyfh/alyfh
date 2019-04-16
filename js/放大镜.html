@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>放大镜</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            text-align: center;
+            font-size: 12px;
+        }
+        #top{
+            position: relative;
+            width: 500px;
+            height: 300px;
+            margin: 30px;
+        }
+        #top img{
+            width: 100%;
+            height: 100%;
+        }
+        #bottom{
+            width: 500px;
+            height: 90px;
+            margin-top: 5px;
+            margin-left: 30px;
+        }
+        #bottom div{
+            float: left;
+            width: 150px;
+            height: 90px;
+        }
+        #bottom div:nth-of-type(2),#bottom div:nth-of-type(3){
+            margin-left: 25px;
+        }
+        #bottom img{
+            width: 100%;
+            height: 100%;
+        }
+        
+    </style>
+</head>
+<script src="../兼容（调用）/index().js" type="text/javascript" charset="utf-8"></script>
+<body>
+<div id="left">
+    <div id="top">
+        <img src="img/lan.jpg" alt=""/>
+    </div>
+    <div id="bottom">
+        <div><img src="img/lan.jpg" alt=""/></div>
+        <div><img src="img/lan1.jpg" alt=""/></div>
+        <div><img src="img/lan2.jpg" alt=""/></div>
+    </div>
+</div>
+
+</body>
+</html>
+<script>
+    var oBottom=document.getElementById("bottom");
+	var oImg=oBottom.getElementsByTagName("img");
+    for(var i=0;i<oImg.length;i++){
+        oImg[i].onclick=function(){
+//          $('right').children[0].src=
+            $('top').children[0].src=this.getAttribute("src");
+        }
+    }
+
+    
+
+    
+
+
+
+
+</script>

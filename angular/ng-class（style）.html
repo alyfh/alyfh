@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html ng-app="lan">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.ng-cloak{display: none;}
+			span{color: white;}
+			.red{background: red;}
+			.blue{background: darkgrey;color: lime;font-size: 50px;}
+			.white{color: white;}
+		</style>
+		<script src="angular.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body class="ng-cloak">
+		<div class="" ng-controller="ctrl">
+			<h1 ng-class="classN">天道酬勤,人道酬善,商道酬<span ng-click="isCol=!isCol">❤</span>!</h1>   <!--天道酬勤,人道酬善,商道酬❤-->
+			<h1 ng-class="{true:'blue'}[isCol]">526526526</h1>
+			<h1 ng-class="{'red':true,'white':'true'}">526526526</h1>
+			<h2 ng-style="{background:'pink',color:'blueviolet','font-size':'50px'}">526526526</h2>
+		</div>
+		<script type="text/javascript">
+		 var myLan=angular.module("lan",[]);
+		 myLan.controller('ctrl',function($scope){
+		 	$scope.classN="red"
+		 	$scope.isCol=false
+		 })
+		</script>
+	</body>
+</html>

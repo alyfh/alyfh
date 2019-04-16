@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="../js/jquery-1.11.3.min.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<body>
+		<input type="checkbox" name="qx" />全选
+		<input type="checkbox" name="aihao" />音乐
+		<input type="checkbox" name="aihao" />音乐
+		<input type="checkbox" name="aihao" />音乐
+		<script type="text/javascript">
+			$('input[name="qx"]').click(function(){
+				if(this.checked){
+					$('input[name="aihao"]').prop('checked',true)
+				}else{
+					$('input[name="aihao"]').prop('checked',false)
+				}
+			})
+			$('input[name="aihao"]').click(function(){
+				var a=$('input[name="aihao"]').length
+				var b=$('input[name="aihao"]:checked').length
+				if (a==b) {
+					$('input[name="qx"]').prop('checked',true)
+				} else{
+					$('input[name="qx"]').prop('checked',false)
+				}
+			})
+		</script>
+	</body>
+</html>

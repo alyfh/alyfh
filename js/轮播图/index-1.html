@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#lunbo{
+				position: relative;
+				width: 1200px;
+				height: 500px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#lunbo #lunboCon{
+				position: absolute;
+				width: 4800px;
+				z-index: 10;
+			}
+			#lunbo #btnL,#lunbo #btnR{
+				position: absolute;
+				z-index: 11;
+				top: 250px;
+			}
+			#lunbo  img{
+				float: left;
+				display: block;
+				width: 1200px;
+				height: 500px;
+			}
+			#lunbo #btnL{
+				margin-left: 15px;
+			}
+			#lunbo #btnR{
+				margin-left: 1175px;
+			}
+			#lunbo #lunboNum{
+				position: absolute;
+				z-index: 11;
+				left: 50%;
+				margin-left: -30px;
+				bottom: 15px;
+			}
+			#lunbo #lunboNum li{
+				float: left;
+				margin: 0 5px;
+				list-style: none;
+				width: 10px;
+				height: 10px;
+				border-radius: 5px;
+				background: aqua;
+			}
+		</style>
+		<script type="text/javascript">
+		    function getStyle(element,attribute){
+		    	if('currentStyle' in element){
+		    		return element.currentStyle[attribute];
+		    	}else{
+		    		return getComputedStyle(element)[attribute];
+		    	}
+		    }
+			window.onload=function(){
+				var lunbo=document.getElementById('lunbo'),
+				    lunboCon=document.getElementById('lunboCon'),
+				    lunboImg=lunboCon.getElementsByTagName('img'),
+				    lunboNum=document.getElementById('lunboNum'),
+				    btnL=document.getElementById('btnL'),
+				    btnR=document.getElementById('btnR');
+				
+				//定义相关变量
+				var imgW=1200,   //单张图片宽度
+				    speed=20,    //每次移动的距离
+				    num=1,       //记录步数
+				    index=0,     //图片索引
+				    max=2,       //最大图片索引
+				    time;        //定时器
+				 
+				//定义移动
+				function noveL(){
+					time=setInterval(function(){
+						if(num>=(imgW/speed)){
+							clearInterval(time);
+							num=0;
+						}
+						lunboCon.style.marginLeft=parseInt(getStyle(lunboCon,'marginLeft'))
+					    -speed+'px';
+					    num++;
+					},30)
+				}
+				
+				btnR.onclick=function(){
+					if(index>max){
+						lunboCon.style.marginLeft='0';
+						index=0;
+					}
+					noveL()
+					index++;
+				}
+				
+				
+				function noveR(){
+					time=setInterval(function(){
+						if(num>=(imgW/speed)){
+							clearInterval(time);
+							num=0;
+						}
+						lunboCon.style.marginLeft=parseInt(getStyle(lunboCon,'marginLeft'))
+					    +speed+'px';
+					    num++;
+					},30)
+				}
+				
+				btnL.onclick=function(){
+					if(index<=0){
+						lunboCon.style.marginLeft=-imgW*(lunboImg.length-1)+'px';
+						index=lunboImg.length-1;
+					}
+					noveR()
+					index--;
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="lunbo">
+			<div id="lunboCon">
+				<img src="img/lan1.jpg"/>
+				<img src="img/lan2.jpg"/>
+				<img src="img/lan3.jpg"/>
+				<img src="img/lan1.jpg"/>
+			</div>
+			<ul id="lunboNum">
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+			<button id="btnL"><</button>
+			<button id="btnR">></button>
+		</div>
+	</body>
+</html>

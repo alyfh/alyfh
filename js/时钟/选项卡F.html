@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			ul{
+				width: 240px;
+				height: 130px;
+				margin: 50px auto;
+				position: relative;
+				background: blueviolet;
+				padding: 10px;
+			}
+			li{
+				list-style: none;
+				float: left;
+				width: 80px;
+				line-height: 30px;
+				text-align: center;
+			}
+			div{
+				width: 240px;
+				height: 100px;
+				line-height: 100px;
+				background: aqua;
+				display: none;
+				position: absolute;
+				left: 10px;
+			}
+			p{
+				font-size: 30px;
+				background: red;
+			}
+			.hs{
+				background: yellowgreen;
+				display: block;
+			}
+			.nr{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li class="hs">
+				<h3>一</h3>
+				<div class="nr">
+					1
+				</div>
+			</li>
+			<li>
+				<h3>二</h3>
+				<div class="">
+					<p>2</p>
+				</div>
+			</li>
+			<li>
+				<h3>三</h3>
+				<div class="">
+					3
+				</div>
+			</li>
+		</ul>
+	</body>
+</html>
+<script type="text/javascript">
+	var oLi = document.getElementsByTagName('li');
+	var aDiv = document.getElementsByTagName('div');
+	
+		for(var i=0;i<oLi.length;i++){
+			oLi[i].index=i;
+			oLi[i].onclick=function(){
+				for(var i=0;i<oLi.length;i++){
+					oLi[i].className=''
+					aDiv[i].className='';
+				}
+			oLi[this.index].className='hs'	
+			aDiv[this.index].className='nr'
+			}
+		}
+	
+</script>

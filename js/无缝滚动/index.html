@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		    html,body,div,ul,li{
+		    	margin: 0;
+		    	padding: 0;
+		    }
+			#banner{
+				width: 500px;
+				height: 100px;
+				position: relative;
+				overflow: hidden;
+			}
+			#banner ul{
+				position: absolute;
+			}
+			#banner ul li{
+				float: left;
+				width: 500px;
+				height: 100px;
+				background: aqua;
+				list-style: none;
+			}
+		</style>
+		<script src="../兼容（调用）/index().js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+		window.onload=function(){
+			var oBan=document.querySelector('#banner')
+			var oUl=oBan.getElementsByTagName('ul')[0]
+			var oLi=oBan.getElementsByTagName('li')
+			
+			oUl.innerHTML+=oUl.innerHTML
+			
+			oUl.style.width=getStyle(oLi[0],'width')*oLi.length+'px'
+			
+			var timer=null;
+			var num=0
+			function fn(){
+				clearInterval(timer)
+				timer=setInterval(function(){
+					if(oUl.offsetLeft==-500*num){
+						clearInterval(timer)
+					}else{
+						oUl.style.left=getStyle(oUl,'left')-10+'px'
+					}
+				},26)
+				num++
+				
+				if(oUl.offsetLeft==-oUl.offsetWidth/2){
+					oUl.style.left=0;
+					num=0
+				}
+			}
+			setInterval(fn,2000)
+		}
+		</script>
+	</head>
+	<body>
+		<div id="banner">
+			<ul>
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ul>
+		</div>
+	</body>
+</html>

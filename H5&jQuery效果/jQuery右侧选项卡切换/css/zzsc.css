@@ -1,0 +1,86 @@
+﻿*{padding:0;margin:0;outline:none;}
+html{min-height:101%}
+*html{background-image:url(about:blank);background-attachment:fixed;}
+body{font-family:'MicroSoft Yahei',verdana,arial,tahoma;font-size:12px;color:#333;-webkit-text-size-adjust: none;}
+div{margin:0 auto}
+ul,ol,li {list-style:none}
+a{text-decoration:none;word-wrap:break-word;outline:none;hide-focus:expression(this.hideFocus=true);transition:all 0.2s ease-in-out;-webkit-transition:all 0.2s ease-in-out;-moz-transition:all 0.2s ease-in-out;-o-transition:all 0.2s ease-in-out;-ms-transition:all 0.2s ease-in-out;}
+a:hover{text-decoration:none;}
+img{border:0;background:url(load.gif) no-repeat center center;}
+.left{float:left;}
+.right {float:right}
+.blue{color:#1061bc}
+.gray{color:#999}
+.w1000{margin:0 auto;width:1000px;}
+.mt15{margin:15px 0;}
+.fixed{position:fixed;top:0px;_position:absolute;_top:expression(eval(document.documentElement.scrollTop)-200+'px');_left:0;}
+
+/*JS part*/
+.jsPart1{height:250px;overflow:hidden;margin-bottom:15px;}
+.jsPart1Left{width:248px;height:246px;background:#fff;border:1px solid #eee;border-top:3px solid #1d7de7;overflow:hidden;margin-right:15px;}
+.jsPart1Left h2{font:bold 16px/35px 'MicroSoft Yahei';color:#333;height:35px;border-bottom:1px solid #eee;text-indent:10px;}
+.jsPart1Left ul{margin:0px 0px 0 1px;}
+.jsPart1Left ul li{float:left;width:82px;font:normal 12px/35px 'MicroSoft Yahei';margin-top:5px;}
+.jsPart1Left ul li a{display:block;width:82px;height:35px;text-align:center;border-bottom:1px solid #eee;color:#666;}
+.jsPart1Left ul li a:hover{color:#014da3;border-color:#014da3;}
+.jsPart1Left p{height:45px;font:normal 22px/45px 'MicroSoft Yahei';text-align:center;}
+.jsPart1Left p a{color:#999;}
+.jsPart1Center{width:417px;height:248px;background:#fff;border:1px solid #eee;}
+.jsPart1Center h2{border-bottom:1px solid #eee;font:bold 16px/35px 'MicroSoft Yahei';height:35px;text-indent:15px;}
+.jsPart1Center ul{padding:7px 15px 0;}
+.jsPart1Center ul li{font:normal 14px/2.4 'MicroSoft Yahei';}
+.jsPart1Center ul li time{float:right;color:#ccc;font-family:Georgia, "Times New Roman", Times, serif;}
+.jsPart1Center ul li a{color:#666;}
+.jsPart1Center ul li a:hover{color:#014da3;text-decoration:underline;}
+.jsPart1Right{width:300px;height:250px;background:#eee url(no-ad.png) no-repeat center center;}
+.jsPart2{height:346px;overflow:hidden;}
+.jsPart2Content{width:908px;overflow:hidden;position:relative;}
+.jsPart2Content ul{width:908px;float:left;}
+.jsPart2Content ul li{width:208px;height:158px;float:left;margin-right:19px;_margin-right:16px;margin-bottom:15px;}
+.jsPart2Content ul li a{display:block;position:relative;width:208px;height:158px;color:#eee;}
+.jsPart2Content ul li a:hover{color:#f90;}
+.jsPart2Content ul li a i{display:block;position:absolute;bottom:0;left:0;height:27px;width:208px;background:#000;opacity:0.7;filter:alpha(opacity=70);}
+.jsPart2Content ul li a span{display:block;position:absolute;bottom:0;left:0;height:27px;width:208px;text-align:center;font:normal 12px/27px 'MicroSoft Yahei';}
+.jsPart2Button{width:82px;}
+.jsPart2Button ul{margin-top:-9px;}
+.jsPart2Button ul li{margin-top:10px;_margin-top:7px;*+margin-top:7px;width:85px;height:58px;}
+.jsPart2Button ul li a{display:block;background:#1d7de7 url(index_sprite.png) no-repeat -89px top;width:85px;height:58px;}
+.jsPart2Button ul li a span{display:none;}
+.jsPart2Button ul li a:hover{background-color:#f90;}
+.jsPart2Button ul .current a{background-color:#f90;}
+.jsPart2Button ul li a.b-1{background-position:-89px -82px;}
+.jsPart2Button ul li a.b-2{background-position:-89px -152px;}
+.jsPart2Button ul li a.b-3{background-position:-89px -222px;}
+.jsPart2Button ul li a.b-4{background-position:-89px -290px;}
+.jsPart2Button ul li a.b-5{background-position:-89px -359px;}
+.jsPart3{background:#fff;}
+.jsPart3 .jsPart3Content{border:1px solid #eee;border-top-width:3px;width:321px;padding-bottom:0px;margin-right:15px;overflow:hidden;}
+.jsPart3 .jsPart3Content h2{font:bold 16px/normal 'MicroSoft Yahei';text-indent:10px;padding:5px 0 0;}
+.jsPart3 .jsPart3Content h2 span{float:right;padding-right:10px;}
+.jsPart3 .jsPart3Content h2 span a{font-size:16px;font-weight:normal;color:#ccc;}
+.jsPart3 .jsPart3Content h2 span a:hover{color:#1d7de7;}
+.jsPart3 .jsPart3Content dl{padding:0px 0 5px 10px;margin-top:10px;position:relative;border-bottom:1px dashed #eee;width:311px;height:62px;}
+.jsPart3 .jsPart3Content dl dt{float:left;margin-right:8px;}
+.jsPart3 .jsPart3Content dl dd{display:block;}
+.jsPart3 .jsPart3Content dl .dd-title{}
+.jsPart3 .jsPart3Content dl .dd-title a{color:#666;}
+.jsPart3 .jsPart3Content dl .dd-title a:hover{color:#1d7de7;}
+.jsPart3 .jsPart3Content dl dd a{font:normal 12px/1.8 'MicroSoft Yahei';color:#999;}
+.jsPart3 .jsPart3Content dl dd a:hover{color:#666;}
+.jsPart3 .jsPart3Content dl dd time{color:#ccc;}
+.currentDl .demo{display:block;}
+.jsPart3 .jsPart3Content dl .demo{position:absolute;right:17px;top:27px;display:none;}
+.jsPart3 .jsPart3Content dl .demo a{display:block;width:75px;height:30px;text-align:center;background:#eee;font:normal 12px/30px 'MicroSoft Yahei';}
+.jsPart3 .jsPart3Content dl .demo a:hover{color:#fff;background:#f90;}
+.jsPart4{border:1px solid #eee;width:998px;margin:0 auto;border-top:3px solid #eee;padding-bottom:15px;}
+.jsPart4 h2{font:bold 18px/2.7 'MicroSoft Yahei';text-indent:10px;}
+.jsPart4 h2 mark{background:none;font:normal 12px/2.7 "MicroSoft Yahei";color:#ccc;padding-left:200px;}
+.jsPart4 h2 .more{float:right;padding-right:10px;}
+.jsPart4 h2 .more a{color:#ccc;}
+.jsPart4 h2 .more a:hover{color:#1d7de7;}
+.jsPart4 ul{margin-left:3px;}
+.jsPart4 ul li{float:left;padding:0 11px;}
+.jsPart4 ul li a{display:block;position:relative;width:226px;height:170px;color:#eee;}
+.jsPart4 ul li a:hover{color:#f90;}
+.jsPart4 ul li a i{display:block;position:absolute;bottom:0;left:0;height:27px;width:226px;background:#000;opacity:0.7;filter:alpha(opacity=70);}
+.jsPart4 ul li a span{display:block;position:absolute;bottom:0;left:0;height:27px;width:226px;text-align:center;font:normal 12px/27px 'MicroSoft Yahei';}

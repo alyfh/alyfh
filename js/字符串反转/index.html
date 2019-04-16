@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{margin: 0;padding: 0;list-style: none;}
+        .box{
+            width: 700px;
+            height: 400px;
+            margin: 30px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .imgs{
+            position: absolute;
+            left: 0; top: 0;
+            width: 500%;
+            transition: .35s ease-in-out;
+        }
+        .imgs li{
+            float: left;
+        }
+        .imgs img{
+            width: 700px;
+            height: 400px;
+            vertical-align: top;
+        }
+        .dian{
+            position: absolute;
+            left: 500px; bottom: 20px;
+            width: 100%;
+        }
+        .dian a{
+            display: block;
+            height: 30px;
+            width: 180px;
+            line-height: 30px;
+            background-color: #fff;
+            margin: 5px 0;
+            font-size: 14px;
+            color: #696969;
+            text-decoration: none;
+            text-indent: 14px;
+        }
+        .dian .active{
+            background-color: blue;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul class="imgs">
+            <li><img src="img/lan-1.jpg" alt=""></li>
+            <li><img src="img/lan-2.jpg" alt=""></li>
+            <li><img src="img/lan-3.jpg" alt=""></li>
+            <li><img src="img/lan-4.jpg" alt=""></li>
+            <li><img src="img/lan-5.jpg" alt=""></li>
+        </ul>
+        <div class="dian">
+            <a href="javascript:;" class="active">在商家服务能做什么</a>
+            <a href="javascript:;">商家服务主要提供什么</a>
+            <a href="javascript:;">支付宝还能为你做什么</a>
+            <a href="javascript:;">接入支付宝第一步做什么</a>
+            <a href="javascript:;">接口遇到技术问题怎么办</a>
+        </div>
+        
+    </div>
+    <script>
+        var oBox = document.querySelector('.box');
+        var oImg = oBox.querySelector('.imgs');
+        var aLink = document.querySelectorAll('.dian a');
+        var oPrev = document.querySelector('.prev');
+        var oNext = document.querySelector('.next');
+        var iNow = 0;
+        var len = aLink.length;
+        
+        function tab(){
+            for(var i=0;i<aLink.length;i++){
+                aLink[i].className = '';
+            }
+
+            aLink[iNow].className = 'active';
+            oImg.style.left = -700 * iNow + 'px';
+        }
+        
+        for(var i=0;i<aLink.length;i++){
+            aLink[i].index = i;
+            aLink[i].onmouseover = function(){
+                
+                iNow = this.index;
+                tab();
+            }
+        }
+        
+        
+        
+        
+    </script>
+</body>
+</html>

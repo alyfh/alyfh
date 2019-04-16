@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+	<title>showModalDialog</title>
+</head>
+<body>
+	<form name="">   
+		 <input name="smallpic" type="text" ID="smallpic" style="width:300px" maxlength="100"><input type="button" value="选择" onClick="openAsset('smallpic')" class='EasySiteButton'>		   
+	</form>
+</body>
+</html>
+<script type="text/javascript">
+var ActiveAssetInput;
+function openAsset(s){
+    ActiveAssetInput = s
+    if(navigator.appName.indexOf('Microsoft')!=-1)
+        document.getElementById(ActiveAssetInput).value=modalDialogShow_IE("Subwindow.html",700,420); //IE 
+    else
+        modalDialogShow_Moz("Subwindow.html",700,420); //Moz   
+}
+   
+function modalDialogShow_IE(url,width,height){ //IE
+    return window.showModalDialog(url,window,"dialogWidth:"+width+"px;dialogHeight:"+height+"px;edge:Raised;center:Yes;help:No;Resizable:Yes;Maximize:Yes");
+}
+   
+function modalDialogShow_Moz(url,width,height){ //Moz
+    var left = screen.availWidth/2 - width/2;
+    var top = screen.availHeight/2 - height/2;
+    activeModalWin = window.open(url, "", "width="+width+"px,height="+height+",left="+left+",top="+top);
+    window.onfocus = function(){if (activeModalWin.closed == false){activeModalWin.focus();};};
+}
+   
+function setAssetValue(v){
+    document.getElementById(ActiveAssetInput).value = v;
+}
+   
+</script>

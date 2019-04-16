@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>全屏轮播图</title>
+    <style>
+        *{
+        	margin: 0;
+        	padding: 0;
+        	list-style: none;
+        }
+        body{
+        	overflow: hidden;
+        }
+        .box{
+            width: 700px;
+            height: 400px;
+            margin: 30px auto;
+            position: relative;
+        }
+        .imgs{
+            position: absolute;
+            left: 0; top: 0;
+            width: 700%;
+            transition: .35s ease-in-out;
+        }
+        .imgs li{
+            float: left;
+        }
+        .imgs img{
+            width: 700px;
+            height: 400px;
+            vertical-align: top;
+        }
+        .imgs .mri{
+        	position: absolute;
+        	left: -700px;
+        }
+        .yyl,.yyr{
+        	width: 333px;
+        	height: 400px;
+        	background: rgba(0,0,0,.5);
+        	position: absolute;
+        	z-index: 99;
+        }
+        .yyr{
+        	top: 30px;
+        	right: 0;
+        }
+        .prev,.next{
+            position: absolute;
+            width: 80px;
+            height: 400px;
+            line-height: 400px;
+            z-index: 999;
+            text-decoration: none;
+            color: white;
+            font-size: 100px;
+            
+        }
+        .prev{
+            left: -80px;
+        }
+        .next {
+            right: -80px;
+        }
+    </style>
+</head>
+<body>
+	<div class="yyl"></div>
+    <div class="box">
+        <ul class="imgs">
+        	<li><img src="img/5.jpg" alt="" class="mri"></li>
+            <li><img src="img/1.jpg" alt=""></li>
+            <li><img src="img/2.jpg" alt=""></li>
+            <li><img src="img/3.jpg" alt=""></li>
+            <li><img src="img/4.jpg" alt=""></li>
+            <li><img src="img/5.jpg" alt=""></li>
+            <li><img src="img/1.jpg" alt=""></li>
+        </ul>
+        <a href="javascript:;" class="prev">&lt;</a>
+        <a href="javascript:;" class="next">&gt;</a>
+    </div>
+	<div class="yyr"></div>
+    <script>
+        var oBox = document.querySelector('.box');
+        var oImg = oBox.querySelector('.imgs');
+        var oPrev = document.querySelector('.prev');
+        var oNext = document.querySelector('.next');
+        var iNow = 0;
+        
+        function tab(){
+            oImg.style.left = -700 * iNow + 'px';
+        }
+        
+        oNext.onclick = function(){
+            iNow++;
+            if(iNow == 5) iNow = 0;
+            tab();
+        }
+        
+        oPrev.onclick = function(){
+            
+            if(iNow == 0) iNow = 5;
+            iNow--;
+            tab();
+        }
+        
+        
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</body>
+</html>

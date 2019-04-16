@@ -1,0 +1,17 @@
+.footer{width: 100%;height: 343px;background: #F5F5F5;}
+.content{width: 1140px;height: 343px;margin: 0 auto;background: /*yellow*/;}
+.contentLeft{width: 345px;height: 343px;float: left;}
+.content h3 a{line-height: 65px;font-size: 30px;font-weight: normal;}
+.content h3 a:hover{color: #0080DB;text-decoration: underline;}
+.content ul li{margin-bottom: 10px;line-height: 25px;}
+.content ul li a{font-size: 16px;}
+.content ul li a:hover{color: #0080DB;text-decoration: underline;}
+.content ul li span{color: #A59999;}
+
+.contentRight{width: 710px;height: 343px;background: /*greenyellow*/;float: right;}
+.contentRight .contentRightl{width: 340px;float: left;}
+.contentRight .contentRightr{width: 340px;float: right;}
+.contentRight img{width: 100%;}
+.contentRight dl dt a{font-size: 18px;line-height: 28px;}
+.contentRight dl dt a:hover{color: #0080DB;text-decoration: underline;}
+.contentRight dl dd{font-size: 16px;line-height: 28px;}
