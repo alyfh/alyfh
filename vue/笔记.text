@@ -1,3 +1,18 @@
+生命周期
+	beforeCreate  创建前
+	created       创建后
+	beforeMount   挂载前
+	mounted       挂载后
+	beforeUpdate  更新前
+	updated       更新后
+	beforeDestroy 销毁前
+	destroyed	  销毁后
+
+	vue第一次页面加载会触发哪几个钩子函数？
+		beforeCreate、created、beforeMount、mounted
+	DOM 渲染在哪个周期中就已经完成？
+		mounted
+
 	路由：vue-router
 	方式：<router-link to="keyframes"></router-link>
 	     this.$router.push({name : '需要跳到路由的name',params : {参数传递})
@@ -45,6 +60,7 @@
 	子传父：子组件中定义的变量。this.$emit('change','this.message')change要触发的事件、		this.message是要传过去的东西、在父组件中<message @change='changeMessage'></message>
 	changeMessage自定义方法写在methods方法里面 获取子组件传过来的值
 	
-
+	数据双向绑定原理 
+		利用了 Object.defineProperty() 这个方法重新定义了对象获取属性值(get)和设置属性值(set)的操作来实现的
 	
    
