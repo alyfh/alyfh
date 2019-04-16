@@ -1,0 +1,51 @@
+Vue
+   路由：vue-router
+	方式：<router-link to="keyframes"></router-link>
+	     this.$router.push({name : '需要跳到路由的name',params : {参数传递})
+	     this.$router.push({name : '需要跳到路由的name',query : {参数传递})
+	     this.$router.replace({name : '需要跳到路由的name',query : {参数传递})
+	     this.$router.go(n)
+	     push方法会向history栈添加一个记录，点击后退会返回到上一个页面
+	     replace方法不会向history里面添加新的记录，点击返回，会跳转到上上一个页面。上一个记录是不存在的
+	     go方法相当于window.history.go、n可为正数可为负数
+	路由参数传递：
+	     params：加密式传参(页面刷新参数会丢失、要用到vuex进行管理或者缓存机制)
+	     query：非加密式传参(页面刷新参数不会丢失)
+	路由懒加载：
+	     component: (resolve) => require(['../components/index.vue'], resolve)
+	正常路由：
+             Import index from '../components/index.vue'
+	     component: index
+   computed:
+	 计算属性、一般用于统计、总钱数一类的
+   watch:
+         监听属性、性能比较差 
+   数据交互：
+	 axios:
+	      axios.defaults.baseURL = 'http://192.168.1.163:8082'(配置全局接口地址)
+	      当后台接口地址更改时、无非全部更改、只改一处即可、
+	      为了方便可以修改Vue的原型属性 使axios指向$http、Vue.prototype.$http = axios 
+   Css预处理器：
+	 less、scss、styus
+	 less与scss语法相似、同样可以嵌套式写法、变量的定义、判断语句
+	 styus对比css(
+	    body {
+  		font: 12px Helvetica, Arial, sans-serif;
+	    }
+	    body
+  	        font 12px Helvetica, Arial, sans-serif
+	 同样是可以语句判断、函数、嵌套式、但其省略了花括号、分号以及冒号
+	 )
+    Swiper轮播图组件库
+	 在后台获取数据的情况下需注意以下几点
+	   1、swiper的配置官网让写在mounted里面、一定要写在methods里面让他形成一个方法、在数据获取回来之	      后调用这个方法、在swiper配置中一定要加上以下两点属性防止获取数据的情况下swiper的自动轮播失效	      observer: true,observeParents: true,即使设置了以上两点还会有问题产生、这时就要用到vue	      的自身属性this.$nextTick(() => {
+            		//调用定义的方法swiper配置this.initSwiper()//解决Swiper动态获取数据loop失			效问题
+          	      })
+    Vue组件传值
+	父传子：data定义的变量传给子组件 在子组件标签上面:rows = 'rows' 在子组件中用props : ['rows']接	收、可以直接用类似于data里面定义的变量
+	子传父：子组件中定义的变量。this.$emit('change','this.message')change要触发的事件、		this.message是要传过去的东西、在父组件中<message @change='changeMessage'></message>
+	changeMessage自定义方法写在methods方法里面 获取子组件传过来的值
+	
+
+	
+   
