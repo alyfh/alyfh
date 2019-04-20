@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="vue-resource.js"></script>
+	<style type="text/css">
+	#vm{
+		width: 800px;
+		margin: 10px auto;
+	}
+	img{
+		width: 540px;
+		height: 258px;
+		display: block;
+		margin: 20px auto;
+	}
+	input{
+		width: 536px;
+		height: 40px;
+		line-height: 40px;
+		float: left;
+		font-size: 16px;
+	}
+	button{
+		width: 102px;
+		height: 45px;
+		border: none;
+		float: left;
+		font-size: 16px;
+		line-height: 45px;
+		text-align: center;
+		color: #fff;
+		background: #3388FF;
+	}
+	.select{
+		background: #ccc;
+	}
+	</style>
+</head>
+<body>
+	<div id="vm">
+		<img src="https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png">
+		<div style="overflow:hidden;">
+			<input type="text" v-model="keyWord" @keydown.down="down" @keydown.up.prevent="up" @keydown.enter="enter">
+			<button>百度一下</button>
+		</div>
+		<ul>
+			<li v-for="(i,index) in myData" v-if="index<4" :class="{'select':index==num}" >{{i}}</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#vm",
+			data:{
+				keyWord:"",
+				myData:[],
+				num:-1,
+			},
+			methods:{
+				down:function(){
+					this.num++;
+					if(this.num>3){
+						this.num=-1;
+					}
+					
+				},
+				up:function(){
+					this.num--;
+					if(this.num<=-1){
+						this.num=4;
+					}
+					
+				},
+				enter:function(){
+					window.open("https://www.baidu.com/s?wd="+this.myData[this.num],"_self")
+				}
+			},
+			watch:{
+				keyWord:function(){
+					this.$http({
+						url:"http://suggestion.baidu.com/su?",
+						method:"jsonp",
+						params:{
+							wd:this.keyWord
+						},
+						jsonp:"cb"
+					}).then(function(res){
+						console.log(res.data)
+						this.myData=res.data.s;
+					})
+				}
+			}
+		})
+	</script>
+</body>
+</html>

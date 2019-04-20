@@ -1,0 +1,43 @@
+﻿1.引入vue.js-2.0
+2.引入vue-resource.js
+
+
+	new Vue({
+		methods:{
+			request:function(){
+				this.$http({
+					url:"...",
+					method:"GET/POST/JSONP",
+					params/data:{    //get-params,post-data,jsonp-params
+						user:"laowang",
+						pass:12345
+					}
+
+					------
+					post:
+					emulateJSON:true,
+					emulateHTTP:true
+				}).then(function(res){
+					res.data
+				})
+			}
+		}
+
+	})
+////////////////////////////////////////
+this.$http.get("form.php",{
+	user:"laowang",
+	pass:12345
+}).then(function(res){
+	...
+})
+///////////////////////////////////////////
+this.$http.post("form2.php",{
+	user:"laowang",
+	pass:12345
+},{
+	emulateJSON:true,
+	emulateHTTP:true
+}).then(function(res){
+	....
+})

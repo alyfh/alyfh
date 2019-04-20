@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>template</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<One></One>
+		<Two></Two>
+		<One></One>
+		<One></One>
+	</div>
+	<template id="Hlt">  
+		<div>
+			<h1>这是One组件</h1>
+			<ul>
+				<li>两个黄鹂鸣翠柳</li>
+				<li>一行白鹭上青天</li>
+			</ul>
+		</div>
+	</template>
+	<template id="Two">
+		<h3>{{msg}}</h3>
+	</template>
+	<script type="text/javascript">
+		Vue.component("One",{
+			template:"#Hlt"
+
+		})
+		var vm=new Vue({
+			el:"#vm",
+			data:{},
+			methods:{},
+			components:{
+				"Two":{
+					template:"#Two",
+					data:function(){
+						return {
+							msg:"猥琐发育，别浪"
+						}
+					}
+				}
+			}
+		})
+	</script>
+</body>
+</html>

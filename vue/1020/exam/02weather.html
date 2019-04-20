@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+
+	*{
+		margin: 0px;
+		padding: 0px;
+		list-style: none;
+	}
+	input,button{
+		font-size: 40px;
+	}
+	ul{
+		overflow: hidden;
+	}
+	li{
+		float: left;
+		width: 200px;
+		background: #ccc;
+		margin: 10px;
+	}
+	</style>
+</head>
+<body>
+	<input type="text" placeholder="请输入城市">
+	<button>查询</button>
+	<ul>
+		<!-- <li>
+			<h3>周几</h3>
+			<p>天气：晴</p>
+			<p>白天： <img src="http://api.map.baidu.com/images/weather/day/wu.png"></p>
+			<p>夜晚： <img src="http://api.map.baidu.com/images/weather/night/duoyun.png"></p>
+			<p>温度：10-20</p>
+			<p>风力：西南风微风</p>
+		</li> -->
+	</ul>
+	<script type="text/javascript">
+		var button=document.getElementsByTagName('button')[0];
+		var input=document.getElementsByTagName('input')[0];
+		var ul=document.getElementsByTagName('ul')[0];
+		button.onclick=function(){
+			var xhr=new XMLHttpRequest();
+			xhr.open("get","source/baiduWeather.php?city="+input.value,true);
+			xhr.send();
+			xhr.onreadystatechange=function(){
+				if(xhr.readyState==4&&xhr.status==200){
+					var data=JSON.parse(xhr.responseText);
+					
+					var arr=data.results[0].weather_data;
+					console.log(arr)
+
+					ul.innerHTML="";
+					for (var i = 0; i < arr.length; i++) {
+						var oli=document.createElement("li");
+						oli.innerHTML='<h3>'+arr[i].date.substr(0,2)+'</h3><p>天气：'+arr[i].weather+'</p><p>白天： <img src="'+arr[i].dayPictureUrl+'"></p><p>夜晚： <img src="'+arr[i].nightPictureUrl+'"></p><p>温度：'+arr[i].temperature+'</p><p>风力：'+arr[i].wind+'</p>';
+						ul.appendChild(oli);
+					}
+					
+
+
+				}
+			}
+		}
+	</script>
+</body>
+</html>

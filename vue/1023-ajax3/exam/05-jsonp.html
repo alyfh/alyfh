@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+	.select{
+		background: #ccc;
+	}
+	</style>
+</head>
+<body>
+	<input type="text" >
+	<ul>
+
+	</ul>
+	<script type="text/javascript">
+		var n=-1;
+		var input=document.getElementsByTagName('input')[0];
+		var ul=document.getElementsByTagName('ul')[0];
+		input.oninput=function(){
+			var os=document.createElement("script");
+			os.src="http://suggestion.baidu.com/su?cb=callback&wd="+this.value;
+			document.body.appendChild(os);
+		}
+		function clearCss(){
+			for (var i = 0; i < ul.children.length; i++) {
+				ul.children[i].className="";
+			}
+		}
+		input.onkeydown=function(e){
+			switch(e.keyCode){
+				case 38:
+					e.preventDefault();
+					n--;
+					clearCss();
+					if(n<=-1){
+						n=ul.children.length;
+						return false;
+					}
+					
+					ul.children[n].className="select";
+				break;
+				case 40:
+					n++;
+					clearCss();
+					if(n>=ul.children.length){
+						n=-1;
+						return false;
+					}
+					ul.children[n].className="select";
+					break;
+				case 13:
+					window.open("https://www.baidu.com/s?wd="+ul.children[n].innerHTML,"_self");
+					break;
+				default:return false;
+			}
+		}
+		function callback(d){
+			var arr=d.s;
+
+			ul.innerHTML="";
+			for (var i = 0; i < 4; i++) {
+				var oli=document.createElement("li");
+				oli.innerHTML=arr[i];
+				ul.appendChild(oli);
+			}
+			
+		}
+
+	</script>
+</body>
+</html>

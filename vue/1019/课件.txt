@@ -1,0 +1,62 @@
+QS：
+ 李松-H5新增标签20
+ 李松博-Video新属性20
+ 胡靖-Video新属性20
+
+--------------------------------------------------------
+AJAX
+
+作用：数据交互
+请求方式：get/post
+加载方式：异步加载/同步加载
+	异步加载优点：省流量，速度快，用户体验好
+
+GET 和POST区别？
+	大小：get小
+	安全：post安全
+	性能：get好
+
+if(XMLHttpRequest){
+	var xhr=new XMLHttpRequest();
+}else{
+	var xhr=new ActiveXObject("Microsoft.XMLHTTP");//IE5,6
+}
+xhr.open("get/post",url,true/false);//true异步，false同步
+	//防止有缓存，可以在路径后面+new Date().getTime()/Math.random()
+xhr.send();	
+xhr.onreadystatechange=function(){
+	if(xhr.readyState==4&&xhr.status==200){
+		xhr.responseText（请求文件是非xml）
+		xhr.responseXML（请求文件是xml）
+	}
+}
+readyState：
+0-请求未初始化
+1-服务器环境搭建
+2-发送请求
+3-处理请求
+4-请求完成，等待响应
+
+
+注意：
+	string-->json JSON.parse(str)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<parent></parent>
+
+	</div>
+	<template id="parent">
+		<div>
+			<h3>this is parent--{{pmsg.value}}</h3>
+			<child :cmsg="pmsg"></child>
+		</div>
+	</template>
+	<template id="child">
+		<div>
+			<h3>this is child--{{cmsg.value}}</h3>
+			<button @click="change">点击变化</button>
+		</div>
+	</template>
+	<script type="text/javascript">
+		const Child={
+			template:"#child",
+			props:["cmsg"],
+			methods:{
+				change(){
+					this.cmsg.value="被改变了";
+				}
+			}
+		}
+		const Parent={
+			template:"#parent",
+			data(){
+				return {
+					pmsg:{
+						value:"parent data"
+					}
+				}
+			},
+			components:{
+				child:Child
+			}
+		};
+		const App=new Vue({
+			el:"#app",
+			data:{},
+			methods:{},
+			components:{
+				parent:Parent
+				
+			}
+		})
+
+		//引用
+		/*var a={n:1};
+		var b=a;
+		a.x=a={n:2};
+		alert(a.x);
+		alert(JSON.stringify(b.x));*/
+
+		
+	</script>
+</body>
+</html>

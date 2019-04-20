@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>template</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<child></child>
+		<table>
+			<tr is="Child"></tr>
+		</table>
+		<ol>
+			<li is="Child"></li>
+		</ol>
+	</div>
+	<template id="child">
+		<div>
+			<h1>优秀是一种习惯</h1>
+			<h1>认真是一种态度</h1>
+			<h1>坚持是一种品格</h1>
+		</div>
+	</template>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#vm",
+			data:{},
+			components:{
+				Child:{
+					template:"#child"
+				}
+			}
+		})
+	</script>
+</body>
+</html>

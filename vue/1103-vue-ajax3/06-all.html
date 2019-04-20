@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="node_modules/axios/dist/axios.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<h1>{{msg}}</h1>
+		<a v-for="i in arr" :href="i.Url">{{i.Name}}</a>
+	</div>
+	<script type="text/javascript">
+		function getTxt(){
+			return axios.get("source/1.txt");
+		}
+		function getJson(){
+			return axios.get("source/test.json");
+		}
+		var vm=new Vue({
+			el:"#vm",
+			data:{
+				msg:"",
+				arr:[]
+			},
+			mounted:function(){
+				var that=this;
+				axios.all([getTxt(),getJson()])
+				.then(axios.spread(function(res1,res2){
+					console.log(res1.data)
+					that.msg=res1.data;
+					console.log(res2.data)
+					that.arr=res2.data.sites;
+				}))
+			}
+		})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+﻿axios-阿科西奥斯
+get
+	1.无参数
+					axios({
+						url:"source/1.txt",
+						method:"GET"
+					}).then(function(res){
+						that.msg=res.data;
+					})
+
+				axios.get("source/test.json")
+				.then(function(res){
+					console.log(res.data)
+					that.myData=res.data.sites;
+				})
+	2.有参数
+		axios({
+				url:"source/form.php",
+				method:"GET",
+				params:{
+					user:that.user,
+					pass:that.pass
+				}
+			}).then(function(res){
+				alert(res.data)
+			})
+
+
+		axios.get("source/form.php",{
+				params:{
+					user:that.user,
+					pass:that.pass
+				}
+			}).then(function(res){
+				alert(res.data)
+			})
+
+
+post
+	1.无参数
+		var that=this;
+		axios({
+			url:'source/1.txt',
+			method:"POST"
+		}).then(function(res){
+			that.msg=res.data
+		})
+
+
+		var that=this;
+		axios.post("source/1.txt").then(function(res){
+			that.msg=res.data
+		})
+	2.有参数
+			var params=new URLSearchParams();
+			params.append("user",this.user);
+			params.append("pass",this.pass);
+			axios.post("source/form2.php",params).then(function(res){
+				alert(res.data)
+			})
+
+
+
+axios.all([...])
+axios.spread(function(res1,res2,res3,.....))

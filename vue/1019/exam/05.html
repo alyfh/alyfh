@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			账号:<input type="text" name="" id="" value="" />
+			密码:<input type="text" name="" id="" value="" />
+			<button>登录</button>
+		</div>
+		<script type="text/javascript">
+			var btn=document.getElementsByTagName('button')[0]
+			var inp=document.getElementsByTagName('input')
+			btn.onclick=function(){
+				var xhr=new XMLHttpRequest()
+				xhr.open("post","source/form2.php",true)
+				xhr.setRequestHeader("Content-type","application/x-www-from-urlencoded")
+				xhr.send('user='+inp[0].value+"&pase"+inp[1].value)
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						alert(xhr.responseText)
+					}
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

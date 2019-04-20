@@ -1,0 +1,37 @@
+Vue
+1.框架
+2.SPA 单页面应用
+3.
+
+MVVM模式 model view viewModel
+     模型  视图  视图模型
+
+4.配置环境
+
+	1.引入vue.js
+	2.npm
+---------------------------------------------
+1.new Vue({
+	el:"#vm"/".vm"/"div",//挂载点
+	data:{}//属性，
+	methods:{}//方法
+
+})
+2.模板
+	{{}}--一句js表达式
+补充：string倒序：str.split("").reverse().join("")
+	v-once	
+	v-html
+	v-model 数据双向绑定
+3.事件绑定
+	v-on:click="add"
+	@click="add"
+	补充：Math.max,Math.min,Math.random
+
+
+
+
+
+
+
+

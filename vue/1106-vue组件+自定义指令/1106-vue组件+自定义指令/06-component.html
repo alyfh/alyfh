@@ -1,0 +1,30 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title>template</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<hello></hello>	
+		<hello></hello>	
+		<hello></hello>	
+		<child></child>	
+	</div>
+	<script type="text/javascript">
+		Vue.component("hello",{
+			template:"<h1>这是组件</h1>"
+		})
+		var vm=new Vue({
+			el:"#vm",
+			data:{},
+			methods:{},
+			components:{
+				"child":{
+					template:"<h3>锦瑟无端五十弦</h3>"
+				}
+			}
+		})
+	</script>
+</body>
+</html>

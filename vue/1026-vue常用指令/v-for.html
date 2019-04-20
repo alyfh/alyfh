@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+	<style type="text/css">
+	li{
+		overflow: hidden;
+	}
+	li h3{
+		width: 200px;
+		float: left;
+		text-align: center;
+	}
+	.red{
+		background: red;
+	}
+	.blue{
+		background: lime;
+	}
+	</style>
+</head>
+<body>
+	<div id="vm">
+		<ul>
+			<li v-for="x in arr">{{x}}</li>
+		</ul>
+		<h1>-------------</h1>
+		<ul> 
+			<li v-for="(item,index) in arr">{{item}}---{{index}}</li>
+		</ul>
+		<h1>-------------</h1>
+		<ul>
+			<li>
+				<h3></h3>
+				<h3>姓名</h3>
+				<h3>电话</h3>
+				<h3>礼品</h3>
+			</li>
+			<li v-for="(item,index) in data" :class="{'red':index%2==1,'blue':index%2==0}">
+				<h3>{{index>=9?index+1:'0'+(index+1)}}期</h3>
+				<h3>{{item.name}}</h3>
+				<h3>{{item.tel}}</h3>
+				<h3>{{item.gift}}</h3>
+			</li>
+		</ul>
+		<h1>-------------</h1>
+		<ul>
+			<li v-for="value in json">{{value}}</li>
+		</ul>
+		<ul>
+			<li v-for="(value,key) in json">{{value}}--{{key}}</li>
+		</ul>
+		<ul>
+			<li v-for="(value,key,index) in json">{{value}}--{{key}}--{{index}}</li>
+		</ul>
+	</div>
+	<div style="height:400px;"></div>
+	<script type="text/javascript">
+		var vm=new Vue({
+			data:{
+				arr:["Ada","Mike","Tom"],
+				data:[
+					{
+						name:"张三",
+						gift:"欧冠门票",
+						tel:"12345678909"
+					},
+					{
+						name:"潜伏",
+						gift:"欧冠门票",
+						tel:"12345678909"
+					},
+					{
+						name:"前七",
+						gift:"欧冠门票",
+						tel:"12345678909"
+					},
+					{
+						name:"赵六",
+						gift:"欧冠门票",
+						tel:"12345678909"
+					},
+					{
+						name:"王五",
+						gift:"欧冠门票",
+						tel:"12345678909"
+					},
+					{
+						name:"李熠霖",
+						gift:"欧冠门票",
+						tel:"12345678909"
+					},
+					{
+						name:"丛林",
+						gift:"欧冠门票",
+						tel:"12345678909"
+					},
+					{
+						name:"李四",
+						gift:"欧冠门票",
+						tel:"12345678909"
+					},
+					{
+						name:"饮水机",
+						gift:"欧冠门票",
+						tel:"12345678909"
+					},
+					{
+						name:"饮水机",
+						gift:"欧冠门票",
+						tel:"12345678909"
+					},
+					{
+						name:"饮水机",
+						gift:"欧冠门票",
+						tel:"12345678909"
+					},
+					{
+						name:"饮水机",
+						gift:"欧冠门票",
+						tel:"12345678909"
+					}
+				],
+				json:{
+					name:"zhangsan",
+					age:20,
+					sex:"男"
+				}
+
+			},
+			methods:{}
+		}).$mount("#vm");
+
+		/*for (var i = 0; i < arr.length; i++) {
+			i arr[i]
+		}*/
+		/*var json={
+			width:100,
+			heght:200,
+			padding:10
+		}
+		for(var i in json){
+			console.log(json[i])
+		}*/
+	</script>
+</body>
+</html>

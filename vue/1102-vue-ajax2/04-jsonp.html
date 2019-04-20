@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="vue-resource.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<input type="text" v-model="question">
+		<p>{{answer}}</p>
+	</div>
+	<script type="text/javascript">
+
+		var vm=new Vue({
+			el:"#vm",
+			data:{
+				question:"",
+				answer:""
+			},
+			watch:{
+				question:function(){
+					this.$http({
+						url:"https://api.asilu.com/fanyi?",
+						method:"jsonp",
+						params:{
+							q:this.question,
+							type:"&_1501665233671"
+						},
+						jsonp:"callback"
+					}).then(function(res){
+						this.answer=res.data.data;
+					})
+				}
+			}
+		})
+	</script>
+</body>
+</html>

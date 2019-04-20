@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="vue-resource.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<ul>
+			<li v-for="i in myData">
+				<a :href="i.Url">{{i.Name}}</a>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#vm",
+			data:{
+				myData:[]
+			},
+			created:function(){
+				
+			},
+			mounted:function(){
+				this.$http({
+					method:"GET",
+					url:"source/test.json"
+				}).then(function(res){
+					console.log(res.data)
+					this.myData=res.data.sites;
+				})
+			}
+		})
+
+	</script>
+</body>
+</html>

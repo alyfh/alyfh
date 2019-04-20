@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="node_modules/axios/dist/axios.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<button @click="request">请求数据</button>
+		<h1>{{msg}}</h1>
+	</div>
+	<script type="text/javascript">
+
+		var vm=new Vue({
+			el:"#vm",
+			data:{
+				msg:""
+			},
+			methods:{
+				request:function(){
+					var that=this;
+					axios({
+						url:"source/1.txt",
+						method:"GET"
+					}).then(function(res){
+						that.msg=res.data;
+					})
+				}
+			}
+
+		})
+	</script>
+</body>
+</html>

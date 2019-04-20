@@ -1,0 +1,22 @@
+<people>
+	<name>小明</name>
+	<age>19</age>
+	<gold>10000</gold>
+	<brother>
+		<people>
+			<name>大哥</name>
+			<age>30</age>
+			<gold>100000</gold>
+		</people>
+		<people>
+			<name>二哥</name>
+			<age>28</age>
+			<gold>80000</gold>
+		</people>
+		<people>
+			<name>三哥</name>
+			<age>25</age>
+			<gold>40000</gold>
+		</people>
+	</brother>
+</people>

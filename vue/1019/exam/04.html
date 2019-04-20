@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			账号:<input type="text" name="" id="" value="" />
+			密码:<input type="text" name="" id="" value="" />
+			<button>登录</button>
+		</div>
+		<script type="text/javascript">
+			var inp=docume nt.getElementsByTagName("input")[0];
+			var inp1=document.getElementsByTagName("input")[1];
+			var btn=document.getElementsByTagName("button")[0];
+			btn.onclick=function(){
+				var xhr=new XMLHttpRequest();
+				xhr.open("get","source/form.php?user="+inp.value+"&pass="+inp1.value,true);
+				xhr.send();
+				xhr.onreadystatechange=function(){
+					if(xhr.readyState==4&&xhr.status==200){
+						alert(xhr.responseText)
+					}
+				}
+			}
+		</script>
+	</body>
+</html>

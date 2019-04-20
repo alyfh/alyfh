@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="node_modules/axios/dist/axios.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<div><input type="text" v-model="user" placeholder="账号"></div>
+		<div><input type="text" v-model="pass" placeholder="密码"></div>
+		<button @click="request">登陆</button>
+	</div>
+	<script type="text/javascript">
+
+		var vm=new Vue({
+			el:"#vm",
+			data:{
+				user:"",
+				pass:""
+			},
+			methods:{
+				request:function(){
+					var that=this;
+					var params=new URLSearchParams();
+					params.append("user",this.user);
+					params.append("pass",this.pass);
+					axios.post("source/form2.php",params).then(function(res){
+						alert(res.data)
+					})
+				}
+			}
+
+		})
+	</script>
+</body>
+</html>

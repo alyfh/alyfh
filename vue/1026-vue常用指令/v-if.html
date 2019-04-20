@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<h1 v-if="false">莫斯利安</h1>
+		<h1 v-if="1">李懿霖</h1>
+		<h1 v-if="2">赫曼曼</h1>
+		<h1 v-if="0">刘耀儒</h1>
+		<h1 v-if="-1">董琪龙</h1>
+		<h1 v-if="x>y">YES</h1>
+		<h1 v-else>No</h1>
+		<h1>{{x>y?'yes':'no'}}</h1>
+
+		<button @click="toggle">点击切换</button>
+		<div :style="json" v-if="isShow"></div>
+	</div>
+	<div style="height:400px;"></div>
+	<script type="text/javascript">
+		new Vue({
+			el:"#vm",
+			data:{
+				isShow:true,
+				isTrue:false,
+				x:10,
+				y:20,
+				json:{
+					width:"100px",
+					height:"100px",
+					background:"pink"
+				}
+			},		
+			methods:{
+				toggle:function(){
+
+					this.isShow=!this.isShow;
+
+					// this.isShow=this.isShow?false:true;
+
+					/*if(this.isShow){
+						this.isShow=false;
+					}else{
+						this.isShow=true;
+					}*/
+				}
+			}
+		})
+	</script>
+</body>
+</html>

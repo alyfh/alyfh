@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<img v-bind:src="url" v-bind:title="tit">
+		<a v-bind:href="url2">点点试试看</a>
+		<img :src="url">
+		<a :href="url2">fgsfd</a>
+		
+	</div>
+	<script type="text/javascript">
+		new Vue({
+			data:{
+				url:"https://ss0.bdstatic.com/5aV1bjqh_Q23odCf/static/superman/img/logo/bd_logo1_31bdc765.png",
+				url2:"http://baidu.com",
+				tit:"时间："+new Date().toLocaleString()
+			}
+		}).$mount("#vm");
+		
+	</script>
+</body>
+</html>

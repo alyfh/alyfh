@@ -1,0 +1,9 @@
+1.post
+	xhr.open("post",url,true)
+	xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xhr.send(参数)
+
+2.xml
+	json-xml
+	json -体积小，加载快，省流量，用户体验好，原生JS解析更快
+3.jsonp  

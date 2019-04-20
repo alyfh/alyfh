@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>template</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<Parent>
+			<ul>
+				<li>锦瑟无端五十弦</li>
+				<li>一弦一柱思华年</li>
+				<li>庄生晓梦迷蝴蝶</li>
+				<li>望帝春心托杜鹃</li>
+			</ul>
+			<ol>
+				<li>鸡飞狗跳</li>
+				<li>亡羊补牢</li>
+				<li>走马观花</li>
+			</ol>
+		</Parent>
+	</div>
+	<template id="parent">
+		<div>
+			<h1>this is parent</h1>
+			<p>I have a dream.</p>
+			<slot></slot>
+		</div>
+	</template>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#vm",
+			data:{},
+			components:{
+				Parent:{
+					template:"#parent"
+				}
+			}
+		})
+	</script>
+</body>
+</html>

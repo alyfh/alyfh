@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.css">
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="node_modules/vue-router/dist/vue-router.js"></script>
+	<style type="text/css">
+	.router-link-active{
+		color: #578343;
+		font-size: 40px;
+	}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div>
+			<router-link to="/home">首页</router-link>
+			<router-link to="/news">新闻</router-link>
+			<router-link to="/user">用户</router-link>
+		</div>
+		<div>
+			<transition name="fade"
+				enter-active-class="animated zoomInLeft"
+			>
+				<router-view></router-view>
+			</transition>
+		</div>
+	</div>
+	<template id="home">
+		<div>
+			<h1>这是我们的首页</h1>
+		</div>
+	</template>
+	<template id="news">
+		<div>
+			<h1>这是我们的新闻</h1>
+			<ul>
+				<li>
+					<router-link to="/news/first">111</router-link>
+				</li>
+				<li>
+					<router-link to="/news/second">222</router-link>
+				</li>
+			</ul>
+			<div> 
+				<transition name="fade2"
+					enter-active-class="animated rotateInDownRight"
+				>
+					<router-view></router-view>
+				</transition>
+			</div>
+		</div>
+	</template>
+	<template id="user">
+		<div>
+			<h1>这是我们的用户</h1>
+			<ol>
+				<li>
+					<router-link to="/user/Mike/age/10">Mike</router-link>
+				</li>
+				<li>
+					<router-link to="/user/Ada/age/30">Ada</router-link>
+				</li>
+				<li>
+					<router-link to="/user/魏嘉庚/age/3">魏嘉庚</router-link>
+				</li>
+			</ol>
+			<div>
+				<router-view></router-view>
+			</div>
+		</div>
+	</template>
+	<template id="first">
+		<div>
+			<p>中新网北京11月9日电(记者 蒋涛)国家主席习近平9日上午在人民大会堂东门外广场举行欢迎仪式，欢迎美利坚合众国总统唐纳德·特朗普对中国进行国事访问。</p>
+		</div>
+	</template>
+	<template id="second">
+		<div>
+			<p>　中新网11月9日电 商务部新闻发言人高峰今日在回应“博通高通有意存在巨额合并”一事时指出，根据中国《反垄断法》的相关规定，交易一旦达成，如果满足法定的条件，应该向商务部申报经营者集中审查。商务部开展经营者集中反垄断审查始终坚持内外资企业一致的原则，这个立场不会改变。</p>
+		</div>
+	</template>
+	<template id="usercon">
+		<div>
+			{{$route.params}}
+		</div>
+	</template>
+	<script type="text/javascript">
+		//组件
+		const Home={
+			template:"#home"
+		}
+		const News={
+			template:"#news"
+		}
+		const User={
+			template:"#user"
+		}
+		const First={
+			template:"#first"
+		}
+		const Second={
+			template:"#second"
+		}
+		const UserCon={
+			template:"#usercon"
+		}
+		//配置路由
+		const routes=[
+			{path:"/home",component:Home},
+			{
+				path:"/news",
+				component:News,
+				children:[
+					{path:"first",component:First},
+					{path:"second",component:Second},
+					{path:"",redirect:"first"}
+				]
+			},
+			{
+				path:"/user",
+				component:User,
+				children:[
+					{path:":username/age/:age",component:UserCon}
+				]
+			},
+			{path:"*",redirect:"/home"}
+		];
+		//实例化路由对象
+		const router=new VueRouter({
+			routes
+		})
+		//挂到vue对象
+		var app=new Vue({
+			el:"#app",
+			router
+		})
+	</script>
+</body>
+</html>
+<!-- 胡靖+李松博20笔记 -->

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="node_modules/vue-router/dist/vue-router.js"></script>
+	<style type="text/css">
+	a{
+		text-decoration: none;
+	}
+	.router-link-active{
+		font-size: 40px;
+		color: #349532;
+	}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<div>
+			<router-link to="/home">首页</router-link>	
+			<router-link to="/news">新闻</router-link>	
+			<router-link to="/user">用户</router-link>	
+		</div>
+		<div>
+			<router-view></router-view>
+		</div>
+	</div>
+	<template id="home">
+		<h1>这是home页面</h1>
+	</template>
+	<template id="news">
+		<h1>这是news页面</h1>
+	</template>
+	<template id="user">
+		<h1>这是user页面</h1>
+	</template>
+	<script type="text/javascript">
+		//创建组件
+		const Home={
+			template:"#home"
+		}
+		const News={
+			template:"#news"
+		}
+		const User={
+			template:"#user"
+		}
+		//配置路由
+		const routes=[
+			{path:"/home",component:Home},
+			{path:"/news",component:News},
+			{path:"/user",component:User}
+		]
+		//实例化路由对象
+		var router=new VueRouter({
+			routes:routes
+		})
+		//挂到Vue对象
+		var app=new Vue({
+			el:"#app",
+			router:router
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="vue-resource.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<button @click="req">点击</button>
+		<h1>{{msg}}</h1>
+	</div>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#vm",
+			data:{
+				msg:""
+			},
+			methods:{
+				req:function(){
+					this.$http({
+						url:"source/1.txt",
+						method:"GET"
+					}).then(function(res){
+						this.msg=res.data;
+					})
+				}
+			}
+
+		})
+	</script>
+</body>
+</html>

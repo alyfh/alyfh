@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<input type="text" v-model="message">
+		<h1>{{message}}</h1>
+		<button>点击销毁</button>
+	</div>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#vm",
+			data:{
+				message:"Vue"
+			},
+			methods:{
+				
+			},
+			created:function(){
+				console.log("创建完成")
+			},
+			mounted:function(){
+				console.log("挂载上了")
+			},
+			updated:function(){
+				console.log("更新了")
+			},
+			destroyed:function(){
+				console.log("销毁了")
+			}
+		})
+		var btn=document.getElementsByTagName('button');
+		btn[0].onclick=function(){
+			vm.$destroy();
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<input type="text" >
+	<div></div>
+	<script type="text/javascript">
+		var input=document.getElementsByTagName('input')[0];
+		var div=document.getElementsByTagName('div')[0];
+		input.oninput=function(){
+			var os=document.createElement("script");
+			os.src="https://api.asilu.com/fanyi?type=&_1501665233671&callback=callback&q="+this.value;
+			document.body.appendChild(os);
+		}
+		function callback(data){
+			console.log(data)
+			div.innerHTML=data.data;
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>template</title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<button @click="temp='Child'">Child1</button>
+		<button @click="temp='Child2'">Child2</button>
+		<p :is="temp"></p>
+	</div>
+	<template id="child">
+		<div>
+			<h1>优秀是一种习惯</h1>
+			<h1>认真是一种态度</h1>
+			<h1>坚持是一种品格</h1>
+		</div>
+	</template>
+	<template id="child2">
+		<h1>I have a dream.</h1>
+	</template>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#vm",
+			data:{
+				temp:"Child"
+			},
+			components:{
+				Child:{
+					template:"#child"
+				},
+				Child2:{
+					template:"#child2"
+				}
+			}
+		})
+	</script>
+</body>
+</html>

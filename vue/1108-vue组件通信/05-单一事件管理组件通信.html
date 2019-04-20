@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<parent></parent>
+	</div>
+	<template id="parent">
+		<div>
+			<p>this is parent---{{pmsg}}</p>
+			<child></child>
+		</div>
+	</template>
+	<template id="child">
+		<div>
+			<p>this is child--{{cmsg}}</p>
+			<button @click="send">点击发送</button>
+		</div>
+	</template>
+	<script type="text/javascript">
+		/*var Event=new Vue();
+		const Child={
+			template:"#child",
+			data(){
+				return {
+					cmsg:"child data"
+				}
+			},
+			methods:{
+				send(){
+					Event.$emit("foo",this.cmsg);
+				}
+			}
+		}
+		const Parent={
+			template:"#parent",
+			components:{
+				child:Child
+			},
+			data(){
+				return {
+					pmsg:"1111"
+				}
+			},
+			mounted(){
+				Event.$on("foo",d=>{
+					this.pmsg=d;
+				})
+			}
+		}
+		const app=new Vue({
+			el:"#app",
+			data:{},
+			methods:{},
+			components:{
+				parent:Parent
+			}
+		})*/
+
+		/*function add(x){
+			return x+1;
+		}
+		add=x=>return x+1;
+		function sub(a,b){
+			var c=a+b;
+			return c+10;
+		}
+		sub=(a,b)=>{
+			var c=a+b;
+			return c+10;
+		}*/
+
+		/*var json={
+			name:"zhangsna",
+			aa:function(){
+				setTimeout(()=>{
+					alert(JSON.stringify(this))
+				},1000)
+			}
+		}
+		json.aa();*/
+	</script>
+</body>
+</html>

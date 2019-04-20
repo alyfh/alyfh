@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<div>
+			<span>单价</span>
+			<input type="text" v-model="good.price">
+		</div>
+		<div>
+			<span>数量</span>
+			<input type="text" v-model="good.num">
+		</div>
+		<div>
+			<button @click="sub">-1</button>
+			<button @click="add">+1</button>
+		</div>
+		<div>总价:{{good.price*good.num}}</div>
+	</div>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#vm",
+			data:{
+				good:{
+					price:28,
+					num:1
+				}
+			},
+			methods:{
+				sub:function(){
+					this.good.num--;
+
+					this.good.num=Math.max(this.good.num,0)
+					/*-1 0 0
+					1  0 1
+					this.good.num  0 Math.max(this.good.num,0)*/
+
+				},
+				add:function(){
+					this.good.num++;
+					this.good.num=Math.min(this.good.num,3)
+
+
+					/*	4 3 3
+						2 3 2
+						this.good.num 3  Math.min(this.good.num,3)*/
+					
+				}
+			}
+		})
+		
+	</script>
+</body>
+</html>

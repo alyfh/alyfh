@@ -1,0 +1,49 @@
+1.生命周期
+	创建 created
+	挂载 mounted mount
+	更新 updated
+	销毁 destroyed  destroy
+2.v-bind---属性--缩写： ：
+
+	img-- src alt title
+	a-href
+	class
+	id
+	style
+	adsjfs
+....
+
+	<img v-bind:src="url" v-bind:title="tit">
+	<img :src="url">
+
+3.class+style
+
+	class
+		<div :class="[a,b,'box']"></div>
+		<div :class="{class1:true/false}"></div>
+		<div ：class="json"></div>
+		data:{
+			json:{...}
+			}
+	style
+		<div :style="json"></div>
+	如果有连字符，用驼峰/加“”解决
+补充：Date.toLocaleString()
+
+
+4.事件深入
+5.v-if
+
+
+
+
+
+
+
+
+
+
+
+
+
+

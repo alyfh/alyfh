@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="App">
+		<Parent></Parent>
+	</div>
+	<template id="parent">
+		<div>
+			<h3>this is parent</h3>
+			<p>parent-data-->{{pmsg}}</p>
+			<Child :cmsg="pmsg"></Child>
+		</div>
+	</template>
+	<template id="child">
+		<div>
+			<h3>this is child-->{{cmsg}}</h3>
+		</div>
+	</template>
+	<script type="text/javascript">
+		var child={
+			template:"#child",
+			props:["cmsg"]
+		}
+		var parent={
+			template:"#parent",
+			data(){
+				return {
+					pmsg:"parent的数据"
+				}
+			},
+			components:{
+				Child:child
+			}
+		}
+		Vue.component("Parent",parent)
+		new Vue({
+			el:"#App",
+			data:{},
+			methods:{}
+		})
+	</script>
+</body>
+</html>

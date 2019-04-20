@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="node_modules/vue-router/dist/vue-router.js"></script>
+	<style type="text/css">
+
+	.router-link-active{
+		background: lime;
+		color: #fff;
+		font-weight: bold;
+	}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button @click="push">添加一条记录</button>
+		<button @click="replace">替换一条记录</button>
+		<div>
+			<router-link to="/home">首页</router-link>
+			<router-link to="/news">新闻</router-link>
+			<router-link to="/user">用户</router-link>
+		</div>
+		<div>
+			<router-view></router-view>
+		</div>
+	</div>
+	<template id="home">
+		<div>
+			<h1>首页首页内容</h1>
+		</div>
+	</template>
+	<template id="news">
+		<div>
+			<h1>新闻内容</h1>
+		</div>
+	</template>
+	<template id="user">
+		<div>
+			<h1>用户内容</h1>
+		</div>
+	</template>
+	<script type="text/javascript">
+		alert(1)
+		//组件
+		const Home={
+			template:"#home"
+		}
+		const News={
+			template:"#news"
+		}
+		const User={
+			template:"#user"
+		}
+		//配置路由 
+		const routes=[
+			{path:"/home",component:Home},
+			{path:"/news",component:News},
+			{path:"/user",component:User},
+			{path:"*",redirect:"/home"}
+		];
+		//实例化路由对象
+		const router=new VueRouter({
+			routes
+		})
+		var app=new Vue({
+			el:"#app",
+			router,
+			methods:{
+				push(){
+					router.push({path:"/home"})
+				},
+				replace(){
+					router.replace({path:"/news"})
+				}
+			}
+		})
+	</script>
+</body>
+</html>

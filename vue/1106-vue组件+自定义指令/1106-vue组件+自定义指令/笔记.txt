@@ -1,0 +1,88 @@
+1.directive-自定义指令
+	钩子函数
+		bind绑定
+		inserted插入完成
+		updated更新完成
+		unbind解除绑定
+	参数：
+		el,binding(name,value,expression,arg,modifiers)
+	<p v-aaa:foo:bar.a.b.c="message"></p>
+	Vue.directive("aaa",{
+		bind:function(el,binding){
+
+		},
+		inserted:function(){}
+	})
+
+2.component-组件
+--------------------------------------------------------------	
+--------------------------------------------------------------	
+	全局
+	Vue.component("Home",{
+		template:"<h1>111</h1>",
+		data:function(){
+			return {}
+
+		},
+		methods:{}
+
+	})
+--------------------------------------------------------------	
+--------------------------------------------------------------		
+	局部
+	new Vue({
+		el:"#vm",
+		components:{
+			"Home":{
+				template:"<h1>22222</h1>",
+				data:function(){
+					return {}
+				},
+				methods:{}
+
+			}
+
+		}
+
+	})
+--------------------------------------------------------------	
+--------------------------------------------------------------	
+	配合模板-template--注意：必须指定唯一的根节点
+	<template id="Two">
+		<h3>{{msg}}</h3>
+	</template>
+--------------------------------------------------------------	
+	slot-槽口
+	
+	作用：模板包含至少一个 <slot> 插口，否则父组件的内容将会被丢弃。
+
+--------------------------------------------------------------	
+	is
+	1.用在固定搭配的标签
+	2.动态的组件
+
+--------------------------------------------------------------	
+	props
+
+	type:
+		String
+		Number
+		Boolean
+		Function
+		Object
+		Array
+		Symbol
+3.安装vue-tools
+	1.下载hosts
+	2.下载vue-tools-master
+	3.在vue-tools-master里面运行npm install   -->  npm run build
+	4.在google -扩展程序--添加   
+
+
+
+
+
+
+
+	
+	

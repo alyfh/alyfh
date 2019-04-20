@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<a-vue></a-vue>
+		<b-vue></b-vue>
+		<c-vue></c-vue>
+	</div>
+	<template id="A">
+		<div>
+			<span>这是A组件</span>
+			<span>----{{a}}</span>
+			<button @click="send">把A组件的数据发送给C</button>
+		</div>
+	</template>
+	<template id="B">
+		<div>
+			<span>这是B组件</span>
+			<span>----{{b}}</span>
+			<button @click="send">把B组件的数据发送给C</button>
+		</div>
+	</template>
+	<template id="C">
+		<div>
+			<h3>this is C</h3>
+			<p>这是a传过来的数据--->{{a}}</p>
+			<p>这是b传过来的数据--->{{b}}</p>
+		</div>
+	</template>
+	<script type="text/javascript">
+		var Event=new Vue();
+		const A={
+			template:"#A",
+			data(){
+				return {
+					a:"我是A组件的数据"
+				}
+			},
+			methods:{
+				send(){
+					Event.$emit("aData",this.a);
+				}
+			}
+		}
+		const B={
+			template:"#B",
+			data(){
+				return {
+					b:"我是B组件的数据"
+				}
+			},
+			methods:{
+				send(){
+					Event.$emit("bData",this.b);
+				}
+			}
+		}
+		const C={
+			template:"#C",
+			data(){
+				return {
+					a:"",
+					b:""
+				}
+			},
+			mounted(){
+				Event.$on("aData",function(d){
+					this.a=d;
+				}.bind(this));
+				Event.$on("bData",(d)=>{
+					this.b=d;
+				})
+			}
+		}
+		Vue.component("a-vue",A)
+		Vue.component("b-vue",B)
+		Vue.component("c-vue",C)
+		const app=new Vue({
+			el:"#app",
+			data:{},
+			methods:{}
+		})
+		
+	</script>
+</body>
+</html>

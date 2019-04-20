@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="vue-resource.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<div>账号 <input type="text" v-model="name"></div>
+		<div>密码 <input type="text" v-model="pass"></div>
+		<button @click="request">登陆</button>
+	</div>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#vm",
+			data:{
+				name:"",
+				pass:""
+			},
+			methods:{
+				request:function(){
+					this.$http({
+						url:"source/form.php",
+						method:"GET",
+						params:{
+							user:this.name,
+							pass:this.pass
+						}
+					}).then(function(res){
+						alert(res.data)
+					})
+				}
+			}
+		})
+	</script>
+</body>
+</html>

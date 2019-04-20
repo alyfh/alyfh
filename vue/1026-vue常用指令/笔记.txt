@@ -1,0 +1,17 @@
+
+1.v-if v-show 
+	
+	v-if VS v-show
+	true一样
+	false   v-if 惰性加载
+	v-show display:none;
+
+
+2.v-for
+
+	数组 v-for="(item,index) in arr"
+	json v-for="(value,key,index) in json"
+
+
+案例
+

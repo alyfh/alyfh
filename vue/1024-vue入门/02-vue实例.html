@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="vue.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<h1>{{msg}}</h1>
+	</div>
+	<div id="vm2">
+		<h1>{{msg}}</h1>
+	</div>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#vm",
+			data:{
+				msg:"vue"
+			}
+		})
+		var vm2=new Vue({
+			el:"#vm2",
+			data:{
+				msg:"vue2"
+			}
+		})
+	</script>
+</body>
+</html>

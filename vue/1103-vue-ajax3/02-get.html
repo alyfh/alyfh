@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="vue.js"></script>
+	<script type="text/javascript" src="node_modules/axios/dist/axios.js"></script>
+</head>
+<body>
+	<div id="vm">
+		<a v-for="i in myData" :href="i.Url">{{i.Name}}</a>
+	</div>
+	<script type="text/javascript">
+		var vm=new Vue({
+			el:"#vm",
+			data:{
+				myData:[]
+			},
+			mounted:function(){
+				var that=this;
+				axios.get("source/test.json")
+				.then(function(res){
+					console.log(res.data)
+					that.myData=res.data.sites;
+				})
+			}
+		})
+	</script>
+</body>
+</html>

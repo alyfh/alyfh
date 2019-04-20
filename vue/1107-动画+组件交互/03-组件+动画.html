@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="node_modules/animate.css/animate.css">
+	<script type="text/javascript" src="vue.js"></script>
+	<style type="text/css">
+	button{
+		font-size: 40px;
+		margin: 10px;
+	}
+	.box{
+		background: lime;
+		width: 300px;
+		border: 20px solid purple;
+		text-align: center;
+		color: #fff;
+		display: inline-block;
+	}
+	</style>
+</head>
+<body>
+	<div id="App">
+		<button @click="temp='Login'">登陆页</button>
+		<button @click="temp='Register'">注册页</button><br>
+		<transition name="fade"
+			enter-active-class="animated bounceInLeft"
+			leave-active-class="animated bounceOutRight"
+		>
+			<div :is="temp" class="box"></div>
+		</transition>
+	</div>
+	<template id="login">
+		<div>
+			<h1>这是登陆页</h1>
+		</div>
+	</template>
+	<template id="register">
+		<div>
+			<h1>这是注册页</h1>
+		</div>
+	</template>
+	<script type="text/javascript">
+		var login={
+			template:"#login"
+		}
+		var register={
+			template:"#register"
+		}
+		Vue.component("Login",login)
+		Vue.component("Register",register)
+		new Vue({
+			el:"#App",
+			data:{
+				temp:"Login"
+			},
+			methods:{},
+			components:{
+				temp:{
+					template:"<p>11111</p>"
+				}
+			}
+		})
+	</script>
+</body>
+</html>
