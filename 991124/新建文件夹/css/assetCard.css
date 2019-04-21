@@ -1,0 +1,227 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "Microsoft YaHei";
+	color: black;
+	text-decoration: none;
+	list-style: none;
+}
+
+body{
+	background: #ecece9;
+}
+/*面包屑*/
+.card_con{
+	padding: 0 20px;
+}
+/*条件查询*/
+.card_screen{
+	width: 100%;
+}
+
+.card_screen_con{
+	width: 100%;
+	padding: 10px 0 2px;
+}
+.card_screen_con:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.card_condition{
+	width: 72%;
+	height: 38px;
+	overflow: hidden;
+	float: left;
+}
+.card_condition ul:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.card_condition ul li{
+	width: 33%;
+	height: 38px;
+	float: left;
+	font-size: 14px;
+}
+.card_condition ul li input{
+	width: 60%;
+	height: 25px;
+	text-indent: 14px;
+	outline: none;
+	border-radius: 4px;
+	border: 1px solid #D9D9D9;
+}
+.card_condition ul li select{
+	width: 60%;
+	height: 25px;
+	text-indent: 14px;
+	outline: none;
+	border-radius: 4px;
+	border: 1px solid #D9D9D9;
+}
+.card_sure{
+	float: right;
+	width: 26%;
+}
+.card_search{
+	outline: none;
+	width: 150px;
+	height: 25px;
+	background: #3299E8;
+	border: none;
+	color: white;
+	border-radius: 4px;
+}
+.card_btnsc{
+	outline: none;
+	padding: 0 10px;
+	height: 25px;
+	background: none;
+	border: none;
+	color: #3299E8;
+	border-radius: 4px;
+	float: right;
+	*float: none;
+}
+/*数据列表*/
+.card_list{
+	width: 100%;
+	height: auto;
+	background: white;
+}
+.card_list_tit{
+	width: 100%;
+	padding: 20px 0 5px 0;
+	border-top: 1px solid #D9D9D9;
+}
+.card_list_tit:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.card_list_operation{
+	float: right;
+}
+.card_list_operation ul li{
+	float: left;
+	margin-left: 5px;
+}
+.operation{
+	padding: 5px 10px;
+	border: 1px solid #D9D9D9;
+	border-radius: 4px;
+	background: white;
+	font-size: 14px;
+	color: #525252;
+}
+.operation:hover{
+	color: white;
+	background: #3299E8;
+	cursor: pointer;
+	transition: .5s;
+}
+.operation_list{
+	color: white;
+	background: #3299E8;
+}
+.operation_list span{
+	color: white;
+	font-size: 14px;
+}
+.operation_imgTxt{
+	display: none;
+}
+.operation_imgTxt:hover span{
+	color: white;
+}
+.more_nav{
+	position: absolute;
+	z-index: 999;
+	border: 1px solid #D9D9D9;
+	border-radius: 4px;
+	background: white;
+	width: 100%;
+	top: 30px;
+	left: 0;
+	display: none;
+}
+
+.card_list_con{
+	width: 100%;
+	border-top: 1px solid #D9D9D9;
+	position: relative;
+}
+.card_table{
+	width: 100%;
+	height: auto;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #D9D9D9;
+	background: white;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.card_table table td{
+	text-align: center;
+	padding: 10px 0;
+	border-bottom: 1px dashed #D9D9D9;
+}
+.card_table table thead td{
+	font-size: 15px;
+	font-weight: 700;
+	color: #484848;
+}
+.card_table table tbody td{
+	font-size: 14px;
+	color: #484848;
+}
+.card_table table tbody tr:nth-child(2n){
+	background: #FCFCFC;
+}
+.card_table table tbody tr:hover{
+	background: rgba(3,169,244,.27);
+	transition: 1s;
+}
+.card_imgTxt{
+	width: 100%;
+	height: auto;
+	padding-bottom: 10px;
+	background: white;
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.card_imgTxt .card_imgTxt_table{
+	width: 90%;
+	margin: 0 auto;
+	box-sizing: content-box;
+}
+.card_imgTxt_table:after{display:block;clear:both;content:"";visibility:hidden;height:0}
+.card_td{
+	float: left;
+	width: 25%;
+	*width: 23%;
+	padding: 1% .5%;
+}
+.card_imgTxts{
+	width: 96%;
+	height: auto;
+	padding: 2%;
+	border: 2px solid white;
+} 
+.card_imgTxts:hover{
+	border: 2px solid #03a9f4;
+}
+.card_imgTxts_con{
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+.card_imgTxtsa{
+	display: block;
+	width: 100%;
+	height: auto;
+	border: 1px solid #F7F7F6;
+	background: aqua;
+}
+.card_imgTxtsa img{
+	width: 100%;
+	height: auto;
+	border: none;
+}
+.card_txt li{
+	width: 100%;
+	margin-top: 5px;
+}
+.card_txt li:after{display:block;clear:both;content:"";visibility:hidden;height:0}

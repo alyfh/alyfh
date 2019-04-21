@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="ie=7,ie=8,ie=9,ie=edge;">
+	<title>固定资产</title>
+	<link rel="stylesheet" href="css/assetCard.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="glyphicons-halflings-regular.svg">
+	<script type="text/javascript" src="jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="bootstrap.min.js"></script>
+</head>
+<body>
+	<div class="card_wp">
+		<div class="card_con">
+			<!-- 面包屑 -->
+			<div class="card_tit" style="height: 40px;line-height: 40px;border-bottom: solid 1px #cacac9;">
+	            <p style="color: #717170;font-size: 15px;">首页>固定资产>资产管理>资产卡片</p>
+	        </div>
+			
+			<!-- 条件查询 -->
+			<div class="card_screen">
+				<div class="card_screen_con">
+					<div class="card_condition">
+						<ul>
+							<li>资产名称：<input type="text"></li>
+							<li>资产状态：
+								<select name="moreselAgezt" id="moreselAgezt">   
+							        <option value="1">zzz</option>   
+							        <option value="2">xxx</option>   
+							        <option value="3">ccc</option>    
+							    </select>   
+							</li>
+							<li>资产类别：<input type="text"> <span style="display: inline-block;width: 24px;height: 24px;float: right;*float: none;">
+								<a href=""><img src="true.png" alt="" style="width: 24px;height: 24px;border: none;"></a>
+							</span></li>
+							<li>责 任 人 ：<input type="text"></li>
+							<li>使用部门：
+								<select name="moreselAgebm" id="moreselAgebm">   
+							        <option value="1">zzz</option>   
+							        <option value="2">xxx</option>   
+							        <option value="3">ccc</option>    
+							    </select>   </li>
+							<li>资产编码：<input type="text"></li>
+						</ul>
+					</div>
+					<div class="card_sure">
+						<button class="card_search" id="">搜索</button>
+						<button class="card_btnsc">展开筛选</button>
+					</div>
+				</div>
+			</div>
+
+			<!-- 数据列表 -->
+			<div class="card_list">
+				<div class="card_list_tit">
+					<div style="display: inline-block;*float: left;">
+						<label>
+							<input type="checkbox" id="all"><span style="margin-left: 5px;color: #525252;font-size: 14px;">全选</span>
+						</label>
+					</div>
+					<div class="card_list_operation">
+						<ul>
+							<li style="position: relative;z-index: 999;width: 70px;height: 31px;">
+								<div style="position: absolute;z-index: 999;width: 100%;text-align: center;">
+									<div class="operation operation_list"><span class="glyphicon glyphicon-list" id="btstp_list"></span><span class="list_span">列表</span></div>
+									<div class="operation operation_imgTxt"><span class="glyphicon glyphicon-th" id="btstp_imgTxt"></span><span class="imgTxt_span">图文</span></div>
+								</div>
+							</li>
+							<li>
+								<div class="operation newBuild">新建</div>
+							</li>
+							<li>
+								<div class="operation pldy">批量打印卡片信息</div>
+							</li>
+							<li style="position: relative;z-index: 999;" class="more_operation">
+								<div class="operation more_operationgd">更多操作 ▼</div>
+								<div class="more_nav">
+									<div class="operation daoru" style="width: 80%;margin: 5px auto;text-align: center;">导入</div>
+									<div class="operation daochu" style="width: 80%;margin: 5px auto;text-align: center;">导出</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- 列表展示 -->
+				<div class="card_list_con">
+					<div class="card_table">
+						<table cellspacing="0">
+							<thead>
+								<tr>
+									<td width="40"></td>
+									<td width="60">序号</td>
+									<td width="130">资产编码</td>
+									<td width="373">资产名称</td>
+									<td width="140">规格型号</td>
+									<td width="130">使用部门</td>
+									<td width="110">责任人</td>
+									<td width="120">存放地点</td>
+									<td width="110">资产类别</td>
+									<td width="110">资产状态</td>
+								</tr>
+							</thead>
+							<tbody id="list">
+								<tr>
+									<td width="40"><input type="checkbox" value="1"></td>
+									<td width="60">1</td>
+									<td width="130">zzzzz001</td>
+									<td width="374" style="text-align: left;">资产名称资产名称资产名称资产名称资产名称资产名称资产名称资产名称资产名称</td>
+									<td width="140">55555</td>
+									<td width="130">总经办</td>
+									<td width="110"><a href="" style="font-size: 14px;color: #699EF7;text-decoration: none;">小染</a></td>
+									<td width="120">仓库</td>
+									<td width="110">电子</td>
+									<td width="110">维修</td>
+								</tr>
+								<tr>
+									<td width="40"><input type="checkbox" value="2"></td>
+									<td width="60">1</td>
+									<td width="130">zzzzz001</td>
+									<td width="370">资产名称资产名称资产名称资产名称资产名称资产名称资产名称资产名称资产名称</td>
+									<td width="140">55555</td>
+									<td width="130">总经办</td>
+									<td width="110"><a href="" style="font-size: 14px;color: #699EF7;text-decoration: none;">小染</a></td>
+									<td width="120">仓库</td>
+									<td width="110">电子</td>
+									<td width="110">维修</td>
+								</tr>
+								<tr>
+									<td width="40"><input type="checkbox" value="3"></td>
+									<td width="60">1</td>
+									<td width="130">zzzzz001</td>
+									<td width="370">资产名称资产名称资产名称资产名称资产名称资产名称资产名称资产名称资产名称</td>
+									<td width="140">55555</td>
+									<td width="130">总经办</td>
+									<td width="110"><a href="" style="font-size: 14px;color: #699EF7;text-decoration: none;">小染</a></td>
+									<td width="120">仓库</td>
+									<td width="110">电子</td>
+									<td width="110">维修</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+
+					<!-- 图文展示 -->
+					<div class="card_imgTxt" id="imgTxt">
+						<div class="card_imgTxt_table">
+							
+							<div class="card_td">
+								<div class="card_imgTxts">
+										<div class="card_imgTxts_con">
+											<a href="" class="card_imgTxtsa">
+												<img src="defaulthead.jpg" alt="">
+											</a>
+											<div class="card_txt">
+												<ul>
+													<li>
+														<input type="checkbox" value="啊" style="
+														*float: left;">
+														<span><a href="" style="display: inline-block;width: 90%;float: right;font-size: 14px;color: #4E4E4E;text-decoration: none;">爱爱的发多少打打分af多发的发的发发发啊啊啊啊啊</a></span>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">资产分类：</span><span style="font-size: 14px;color: #4E4E4E;">办公家具</span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">责任人：</span><span"><a href="" style="font-size: 14px;color: #699EF7;text-decoration: none;">小染</a></span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">编码：</span><span style="font-size: 14px;color: #4E4E4E;">11111</span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">状态：</span><span style="font-size: 14px;color: #4E4E4E;">维修</span></p>
+													</li>
+												</ul>
+											</div>
+										</div>
+								</div>
+							</div>
+							<div class="card_td">
+								<div class="card_imgTxts">
+										<div class="card_imgTxts_con">
+											<a href="" class="card_imgTxtsa">
+												<img src="defaulthead.jpg" alt="">
+											</a>
+											<div class="card_txt">
+												<ul>
+													<li>
+														<input type="checkbox" value="啊" style="
+														*float: left;">
+														<span><a href="" style="display: inline-block;width: 90%;float: right;font-size: 14px;color: #4E4E4E;text-decoration: none;">爱爱的发多少打打分af多发的发的发发发啊啊啊啊啊</a></span>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">资产分类：</span><span style="font-size: 14px;color: #4E4E4E;">办公家具</span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">责任人：</span><span"><a href="" style="font-size: 14px;color: #699EF7;text-decoration: none;">小染</a></span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">编码：</span><span style="font-size: 14px;color: #4E4E4E;">11111</span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">状态：</span><span style="font-size: 14px;color: #4E4E4E;">维修</span></p>
+													</li>
+												</ul>
+											</div>
+										</div>
+								</div>
+							</div>
+							<div class="card_td">
+								<div class="card_imgTxts">
+										<div class="card_imgTxts_con">
+											<a href="" class="card_imgTxtsa">
+												<img src="defaulthead.jpg" alt="">
+											</a>
+											<div class="card_txt">
+												<ul>
+													<li>
+														<input type="checkbox" value="啊" style="
+														*float: left;">
+														<span><a href="" style="display: inline-block;width: 90%;float: right;font-size: 14px;color: #4E4E4E;text-decoration: none;">爱爱的发多少打打分af多发的发的发发发啊啊啊啊啊</a></span>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">资产分类：</span><span style="font-size: 14px;color: #4E4E4E;">办公家具</span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">责任人：</span><span"><a href="" style="font-size: 14px;color: #699EF7;text-decoration: none;">小染</a></span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">编码：</span><span style="font-size: 14px;color: #4E4E4E;">11111</span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">状态：</span><span style="font-size: 14px;color: #4E4E4E;">维修</span></p>
+													</li>
+												</ul>
+											</div>
+										</div>
+								</div>
+							</div>
+							<div class="card_td">
+								<div class="card_imgTxts">
+										<div class="card_imgTxts_con">
+											<a href="" class="card_imgTxtsa">
+												<img src="defaulthead.jpg" alt="">
+											</a>
+											<div class="card_txt">
+												<ul>
+													<li>
+														<input type="checkbox" value="啊" style="
+														*float: left;">
+														<span><a href="" style="display: inline-block;width: 90%;float: right;font-size: 14px;color: #4E4E4E;text-decoration: none;">爱爱的发多少打打分af多发的发的发发发啊啊啊啊啊</a></span>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">资产分类：</span><span style="font-size: 14px;color: #4E4E4E;">办公家具</span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">责任人：</span><span"><a href="" style="font-size: 14px;color: #699EF7;text-decoration: none;">小染</a></span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">编码：</span><span style="font-size: 14px;color: #4E4E4E;">11111</span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">状态：</span><span style="font-size: 14px;color: #4E4E4E;">维修</span></p>
+													</li>
+												</ul>
+											</div>
+										</div>
+								</div>
+							</div>
+							<div class="card_td">
+								<div class="card_imgTxts">
+										<div class="card_imgTxts_con">
+											<a href="" class="card_imgTxtsa">
+												<img src="defaulthead.jpg" alt="">
+											</a>
+											<div class="card_txt">
+												<ul>
+													<li>
+														<input type="checkbox" value="啊" style="
+														*float: left;">
+														<span><a href="" style="display: inline-block;width: 90%;float: right;font-size: 14px;color: #4E4E4E;text-decoration: none;">爱爱的发多少打打分af多发的发的发发发啊啊啊啊啊</a></span>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">资产分类：</span><span style="font-size: 14px;color: #4E4E4E;">办公家具</span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">责任人：</span><span"><a href="" style="font-size: 14px;color: #699EF7;text-decoration: none;">小染</a></span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">编码：</span><span style="font-size: 14px;color: #4E4E4E;">11111</span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">状态：</span><span style="font-size: 14px;color: #4E4E4E;">维修</span></p>
+													</li>
+												</ul>
+											</div>
+										</div>
+								</div>
+							</div>
+							<div class="card_td">
+								<div class="card_imgTxts">
+										<div class="card_imgTxts_con">
+											<a href="" class="card_imgTxtsa">
+												<img src="defaulthead.jpg" alt="">
+											</a>
+											<div class="card_txt">
+												<ul>
+													<li>
+														<input type="checkbox" value="啊" style="
+														*float: left;">
+														<span><a href="" style="display: inline-block;width: 90%;float: right;font-size: 14px;color: #4E4E4E;text-decoration: none;">爱爱的发多少打打分af多发的发的发发发啊啊啊啊啊</a></span>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">资产分类：</span><span style="font-size: 14px;color: #4E4E4E;">办公家具</span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">责任人：</span><span"><a href="" style="font-size: 14px;color: #699EF7;text-decoration: none;">小染</a></span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">编码：</span><span style="font-size: 14px;color: #4E4E4E;">11111</span></p>
+													</li>
+													<li>
+														<p><span style="font-size: 14px;color: #A9A9A9;">状态：</span><span style="font-size: 14px;color: #4E4E4E;">维修</span></p>
+													</li>
+												</ul>
+											</div>
+										</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript">
+	//筛选条件展开(收起)
+	var isText = true;
+	$(".card_btnsc").click(function () {
+		if (isText) {
+			$(".card_btnsc").text("收起筛选");
+			$(".card_condition").css("height","auto");
+			isText=false;
+		} else {
+			$(".card_btnsc").text("展开筛选");
+			$(".card_condition").css("height","38px");
+			isText=true;
+		}
+	})
+	//列表图文切换
+	$(".operation_list").click(function(){
+		if (isText) {
+			$(".operation_imgTxt").slideDown();
+			isText=false;
+		} else {
+			$(".operation_imgTxt").slideUp();
+			isText=true;
+		}
+	})
+	$(".operation_imgTxt").click(function(){
+		$("#all").prop("checked",false);
+		if ($(".imgTxt_span").text()=="图文") {//图文显示
+			$("#imgTxt :checkbox").prop("checked",false);
+			$(".operation_imgTxt").hide();
+			$(".imgTxt_span").text("列表");
+			$(".list_span").text("图文");
+			$("#btstp_imgTxt").attr("class","glyphicon glyphicon-list");
+			$("#btstp_list").attr("class","glyphicon glyphicon-th");
+			$(".card_table").fadeOut();
+			$(".card_imgTxt").fadeIn();
+			isText=true;
+		} else {									//列表显示
+			$("#list :checkbox").prop("checked",false);
+			$(".operation_imgTxt").hide();
+			$(".imgTxt_span").text("图文");
+			$(".list_span").text("列表");
+			$("#btstp_imgTxt").attr("class","glyphicon glyphicon-th");
+			$("#btstp_list").attr("class","glyphicon glyphicon-list");
+			$(".card_table").fadeIn();
+			$(".card_imgTxt").fadeOut();
+			isText=true;
+		}
+	})
+	//新建
+	$(".newBuild").click(function(){
+		alert("新建");
+	})
+	//批量打印
+	$(".pldy").click(function(){
+		alert("批量打印卡片信息");
+	})
+	//搜索
+	$(".card_search").click(function(){
+		alert("搜索");
+	})
+	//更多操作
+	$(".more_operation").hover(function(){
+		$(".more_operationgd").css({"color":"white","background":"#3299E8"});
+		$(".more_nav").css("display","block");
+	},function(){
+		$(".more_operationgd").css({"color":"#525252","background":"white"});
+		$(".more_nav").css("display","none");
+	})
+	//导入
+	$(".daoru").click(function(){
+		alert("导入")
+		$(".more_nav").css("display","none");
+	})
+	//导出
+	$(".daochu").click(function(){
+		alert("导出")
+		$(".more_nav").css("display","none");
+	})
+	//全选或全不选
+	$("#all").click(function(){   
+    	if(this.checked){   
+        	$("#list :checkbox").prop("checked", true); 
+        	$("#imgTxt :checkbox").prop("checked", true);  
+    	}else{   
+			$("#list :checkbox").prop("checked", false);
+			$("#imgTxt :checkbox").prop("checked", false);
+    	}   
+ 	});
+ 	//设置全选复选框
+	$("#list :checkbox").click(function(){
+		allchk("list");
+		console.log($(this).val())
+	});
+	$("#imgTxt :checkbox").click(function(){
+		allchk("imgTxt");
+		console.log($(this).val())
+	});
+	function allchk(allchk){
+		var chknum = $("#"+allchk+" :checkbox").size();//选项总个数
+		var chk = 0;
+		$("#"+allchk+" :checkbox").each(function () {  
+		    if($(this).prop("checked")==true){
+				chk++;
+			}
+	    });
+		if(chknum==chk){						//全选
+			$("#all").prop("checked",true);
+		}else{									//不全选
+			$("#all").prop("checked",false);
+		}
+		console.log(chk)
+	}
+</script>
