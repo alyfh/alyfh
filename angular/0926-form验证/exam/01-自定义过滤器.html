@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+		.ng-cloak{
+			display: none;
+		}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<h1>{{str|myUpper}}</h1>
+		<h1>{{str|myUpper:5}}</h1>
+		<h1>{{str|myUpper:20}}</h1>
+	</div>
+	<script>
+	var myModule=angular.module("myApp",[]);
+	myModule.controller("ctrl",function($scope){
+		$scope.str="I have a dream";
+	})
+	//如果没有传参，全都变大写
+	//如果传参n,n>str.length,全都变大写,n<=str.length,n个变大写，其他不变
+	myModule.filter("myUpper",function(){
+		return function(s,n){
+			if(n==undefined){//没有传参
+				return s.toUpperCase();
+			}else if(n>s.length){
+				return s.toUpperCase();
+			}else if(n<=s.length){
+				return s.slice(0,5).toUpperCase()+s.slice(5);
+			}else{
+				return s;
+			}
+		}
+	})
+	//
+	</script>
+</body>
+</html>

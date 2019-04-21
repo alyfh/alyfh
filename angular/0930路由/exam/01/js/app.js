@@ -1,0 +1,34 @@
+angular.module("myApp",['ui.router'])
+.config(function($stateProvider,$urlRouterProvider){
+	$urlRouterProvider.when("","/home");
+	$stateProvider
+	.state("home",{
+		url:"/home",
+		templateUrl:"view/home.html",
+		controller:"home"
+	})
+	.state("product",{
+		url:"/product",
+		templateUrl:"view/product.html",
+		controller:"product"
+	})
+	.state("product.pro1",{
+		url:"/1",
+		template:"<p>这是product1</p>"
+	})
+	.state("product.pro2",{
+		url:"/2",
+		template:"<p>这是product2</p>"
+	})
+	.state("our",{
+		url:"/our",
+		templateUrl:"view/our.html"
+	})
+})
+.controller("home",function($scope){
+	$scope.data=["杨花落尽子规啼","闻道龙标过五溪","我寄愁心与明月","随风直到夜郎西"];
+})
+.controller("product",function($scope,$state){
+	$state.go("product.pro1")
+})
+

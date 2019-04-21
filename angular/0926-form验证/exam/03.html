@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+		.ng-cloak{
+			display: none;
+		}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<table border="1" style="border-collapse:collapse;" cellpadding="10">
+			<tr>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>性别</th>
+				<th>工作</th>
+				<th>电话</th>
+				<th>英文名</th>
+			</tr>
+			<tr ng-repeat="i in data|myFilter">
+				<td>{{i.name}}</td>
+				<td>{{i.age}}</td>
+				<td>{{i.sex}}</td>
+				<td>{{i.job}}</td>
+				<td>{{i.tel}}</td>
+				<td>{{i.origin}}</td>
+			</tr>
+		</table>
+	</div>
+	<script>
+	var myModule=angular.module("myApp",[]);
+	myModule.controller("ctrl",function($scope){
+		$scope.data=[
+			{
+				name:"张三",
+				age:20,
+				sex:"男",
+				job:"老师",
+				tel:'16463829293',
+				origin:"Mike"
+			},
+			{
+				name:"里斯",
+				age:32,
+				sex:"男",
+				job:"工程师",
+				tel:'16463828883',
+				origin:"Tony"
+			},
+			{
+				name:"丛林",
+				age:24,
+				sex:"女",
+				job:"扫地",
+				tel:'16463829666',
+				origin:"Jery"
+			},
+			{
+				name:"楚乔",
+				age:18,
+				sex:"女",
+				job:"特工",
+				tel:'16463828888',
+				origin:"Baby"
+			},
+			{
+				name:"宇文玥",
+				age:22,
+				sex:"男",
+				job:"男神",
+				tel:'16463829777',
+				origin:"Karry"
+			},
+			{
+				name:"宇文怀",
+				age:23,
+				sex:"男",
+				job:"坏蛋",
+				tel:'16463825555',
+				origin:"Linda"
+			},
+			{
+				name:"燕洵",
+				age:26,
+				sex:"男",
+				job:"世子",
+				tel:'16463823333',
+				origin:"Alice"
+			},
+			{
+				name:"宇文11",
+				age:24,
+				sex:"女",
+				job:"女神",
+				tel:'16463829111',
+				origin:"Ada"
+			},
+			{
+				name:"宇文33",
+				age:27,
+				sex:"女",
+				job:"坏蛋",
+				tel:'16463825222',
+				origin:"Rose"
+			},
+			{
+				name:"燕洵66",
+				age:30,
+				sex:"男",
+				job:"世子",
+				tel:'16463823366',
+				origin:"Dan"
+			},
+			{
+				name:"宇文55",
+				age:27,
+				sex:"男",
+				job:"男神",
+				tel:'16463829770',
+				origin:"Ben"
+			},
+			{
+				name:"宇文怀1",
+				age:23,
+				sex:"男",
+				job:"坏蛋",
+				tel:'16463825555',
+				origin:"John"
+			},
+			{
+				name:"燕洵2",
+				age:26,
+				sex:"男",
+				job:"世子",
+				tel:'16463823333',
+				origin:"Jake"
+			}
+		];
+	})
+	myModule.filter("myFilter",function(){
+		return function(arr){
+			var arr1=[];
+			for (var i = 0; i < arr.length; i++) {
+				if(arr[i].age>=20&&arr[i].age<=30){
+					arr1.push(arr[i]);
+				}
+			};
+			return arr1;
+		}
+	})
+	</script>
+</body>
+</html>

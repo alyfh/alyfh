@@ -1,0 +1,7 @@
+<h1>our</h1>
+<div>单价： <input type="text" ng-model="price" ng-readonly="true"></div>
+<div>数量： <input type="text" ng-model="num" ng-readonly="true"></div>
+<button ng-click="add()">+1</button>
+<button ng-click="sub()">-1</button>
+<div>总价： <input type="text" ng-readonly="true" ng-value="price*num"></div>
+<div>总价： {{price*num}}</div>

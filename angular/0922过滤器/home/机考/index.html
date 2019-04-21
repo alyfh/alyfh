@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>月考</title>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/angular-ui-router.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+
+</head>
+<body ng-controller="indexCtrl">
+<div class="box">
+    <div class="dol">
+        <div class="con" ng-repeat="i in data">
+            <div class="box-uu">
+                <img ng-src="{{i.img}}" alt="">
+                <p>{{i.tit}}</p>
+                <p>
+                    <span class="l1">{{i.num}}</span>
+                    <span class="l2">{{i.info}}</span>
+                </p>
+                <p>{{i.price}}</p>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+    <div class="right">
+        <button>上一页</button>
+        <ul class="ye">
+            <li ng-repeat="i in ind" ng-class="{'a':$first}">{{i}}</li>
+        </ul>
+        <button>下一页</button>
+
+
+</div>
+<script>
+    $(function(){
+        var n=0;
+        $("button").eq(0).click(function(){
+            n--;
+            if(n<0){
+                n=0;
+            }
+            $(".dol").stop(true,true).animate({
+                top:-$(".box").height()*n+"px"
+            },300)
+
+            $(".ye li").eq(n).css({"background-color":"#26c486","color":"white"}).siblings().css({"background-color":"#f6f6f6","color":"black"})
+
+        });
+        $("button").eq(1).click(function(){
+            n++;
+            if(n>=num-1){
+                n=num-1;
+            }
+            $(".ye li").eq(n).css({"background-color":"#26c486","color":"white"}).siblings().css({"background-color":"#f6f6f6","color":"black"})
+            $(".dol").stop(true,true).animate({
+                top:-$(".box").height()*n+"px"
+            },300)
+        });
+
+        $(".ye").delegate("li","click",function(){
+            n=$(this).index();
+            $(".ye li").eq(n).css({"background-color":"#26c486","color":"white"}).siblings().css({"background-color":"#f6f6f6","color":"black"})
+            $(".dol").css({
+                "top":-($(this).index())*$(".box").height()+"px"
+            })
+        })
+    })
+</script>
+</body>
+</html>

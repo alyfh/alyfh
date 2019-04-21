@@ -1,0 +1,12 @@
+自定义过滤器
+angular.module('app',[])
+.filter('myfilter',function(){
+	return function(过滤的对象){
+		。。。。
+		return 处理后的结果
+	}
+})
+
+//1.闭包
+//2.string array
+//3.prototype

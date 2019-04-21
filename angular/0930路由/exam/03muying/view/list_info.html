@@ -1,0 +1,32 @@
+<style type="text/css">
+	.list_info,li{
+		list-style: none;
+	}
+	.list_info{
+		overflow: hidden;
+	}
+	.list_info li{
+		float: left;
+		width: 200px;
+		background: #ccc;
+		margin: 10px;
+		padding: 10px;
+	}
+	.list_info li img{
+		width: 150px;
+		height: 150px;
+		margin:0px 25px;
+
+	}
+	.list_info li h3{
+		text-align: center;
+		line-height: 40px;
+		margin: 0px;
+	}
+</style>
+<ul class="list_info">
+	<li ng-repeat="i in data">
+		<img ng-src="{{i.url}}">
+		<h3>{{i.name}}</h3>
+	</li>
+</ul>

@@ -1,0 +1,11 @@
+1.服务：实例化对象，只能实例化一次，功能：提供数据和对象
+2.内置服务
+	$location: absUrl()
+	$timeout
+	$interval
+		cancel
+	$http({
+		url:"1.txt",
+		method:"get/post"
+	}).success(function(){})
+	.error(function(){})

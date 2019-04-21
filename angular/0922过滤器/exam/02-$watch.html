@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<div><input type="text" placeholder="单价" ng-model="price"></div>
+		<div><input type="text" placeholder="数量" ng-model="number"></div>
+		<div>总价：{{allPrice}}</div>
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+	angular.module("myApp",[])
+	.controller("ctrl",function($scope){
+		$scope.price=28;
+		$scope.number=1;
+		$scope.allPrice=$scope.price*$scope.number;
+		$scope.$watch("number",function(){
+			$scope.allPrice=$scope.price*$scope.number;
+		})
+	})
+	</script>
+</body>
+</html>

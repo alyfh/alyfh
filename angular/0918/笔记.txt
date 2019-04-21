@@ -1,0 +1,11 @@
+1.ng-class
+	ng-class="classN"
+	ng-class="{true:'red',false:'lime'}[isRed]"
+	ng-class="{'red':true,'lime':true,'blue':isBlue}"
+2.ng-style
+	ng-style="{}"
+	json:关键字，保留字必须加""有连字符必须加"",
+		//取值，关键字，保留字，变量，必须用[]*/
+3.ng-value
+4.ng-disabled
+5.ng-readonly

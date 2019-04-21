@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<ul ng-click="say()">
+			<li ng-repeat="i in data">{{i}}</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+		var myModule=angular.module("app",[]);
+		myModule.factory("myFactory",function(){
+			var obj=new Object();
+			obj.str="不以物喜，不以己悲";
+			obj.friend=['先天下之忧而忧，后天下之乐而乐','居庙堂之高则忧其民，处江湖之远则忧其君','然是进亦忧，退亦忧'];
+			obj.speak=function(){
+				alert("岳阳楼记");
+			}
+			return obj;
+		})
+		myModule.controller("ctrl",function($scope,myFactory){
+			$scope.data=myFactory.friend;
+			$scope.say=myFactory.speak;
+		})
+
+	</script>
+</body>
+</html>

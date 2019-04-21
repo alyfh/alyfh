@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>账号：<input type="text"></div>
+	<div>密码：<input type="text"></div>
+	<button>提交</button>
+	<script>
+	var input=document.getElementsByTagName("input");
+	var button=document.getElementsByTagName("button");
+	button[0].onclick=function(){
+		ajaxGet("source/form.php?user="+input[0].value+"&pass="+input[1].value+"&_="+new Date().getTime(),success);
+	}
+	function success(d){
+		alert(d)
+	}
+
+	function ajaxGet(url,fn){
+		var xhr=new XMLHttpRequest();
+		xhr.open("get",url,true);
+		xhr.send();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4){
+				if(xhr.status==200){
+					fn(xhr.responseText);
+				}else{
+					alert("error!!")
+				}
+				
+			}
+		}
+	}
+	
+	</script>
+</body>
+</html>

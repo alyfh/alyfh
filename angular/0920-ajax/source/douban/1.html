@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<ul>
+		
+	</ul>
+	<script>
+	var ul=document.getElementsByTagName("ul")[0];
+	var xhr=new XMLHttpRequest();
+	xhr.open("get","api/douban.php",true);
+	xhr.send();
+	xhr.onreadystatechange=function(){
+		if(xhr.readyState==4&&xhr.status==200){
+			
+			var json=JSON.parse(xhr.responseText);
+			console.log(json);
+			var data=json.subjects;
+			for (var i = 0; i < data.length; i++) {
+				var oli=document.createElement("li");
+				oli.innerHTML='<img class="aa" src="'+data[i].images.small+'" alt=""><h3>'+data[i].title+'</h3>';
+				ul.appendChild(oli);
+			};
+		}
+	}
+	</script>
+</body>
+</html>

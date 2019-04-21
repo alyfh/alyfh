@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<h1>medium--->{{d|date:'medium'}}</h1>
+		<h1>short--->{{d|date:"short"}}</h1>
+		<h1>fullDate--->{{d|date:"fullDate"}}</h1>
+		<h1>longDate--->{{d|date:"longDate"}}</h1>
+		<h1>mediumDate--->{{d|date:"mediumDate"}}</h1>
+		<h1>shortDate--->{{d|date:"shortDate"}}</h1>
+		<h1>shortTime--->{{d|date:"shortTime"}}</h1>
+
+		<h1>{{d|date:"MM/dd/yy hh:mm:ss"}}</h1>
+		<h1>{{d|date:'yyyy年MM月dd日hh时mm分ss秒'}}</h1>
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+	var app=angular.module("myApp",[]);
+	app.controller("ctrl",["$scope",function($scope){
+		$scope.d=new Date();
+	}])
+	</script>
+</body>
+</html>

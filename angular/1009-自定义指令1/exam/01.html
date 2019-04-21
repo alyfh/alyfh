@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>模板</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div hello></div>
+	<div hello></div>
+	<div my-directive></div>
+	<my-directive2></my-directive2>
+	<div class="one"></div>
+	<!-- directive:two -->
+	<div ng-controller="ctrl">
+		控制器
+	</div>
+	<my-directive2></my-directive2>
+	<script type="text/javascript">
+		var myModule=angular.module("myApp",[]);
+		myModule.controller("ctrl",function($scope){
+
+		})
+		myModule.directive("hello",function(){
+			return {
+				template:'<input type="text" ng-model="aa"><h1>{{aa}}</h1>'
+			}
+		})
+		myModule.directive("myDirective",function(){
+			return {
+				restrict:"A",//attribute-属性
+				template:"<h1>国庆节结束了，真难受</h1>"
+			}
+		})
+		myModule.directive("myDirective2",function(){
+			return {
+				restrict:"EA",//element-元素
+				template:"<h1>国庆节结束了，蓝受，想哭</h1>"
+			}
+		})
+		myModule.directive("one",function(){
+			return {
+				restrict:"C",//class
+				template:"<h1>今年的节假日已经没有了</h1>"
+			}
+		})
+		myModule.directive("two",function(){
+			return {
+				restrict:"MC",//注释
+				template:"<h2>天街小雨润如酥</h2>",
+				replace:true
+			}
+		})
+	</script>
+</body>
+</html>

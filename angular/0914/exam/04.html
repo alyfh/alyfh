@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en" >
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body ng-app="myApp">
+	<input type="text" ng-model="aa">
+	<div ng-controller="myCtrl">
+		<h1>{{x}}</h1>
+	</div>
+	<script>
+	angular.module("myApp",[])
+	.controller("myCtrl",function($scope){
+		$scope.x=10;
+		$scope.y="abcdakd";
+	})
+	</script>
+</body>
+</html>

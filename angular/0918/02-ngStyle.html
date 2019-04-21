@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<h1 ng-style="{background:'red','color':'lime','font-size':'40px'}">这是测试</h1>
+		<h1 ng-style="ostyle">这是{{ostyle["font-style"]}}</h1>
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+	angular.module("myApp",[])
+	.controller("ctrl",function($scope){
+		$scope.ostyle={
+			background:"blue",
+			color:"#fff",
+			"font-style":"italic"
+		}
+	})
+
+	/*// var x=10;
+	var sub=10;
+	var name=20;
+	var json={
+		name:"zhangsan",
+		sub:40,
+		a:20,
+		i:10,
+		"age":30,
+		"for":30,//关键字，保留字必须加""
+		"sub-name":"xiaosan"//有连字符必须加"",
+		"new":function(){
+			alert(1)
+		}
+	}
+	console.log(json["for"])
+	var a="sub";
+	console.log(json[a])
+
+	for(var i in json){
+		console.log(json[i])
+	}
+	json["new"]()
+	//取值，关键字，保留字，变量，必须用[]*/
+	</script>
+</body>
+</html>

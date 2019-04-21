@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<one></one>
+	</div>
+	<div ng-controller="ctrl2">
+		<one></one>
+	</div>
+	<script type="text/javascript">
+		var myModule=angular.module("app",[]);
+		myModule.controller("ctrl",function($scope){
+			$scope.load=function(){
+				alert("加载更多")
+			}
+		})
+		myModule.controller("ctrl2",function($scope){
+			$scope.load=function(){
+				alert("加载更多222")
+			}
+		})
+		myModule.directive("one",function(){
+			return {
+				restrict:"EA",
+				template:"<h1 ng-click='load()'>点击加载。。。</h1>"
+			}
+		})
+	</script>
+</body>
+</html>

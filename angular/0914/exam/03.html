@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en" ng-app="aa">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>{{2+2}}</h1>
+	<div ng-controller="myCtrl">
+		<h1>{{x}}</h1>
+		<h1>{{y}}</h1>
+		<h1 ng-click="say()">{{x+y}}</h1>
+	</div>
+	<script>
+		angular.module("aa",[])
+		.controller("myCt rl",function($scope){//$scope不可变型
+				$scope.x=50;
+				$scope.y=20;
+				$scope.say=function(){
+					alert("hello,angular");
+				}
+
+		})
+
+/*var x=10;
+function add(){
+
+}
+var json.y=20;
+var json.sub=function(){
+
+}*/
+		/*function add(c,d){//c,d可变型
+			alert("sdfjf")
+		}*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<div class="home">
+	<nav>
+		<span ng-repeat="(k,v) in data" ui-sref=".nav({id:k})">{{k}}</span>
+	</nav>
+	<div ui-view></div>
+</div>
+

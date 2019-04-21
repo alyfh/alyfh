@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>点击</button>
+	<p>xhr.responseText和xhr.responseXML</p>
+	<p>请求文件如果是xml,返回的数据就是xhr.responseXML，其他文件，xhr.responseText</p>
+	<script>
+	var btn=document.getElementsByTagName("button")[0];
+	btn.onclick=function(){
+		var xhr=new XMLHttpRequest();
+		xhr.open("get","source/1.txt?_="+new Date().getTime(),true);
+		xhr.send();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				console.log(xhr.responseText)
+			}
+		}
+	}
+	</script>
+</body>
+</html>

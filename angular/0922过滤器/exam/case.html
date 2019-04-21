@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<link rel="stylesheet" href="1.css">
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl" class="wrap">
+		search: <input type="text" ng-model="term">
+		show: <select ng-model="page">
+			<option ng-repeat="i in numArr">{{i}}</option>
+		</select>
+		<header>
+			<h3>ID</h3>
+			<h3>Name</h3>
+			<h3>Phone</h3>
+			<h3>Company</h3>
+			<h3>Zip</h3>
+			<h3>City</h3>
+			<h3>Date</h3>
+		</header>
+		<div class="outer" ng-style="ostyle">
+			<ul>
+				<li ng-repeat="i in data|filter:term">
+					<h3>{{i.id}}</h3>
+					<h3>{{i.name}}</h3>
+					<h3>{{i.phone}}</h3>
+					<h3>{{i.company}}</h3>
+					<h3>{{i.zip}}</h3>
+					<h3>{{i.city}}</h3>
+					<h3>{{i.date}}</h3>
+				</li>
+			</ul>
+		</div>
+		<footer>
+			<button>prev</button>
+			<ol>
+				<li ng-class="{true:'select',false:''}[$first]" ng-repeat="i in indexArr">{{i}}</li>
+			</ol>
+			<button>next</button>
+		</footer>
+	</div>
+	<div style="height:400px;"></div>
+	<script src="js/app.js"></script>
+</body>
+</html>

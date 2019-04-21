@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+		.ng-cloak{
+			display: none;
+		}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<form name="form1">
+			<div>
+				<input type="email" name="ipt1" ng-model="email" required>
+				<!-- <h1>$valid{{form1.ipt1.$valid}}</h1>
+				<h1>$invalid{{form1.ipt1.$invalid}}</h1> -->
+				<!-- <span ng-show="form1.ipt1.$invalid">输入不合法</span> -->
+				<span ng-show="!form1.ipt1.$valid">输入不合法</span>
+			</div>
+			<div>
+				<input type="url" ng-model="url" required>
+			</div>
+			<input type="submit" ng-disabled="form1.$invalid">
+		</form>
+	</div>
+	<script>
+	var myModule=angular.module("myApp",[]);
+	myModule.controller("ctrl",function($scope){
+
+	})
+	</script>
+</body>
+</html>

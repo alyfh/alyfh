@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-controller="ctrl">
+		<h3 ng-repeat="i in friend" ng-if="$index<2">{{i}}--{{$index}}---{{$first}}---{{$last}}</h3>
+		<h1>-----$middle--------</h1>
+		<h3 ng-repeat="i in friend">{{i}}--{{$middle}}</h3>
+		<h1>-----$even--------</h1>
+		<h3 ng-repeat="i in friend">{{i}}--{{$index}}--{{$even}}</h3>
+		<h1>-----$odd--------</h1>
+		<h3 ng-repeat="i in friend">{{i}}--{{$index}}--{{$odd}}</h3>
+	</div>
+	<script>
+	angular.module("myApp",[])
+	.controller("ctrl",function($scope){
+		$scope.friend=['Ada','Mike','John','Alice','Ben','Dan'];
+	})
+	</script>
+</body>
+</html>

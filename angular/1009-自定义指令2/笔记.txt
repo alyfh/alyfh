@@ -1,0 +1,10 @@
+1.transclude:false/true
+	<div ng-transclude></div>
+2.scope:
+	false 默认 继承不隔离
+	true 继承隔离
+	{}  独立scope
+		独立scope三种绑定策略
+		@ 单向属性绑定
+		= 双向属性绑定
+		& 绑定方法

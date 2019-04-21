@@ -1,0 +1,18 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+.ng-cloak{
+	display: none;
+}
+.home nav{
+	overflow: hidden;
+}
+.home nav span{
+	float: left;
+	font-size: 30px;
+	background: lime;
+	color: #fff;
+	cursor: pointer;
+	margin: 10px;
+}

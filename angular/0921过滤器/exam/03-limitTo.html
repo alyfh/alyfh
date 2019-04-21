@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<h1>{{str|limitTo:-7}}</h1>
+		<ul>
+			<li ng-repeat="i in arr|limitTo:2">{{i}}</li>
+		</ul>
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+	var app=angular.module("myApp",[]);
+	app.controller("ctrl",["$scope",function($scope){
+		$scope.str="你现在岁月静好，是因为有人为你负重前行.";
+		$scope.arr=['茅塞顿开','丰衣足食','亡羊补牢','守株待兔'];
+	}])
+	</script>
+</body>
+</html>

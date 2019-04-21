@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<div>单价：<input type="text" ng-model="price" ng-disabled="true"></div>
+		<div>数量：<input type="text" ng-model="num" ng-readonly="true"></div>
+		<button ng-click="add()">+1</button>
+		<button ng-click="sub()">-1</button>
+		<div>总价：<input type="text" ng-value="price*num"></div>
+		<div>总价：{{price*num}}</div>
+	</div>
+	<script>
+		var myModule=angular.module("myApp",[]);
+		myModule.controller("ctrl",function($scope){
+			$scope.price=28;
+			$scope.num=1;
+			$scope.add=function(){
+				$scope.num++;
+				if($scope.num>=5){
+					$scope.num=5;
+				}
+			}
+			$scope.sub=function(){
+				$scope.num--;
+				if($scope.num<=0){
+					$scope.num=0;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

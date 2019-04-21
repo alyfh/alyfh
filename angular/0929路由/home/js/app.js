@@ -1,0 +1,47 @@
+angular.module("app",['ui.router'])
+.config(function($stateProvider,$urlRouterProvider){
+	$urlRouterProvider.when("","/0");
+	$stateProvider
+	.state("0",{
+		url:"/0",
+		templateUrl:"1.html",
+		controller:"0"
+	})
+	.state("1",{
+		url:"/1",
+		templateUrl:"1.html",
+		controller:"1"
+	})
+	.state("2",{
+		url:"/2",
+		templateUrl:"1.html",
+		controller:"2"
+	})
+	.state("3",{
+		url:"/3",
+		templateUrl:"1.html",
+		controller:"3"
+	})
+
+})
+.controller("ctrl",function($rootScope,$http){
+	$http({
+		url:"data.txt",
+		method:"get"
+	}).success(function(d){
+		console.log(d)
+		$rootScope.data=d;
+	})
+})
+.controller("0",function($scope,$rootScope,$http){
+	$scope.data=$rootScope.data["中国"];
+})
+.controller("1",function($scope,$rootScope,$http){
+	$scope.data=$rootScope.data["美国"];
+})
+.controller("2",function($scope,$rootScope,$http){
+	$scope.data=$rootScope.data["日本"];
+})
+.controller("3",function($scope,$rootScope,$http){
+	$scope.data=$rootScope.data["韩国"];
+})

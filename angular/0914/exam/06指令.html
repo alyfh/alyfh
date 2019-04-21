@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-controller="ctrl">
+		<h1>{{name}}</h1>
+		<h1 ng-bind="name"></h1>
+		<h1>{{friend[1]}}</h1>
+	</div>
+	<script>
+	angular.module("myApp",[])
+	.controller("ctrl",function($scope){
+		$scope.name="angular";
+		$scope.friend=["jQuery","Vue","Node"];
+	})
+	</script>
+</body>
+</html>

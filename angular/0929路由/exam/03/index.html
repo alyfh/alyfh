@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-ui-router.js"></script>
+	<style type="text/css">
+	footer{
+		height: 100px;
+		background: yellow;
+	}
+	</style>
+</head>
+<body>
+	<header>
+		<nav>
+			<span ui-sref="home">首页</span>
+			<span ui-sref="product">产品</span>
+			<span ui-sref="our">我们</span>
+		</nav>
+	</header>
+	<article>
+		<div ui-view></div>
+	</article>
+	<footer></footer>
+	<script type="text/javascript">
+		var myModule=angular.module("myApp",['ui.router']);
+		myModule.config(function($stateProvider,$urlRouterProvider){
+			$urlRouterProvider.when("","/home")
+			$stateProvider
+			.state("home",{
+				url:"/home",
+				templateUrl:"view/home.html",
+				controller:"ctrl"
+			})
+			.state("product",{
+				url:"/product",
+				templateUrl:"view/product.html"
+			})
+			.state("our",{
+				url:"/our",
+				templateUrl:"view/our.html",
+				controller:"ctrl3"
+			})
+
+		})
+		myModule.controller("ctrl",function($scope){
+			$scope.data=["亡羊补牢","守株待兔","负荆请罪","掩耳盗铃"];
+		})
+		myModule.controller("ctrl2",function($scope){
+			$scope.data={
+				"name":"zhangsan",
+				"age":20
+			}
+		})
+		myModule.controller("ctrl3",function($scope){
+			$scope.price=28;
+			$scope.num=1;
+			$scope.add=function(){
+				$scope.num++;
+				$scope.num=Math.min($scope.num,5);
+			}
+			$scope.sub=function(){
+				$scope.num--;
+				$scope.num=Math.max($scope.num,1);
+			}
+		})
+	</script>
+</body>
+</html>

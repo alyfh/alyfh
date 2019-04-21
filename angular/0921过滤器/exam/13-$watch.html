@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<h1>{{str}}</h1>
+		<input type="text" ng-model="str" ng-disabled="num==3">
+		<h1>{{num}}</h1>
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+	var app=angular.module("myApp",[]);
+	app.controller("ctrl",["$scope",function($scope){
+		$scope.str="angular";
+		$scope.num=0;
+		$scope.$watch("str",function(newV,oldV){
+			if(newV==oldV) return false;
+			$scope.num++;
+		})
+	}])
+	</script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		{{num|myFilter}}
+		<my-directive></my-directive>
+	</div>
+	<script type="text/javascript">
+		var myModule=angular.module("app",[]);
+		myModule.value('one',10);//定义一个变量
+		myModule.value("one",20)
+		myModule.controller("ctrl",function($scope,one){
+			$scope.num=one*one;
+		})
+		myModule.filter("myFilter",function(one){
+			return function(n){
+				return n+one;
+			}
+		})
+		myModule.directive("myDirective",function(one){
+			return {
+				restrict:"E",
+				template:"<h1>{{nu|myFilter}}</h1>",
+				controller:function($scope){
+					$scope.nu=one+20;
+				}
+			}
+		})
+	</script>
+</body>
+</html>

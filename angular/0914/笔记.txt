@@ -1,0 +1,37 @@
+1.angular适用场景/不适用的场景
+        AngularJS主要考虑的是构建CRUD应用
+       （增加Create、查询Retrieve、更新Update、删除Delete）
+        如酷炫的特效，动画，游戏等，这种DOM操作很频繁也很复杂的应用，和CRUD应用就有很大的不同，它们不适合用AngularJS来构建
+2.angular特性：指令系统，模块系统，MVC模式，依赖注入，数据双向绑定
+
+3.Angular的MVC
+	M-Model
+	V-view
+	C-controller
+4.ng-init初始化
+5.ng-bind绑定数据
+
+6.ng-app 无
+	 有 
+
+
+7.controller 一个页面可以有很多controller，一个控制器可以被多次调用，每一次调用都会创建一个scope,每个scope上面的属性和方法都是私有的。
+
+8.	$scope 局部作用域 -ng-controller
+	$rootScope 全局作用域 -ng-app
+
+9.ng-model 数据双向绑定 (MVVM)
+
+补充：  1.创建对象         原型    工厂    构造     组合   字面量
+	2.作用域
+
+
+
+
+
+
+
+
+
+
+

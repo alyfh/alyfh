@@ -1,0 +1,61 @@
+1.请求文件如果是xml,返回的数据就是xhr.responseXML，其他文件，xhr.responseText
+
+2.防止有缓存，我们加_=Math.random()/new Date().getTime()
+
+3.XML和json
+   1.json小，省流量，速度快，用户体验度好
+   2.js解析json方便，快捷，还有方便的API
+4.xml,处理document.getElementsByTagName innerHTML innerText
+
+5.
+function ajaxGet(url,fn){
+   var xhr=new XMLHttpRequest();
+   xhr.open("get",url,true);
+   xhr.send();
+   xhr.onreadystatechange=function(){
+       if(xhr.readyState==4){
+          if(xhr.status==200){
+	fn(xhr.responseText);
+          }else{
+                alert("error!!")
+          }
+        }
+   }
+}
+
+
+6.post 
+
+    var xhr=new XMLHttpRequest();
+    xhr.open("post","source/form2.php",true);
+    xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    xhr.send("user="+input[0].value+"&pass="+input[1].value+"&_="+new Date().getTime());
+
+
+*****xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+7.get和post区别
+	1）大小：get小
+	2）安全：post安全
+	3）性能：get好
+
+8.异步优点：
+	省流量，速度快，用户都体验度
+	
+9.jsonp
+	1)创建一个script标签
+	2)给script的src一个路径url
+	3)插入页面
+
+
+
+
+
+
+
+
+
+
+
+
+

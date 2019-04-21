@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	}
+	.box{
+		width: 300px;
+		border: 1px solid #09f;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<div class="box">
+			<h3 ng-click="fn()">ctrl</h3>
+			<input type="text" ng-model="name">{{name}}--{{age}}
+		</div>
+		<quan-a n="{{name}}" nianling="{{age}}" say="fn()"></quan-a>
+		<dengyu na="name" ag="{{age}}" t="tel(m,n)"></dengyu>
+	</div>
+	<script type="text/javascript">
+		var myModule=angular.module("app",[]);
+		myModule.controller("ctrl",function($scope){
+			$scope.name="angular";
+			$scope.age=20;
+			$scope.fn=function(){
+				alert("ctrl");
+			}
+			$scope.tel=function(a,b){
+				alert(a+"------"+b);
+			}
+
+		})
+		myModule.directive("quanA",function(){
+			return {
+				restrict:"EA",
+				scope:{
+					n:"@",
+					nianling:"@",
+					say:"&"
+				},
+				controller:function($scope){
+					$scope.n="vue";
+				},
+				template:'<div class="box"><h3 ng-click="say()">@</h3><input type="text" ng-model="n">{{n}}--{{nianling}}</div>'
+			}
+		})
+		myModule.directive("dengyu",function(){
+			return {
+				restrict:"EA",
+				scope:{
+					na:"=",
+					ag:"@",
+					t:"&"
+				},
+				controller:function($scope){
+					$scope.na="vue";
+					$scope.aa=10;
+				},
+				template:'<div class="box"><h3 ng-click="t({n:20,m:30})">=</h3><input type="text" ng-model="na">{{na}}--{{ag}}<input type="text" ng-model="ag"></div>'
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<h1 ng-click="fn()">{{x}}</h1>
+	</div>
+	<script type="text/javascript">
+
+		var app1=angular.module("app1",[]);
+		app1.service("ser1",function(){
+			this.name="angular";
+		})
+		app1.service("ser2",function(){
+			this.age=30;
+			this.speak=function(){
+				alert(this.x);
+			}
+		})
+
+		var app2=angular.module("app2",[]);
+		app2.factory("fac1",function(){
+			return {
+				x:10,
+				y:20
+			}
+		})
+		app2.value("z","how do you do");
+
+		var myModule=angular.module("app",["app1","app2"]);
+
+		myModule.controller("ctrl",function($scope,$injector){
+			$scope.x=$injector.get("fac1").y;
+			if($injector.has("ser2")){
+				$scope.fn=$injector.get("ser2").speak;
+			}
+			$scope.data=['a','b','c','d'];
+			angular.forEach($scope.data,function(item,index,arr){
+				// console.log(item)
+				// console.log(a)
+			})
+
+
+			$scope.json1={
+				name:"zhansgan",
+				age:20
+			}
+			$scope.json2={
+				sex:"male",
+				tel:"1234567890"
+			}
+			$scope.json3={
+				job:"male",
+				hobby:"1234567890"
+			}
+			$scope.d=angular.extend($scope.json1,$scope.json2,$scope.json3);
+			console.log($scope.d)
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+*{
+	margin: 0px;
+	padding: 0px;
+	list-style: none;
+}
+.wrap{
+	width:600px;
+	margin: 0px auto;
+	border: 1px solid lime;
+}
+input,button{
+	font-size: 40px;
+}
+.item{
+	overflow: hidden;
+}
+div a{
+	display: block;
+}
+.item img{
+	float: left;
+	margin-left: 10px;
+	width: 150px;height: 200px;
+}
+.item .right{
+	float: left;
+	width: 400px;
+}
+.right h3{
+	padding: 10px 0px;
+	overflow: hidden;
+}
+.right h3 span{
+	float: right;
+	font-weight: 100;
+	color: red;
+}

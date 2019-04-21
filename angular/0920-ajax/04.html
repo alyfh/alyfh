@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	a{
+		margin: 20px;
+	}
+	</style>
+</head>
+<body>
+	<!-- <a href="http://baidu.com">百度</a> -->
+	<script>
+		var xhr=new XMLHttpRequest();
+		xhr.open("get","source/test.json?t="+new Date().getTime(),true);
+		xhr.send();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				var json=JSON.parse(xhr.responseText);
+				var arr=json.sites;
+				for(var i=0;i<arr.length;i++){
+					var oa=document.createElement("a");
+					oa.href=arr[i].Url;
+					oa.innerHTML=arr[i].Name;
+					document.body.appendChild(oa);
+				}
+			}
+		}
+	</script>
+</body>
+</html>

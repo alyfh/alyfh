@@ -1,0 +1,501 @@
+1.angular适用场景/不适用的场景
+	适用场景：增加Create、查询Retrieve、更新Update、删除Delete
+        不适用的场景：酷炫的特效，动画，游戏等
+
+2.angular特性：指令系统，模块系统，MVC模式，依赖注入，数据双向绑定
+
+3.Angular的MVC
+	M-Model  模型
+	V-view   视图
+	C-controller   控制器
+
+4.ng-init初始化
+5.ng-bind绑定数据
+
+6.ng-app 无
+	 有   angular.module("aa",[])  
+         定义angular的控制范围
+
+
+7.controller 一个页面可以有很多controller，一个控制器可以被多次调用，每一次调用都会创建一个scope,每个scope上面的属性和方法都是私有的。
+
+8.	$scope 局部作用域 -ng-controller
+	$rootScope 全局作用域 -ng-app
+
+9.ng-model 数据双向绑定 (MVVM)
+
+补充：  1.创建对象       字面量模式   原型模式   工厂模式   函数模式    组合模式(原型模式和构造函数模式)
+	2.作用域         $scope局部作用域  $rootScope全局作用域
+
+js中的数据类型
+     string   Boolean  number   object   undefined    null
+
+内置指令：
+ng-init   ng-bind   ng-app  ng-controller   ng-model    ng-cloak
+ng-if  ng-show  ng-hide    ng-src   ng-href   ng-repeat
+ng-class  ng-style   ng-value   ng-disabled  ng-readonly  ng-options
+
+JS
+1.Math
+   Math.ceil()  向上取整
+   Math.floor() 向下取整
+   Math.round(5/2) 四舍五入
+   toFixed(?); 保留小数点后几位
+2.JQ-事件绑定 (bind,unbind,on,one,delegate,undelegate,trigger)
+   Dom操作
+      html(),text()
+      attr(),prop()
+      css()
+      addClass添加样式,removeClass删除样式,toggleClass切换样式
+3.作用域：
+   什么叫作用域：（作用域是怎么定义的）
+       变量生效的范围
+       全局：
+	- 在哪里都可以用
+	- 在函数外面定义的，就叫全局变量
+       局部：
+	- 在某个东西里面可以使用
+	- 在函数内部定义的
+       闭包：
+	- 子函数可以使用父函数的变量
+
+4.数组
+   push()  推  从尾部添加
+   old man push car
+   unshift()  从头部添加
+   pop()  从后面弹出
+   shift()  从前面弹出
+   arr.splice(起始位置-包含,删除个数,替换的内容....无数个);
+	splice(2,2) 删除
+	splice(2,0,123)  添加
+	splice(2,2,123)  替换  
+    concat 数组连接
+    arr.join('通过什么字符合并')  把数组通过什么字符合并成字符串 
+	arr.reverse()  反转
+	arr.sort()
+
+字符串
+   length  长度
+   charAt() 查找字符串的第几个，返回的是下标超出以后返回的是空白
+   toUpperCase() 转成大写
+   toLowerCase()  转成小写
+   indexOf() 查找某个字符在字符串中的位置
+   返回是 1 找到了返回 下标 2 没找到返回 -1
+   lastIndexOf()
+   返回的是 从前面数的下标
+   str.split('通过什么字符进行拆分') 把字符串拆分成数组
+   str.substring(起始位置-包含,结束位置-不含)  字符串截取
+   from - 从  to - 到
+   through - 通过
+
+
+方法：
+Array:  push    pop     shift   unshift   slice
+String: split    charAt   concat   substr   indexof
+Math: max(x,y)   min(x,y)   valueof      acos    asin
+Date: Date() getFullYear() getHours() getMinutes() getSeconds() 
+分别写出Array、String、Math，Date方法5个
+   array：shift() 删除并返回数组的第一个元素
+          splice() 删除元素，并向数组添加新元素。
+          push() 向数组的末尾添加一个或更多元素，并返回新的长度。
+          join() 把数组的所有元素放入一个字符串。元素通过指定的分隔符进行分隔。
+          reverse() 颠倒数组中元素的顺序。
+          pop 删除
+   string：toLocaleLowerCase() 把字符串转换为小写。
+           toLocaleUpperCase() 把字符串转换为大写。
+           toString()  返回字符串。 
+           valueOf() 返回某个字符串对象的原始值。    
+           subString() 提取字符串中两个指定的索引号之间的字符。
+   math：max(x,y) 最大
+         min(x,y) 最小
+         round 
+         ceil 向上取整
+         floor 向下取整
+         valueOf() 
+         acos(x) 返回数的反余弦值。
+         asin(x) 返回数的反正弦值。
+   date：
+        Date() 
+        getFullYear() 
+        getHours() 
+        getMinutes() 
+        getSeconds()
+
+
+json转换：
+stringify转换字符串
+parse转换对象
+
+
+1.数据绑定有几种？
+      3种
+    ng-bind 绑定非表单元素 优点：不会出现闪屏
+    {{ }} 方便快捷  缺点：会出现闪屏
+    ng-model  绑定表单元素
+
+2.ng-cloak  解决闪屏
+  .ng-cloak{
+    display:none;	
+  }
+
+3.ng-if  true显示 false消失
+false 惰性加载                                                                                                                                                                                                      
+ng-show  true显示 false消失
+false----display:none;
+
+ng-hide  true-消失  false-出现 
+true----display:none;
+
+注意： 0--false  非0--true
+ 
+
+4.ng-src
+  ng-href
+
+5.ng-repeat ******
+  ng-repeat="(key,value) in json"； //遍历 循环json
+
+$first 第一个true 其他false 
+$last 最后一个true 其他false 
+$index 下标
+$middle 除了第一个 最后一个 其他true
+$even  下标偶数true
+$odd  下标奇数true
+
+原生js:  
+for,while,do-while都可以循环array
+while先判断 ,后执行
+do-while 先执行，后判断
+for知道执行次数 
+for-in 可以遍历json
+
+
+原生ajax的原理：
+创建对象  var xhr=new XMLHttpRequest();
+打开路径 xhr.open("GET","1.txt?_="+new Date().getTime(),true)
+发送数据 xhr.send()
+等待接收 xhr.onreadystatechange=function(){
+         if(xhr.readyState==4&&xhr.status==200){
+               xhr.responseText
+    		}
+  	}
+}
+
+
+get和post的区别：
+get传送的数据量较小 post较大 
+get安全性较低 post较高
+get性能比post好
+
+
+document.ready和window.onload的区别：
+执行时间不同 document.ready在资源加载完成前执行 window.onload在资源加载完成后
+执行个数不同 document.ready一个页面可以有多个 window.onload一个页面只有一个
+
+
+cookies,sessionStorage和localStorage的区别：
+cookies 缺点：内存小 只有4KB左右 有缓存不安全 可以被用户删除 可以被禁用 优点：储存于访问者计算机中的可跨页面的全局变量
+sessionStorage为临时性保存数据 当页面关闭就会消失 可以被删除
+localStorage为永久性保存数据 不会随着浏览器的关闭而消失 可以在同域名跨页访问 保存时长为关闭页面
+
+
+call和apply的区别：
+call可以接受多个参数 第一个参数与apply一样，后面则是一串参数
+apply最多只能有两个参数 新this对象和一个数组argArray
+apply和call的功能是一样的 只是传入的参数列表形式不同
+
+
+1.
+ng-class
+     ng-class='classN'
+     ng-class={"true:'red',false:'lime'}[isRed]"
+     ng-class="{'red':true,'lime':false,'blue':isBlue}"
+
+2.ng-style
+     ng-style="{对象}"
+     json:关键字，保留字必须加""  有连字符必须加""  取值：关键字 ，保留字，变量，必须用[]*
+
+
+1.ng-value--绑定的是表单经过计算的表达式
+ng-model--绑定的是一个属性
+  
+
+2.ng-disabled="Boolean"    
+    true-禁用
+    false-可用
+
+3.ng-readonly="Boolean"
+true-只读
+false-可用
+
+     
+4.ng-options="i.name as i.name group by i.type for i in job"
+
+
+
+1.请求文件如果是xml,返回的数据就是xhr.responseXML，其他文件，xhr.responseText
+
+2.防止有缓存，我们加_=Math.random()/new Date().getTime()
+
+3.XML和json
+	1.json小，省流量，速度快，用户体验度好
+	2.js解析json方便，快捷，还有方便的API
+4.xml,处理document.getElementsByTagName innerHTML innerText
+
+5.
+function ajaxGet(url,fn){
+		var xhr=new XMLHttpRequest();
+		xhr.open("get",url,true);
+		xhr.send();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4){
+				if(xhr.status==200){
+					fn(xhr.responseText);
+				}else{
+					alert("error!!")
+				}
+				
+			}
+		}
+	}
+
+
+6.post 
+var xhr=new XMLHttpRequest();
+		xhr.open("post","source/form2.php",true);
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xhr.send("user="+input[0].value+"&pass="+input[1].value+"&_="+new Date().getTime());
+
+
+*****xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+
+7.jsonp:
+ajax要跨域的话，可以用服务器去别的网站取内容
+给页面的ajax一个url，ajax把这个url传给服务器，由服务器去访问跨域地址
+
+jsonp 全称是JSON with Padding，是为了解决跨域请求资源而产生的解决方案
+jsonp是“用来跨域的”
+
+iframe、img、style、script等元素的src属性可以直接向不同域请求资源
+
+jsonp正是利用script标签跨域能力请求资源的
+
+既然它叫jsonp，很明显目的还是json，而且是跨域获取。根据上面的分析，很容易想到：利用js构造一个script标签，把json的url赋给script的scr属性，把这个script插入到dom里，让浏览器去获取
+回调方法要遵从服务端的约定，一般是用‘callback’或者‘cb’
+
+一句话就是利用script标签获得一个类似这样的数据：
+jsonpcallback({"name":"nihao","age":"23"})
+jsonpcallback是页面存在的回调方法，参数就是想得到的json。
+
+当然使用jsonp会在一定程度上造成安全性问题，如果请求的是不安全的站点，那么可能会在返回的方法调用中包含一些恶意代码，所以尽量向信任的站点发送请求。
+
+jsonp方法:
+创建一个<script>标签
+给<script>标签添加一个src url路径发送到页面
+回调函数
+
+
+
+如何使js更高效？
+	1、避免使用eval和function构造器
+	2、尽量不使用全局变量
+	3、注意对象的隐式转换
+	4、基本运算比调用函数更快
+	5、使用累加形式进行字符串拼接
+	6、在要求性能的函数里避免使用for-in
+
+
+提高页面性能：                          
+	1、减少DOM操作
+	2、部署前 图片压缩 代码压缩
+	3、优化js代码结构，减少多余代码
+	4、减少HTTP请求，合理设置HTTP缓存
+	5、静态资源缓存
+	6、图片延迟加载
+	7、多使用匿名函数
+
+
+内置过滤器九种：
+uppercase 大写  
+lowercase 小写  
+json   json数据  
+date 时间  
+number 格式化数字  
+limitTo 限制数组或字符串长度  
+currency 货币格式   
+orderBy 排列数组 
+filter 选择子集(参数：string/object，fn)
+
+
+1.过滤器
+1.作用：转换数据
+2.用法： |
+3.内置过滤器：
+  1.uppercase  转换大写
+  2.lowercase  转换小写
+  3.json       转换json数据
+  4.date:'yyyy-MM-dd hh:mm:ss'
+  5.number
+         不传參：千分位分割
+         传參：小数点后保留几位
+  6.limitTo:限制数组/string的长度(+-)
+  7.currency
+          默认：$
+          "￥","RMB"
+
+  8.orderBy
+   排列数组
+   参数：数组元素的某一个属性，默认升序，降序"-"
+   多个参数：['age','-origin'] 
+
+  9.filter
+    1.string/变量 ‘女’
+    2.{"sex":"女"}   对象  object
+    3.fn 参数是过滤的数组的每一项，返回true 要 返回false 不要
+ 
+
+1.$watch函数  
+    监听模型数据变化
+    参数：$watch(watchFn, watchAction, deepWatch)
+  参数1 是一个表达式或者一个函数字符串
+  参数2 是一个函数或者表达式，当参数1发生变化时会被调用
+  参数3 可选，布尔型参数(true)将会命令Angular去检查被监控对象的每个属性是否发生了变化。
+
+
+JS
+1.Math
+2.JQ-事件绑定，DOM,
+3.全局作用域/局部作用域
+4.$watch
+5.ng-style
+6.ng-class
+7.数组
+
+作业：1.数组，字符串方法 array pop()删除最后一个元素，返回删除的元素的值
+     
+数组：
+a.push("6","7");    数组后面添加一项或多项
+a.pop();    数组后面减少一项
+a.unshift("大叔")；数组前面添加一项或多项 
+                   返回新数组的长度
+a.shift();  删除第一项      返回删除项
+var arr=[4,5,6,0,2,4];
+arr.sort(function(a,b){return b-a}); 排序arr.reverse();反转
+var b=arr.concat(); 拼接  ps返回值为拼接后的心数组
+arr.slice(1.1)原数组中获取子数组 
+              参数一:开始获取的索引   
+              参数二:结束时获取的索引（不包括该索引）
+arr.splice(2)     万能
+                  只有一个参数表示删除
+                  参数为开始删除的索引   
+arr.splice(1，2)     只有两个参数表示删除  参数1为开始删除的索引   参数2为删除的个数
+arr.splice(2,1,"0");    第三个参数:第二个参数为0；表示插入  第二个参数不为0：表示替换
+                        三个参数以上等同于三个参数
+
+
+
+字符串：
+var c=str.charAt(0); 查找指定索引相对的字符
+var d=str.charCodeAt(0); 查找指定索引相对的Unicode编码
+var e=str.concat(str1);  字符串拼接，
+                         参数（一个值多个）
+var f=str.indexOf("l",4);查找字符串指定的索引；
+			 PS:两个参数:第一个参数是要查找的字符                         
+                            第二个参数是开始查找位置
+var j=str.lastIndexOf("o",4);查找字符串指定的索引；（从后往前）
+			     PS:两个参数:第一个参数是要查找的字符
+                               第二个参数是开始查找位置
+var h=str.substr(0,5);从源字符串里获取字符串
+ 		      PS:两个参数:第一个参数是开始获取的索引
+                        第二个参数获取的个数（不传默认获取到最后）
+var i=str.substring(6,11);从源字符串里获取字符串
+                          PS:两个参数:第一个参数是开始获取的索引
+                             第二个参数结束的索引（不包括第二个参数）
+var g=str.slice(5); 从源字符串里获取字符串
+                   PS:两个参数:第一个参数是开始获取的索引
+                      第二个参数结束的索引（不包括第二个参数）
+var k=str.split("l");字符串以指定字符分割成数组
+var l=str.localeCompare(o);比字符串小返回-1；比字符串大返回1；相当返回0；
+var m=str.toUpperCase()小写转大写
+var n=str.toLowerCase()大写转小写
+console.log(str.replace("o",'0'))替换
+
+split().reverse().join() 倒序 
+
+
+自定义过滤器：
+angular.module('app'[])
+.filter('myfilter',function(){
+   return function(过滤的对象)
+    。。。。
+    return 处理后的结果
+}
+}）
+
+
+1.闭包:- 子函数可以使用父函数的变量
+2.string array
+3.prototype  继承
+
+
+
+1.服务：实例化对象，只能实例化一次，功能：提供数据和对象
+2.内置服务
+        $location: absUrl()   获取数据
+	$timeout
+	$interval
+		cancel     清除计时器
+	$http({
+		url:"1.txt",
+		method:"get/post"
+	}).success(function(){})
+	.error(function(){})
+       
+get传參:params
+post传參:data
+
+jsonp参数类型：字符串
+
+config 配置
+
+provider路由器
+router
+
+ui-sref 路径
+ui-view 视图
+template:模板
+
+自定义指令
+1.angular.module("app",[]).directive(name,function(){
+	return {
+		restrict:"ECMA",
+		template/templateUrl:"fdfhjj"，
+		replace
+
+	}
+})
+restrict:
+E ：元素
+C ：类名
+M：注释
+A ：属性
+常用：EA，默认：A
+
+name:如果出现大写myDirective,my-directive
+
+自定义服务
+	1.value 定义变量
+	2.constant 定义常量
+	3.factory 工厂方式
+	4.service 构造函数
+	5.provider
+		1.config
+		2.$get
+
+
+template:string/fn/$templateCache
+	fn(tele,tattr)
+	$templateCache put/get
+templateUrl:01.html--异步加载（服务器上运行
+）
+replace:true替换

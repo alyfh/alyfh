@@ -1,0 +1,11 @@
+1.ng-value--绑定的是表单经过计算的表达式
+	ng-model--绑定的是一个属性
+	
+2.ng-disabled="bool"
+	true-禁用
+	false-可用
+3.ng-readonly=“bool"
+	true-只读
+	false-可用
+
+4.ng-options="i.name as i.name group by i.type for i in job"

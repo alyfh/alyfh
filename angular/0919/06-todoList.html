@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	.wrap{
+		width: 600px;
+		margin: 0px auto;
+	}
+	table{
+		text-align: center;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl" class="wrap">
+		<div>姓名：<input type="text" ng-model="name"></div>
+		<div>年龄：<input type="text" ng-model="age"></div>
+		<button ng-click="add()">添加</button>
+		<button ng-click="reset()">重置</button>
+		<table border="1" width="600" style="border-collapse:collapse;">
+			<tr>
+				<th>序号</th>
+				<th>姓名</th>
+				<th>年龄</th>
+				<th>操作</th>
+			</tr>
+			<tr ng-repeat="i in data">
+				<td>{{$index+1}}</td>
+				<td>{{i.name}}</td>
+				<td>{{i.age}}</td>
+				<td><button ng-click="delete($index)">删除</button></td>
+			</tr>
+			<tr ng-if="data.length==0">
+				<td colspan="4">暂无数据。。。</td>
+			</tr>
+			<tr ng-if="data.length!=0">
+				<td colspan="4"><button ng-click="deleteAll()">全部删除</button></td>
+			</tr>
+		</table>
+	</div>
+	<script>
+		var myModule=angular.module("myApp",[]);
+		myModule.controller("ctrl",function($scope){
+			$scope.data=[];
+			$scope.reset=function(){
+				$scope.name="";
+				$scope.age="";
+			}
+			$scope.add=function(){
+				if($scope.name==""||$scope.age==""){
+					alert("姓名，年龄均不能为空！！！");
+				}else{
+					$scope.data.unshift({
+						name:$scope.name,
+						age:$scope.age
+					})
+				}
+				$scope.name="";
+				$scope.age="";
+			}
+			$scope.deleteAll=function(){
+				$scope.data=[];
+			}
+			$scope.delete=function(n){
+				$scope.data.splice(n,1);
+			}
+		})
+
+	</script>
+</body>
+</html>

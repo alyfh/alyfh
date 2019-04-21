@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>模板</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div one></div>
+	<div five></div>
+	<div ng-controller="ctrl">
+		<one></one>
+		<div class="one"></div>
+		<four ng-repeat="i in data" tit="{{i.title}}" con="{{i.con}}"></four> 
+	</div>
+	<two></two>
+	<three aa="123" bb="3"></three>
+	<three aa="234" bb="5"></three>
+
+	<script type="text/javascript">
+		var myModule=angular.module("myApp",[]);
+		myModule.controller("ctrl",function($scope){
+			$scope.data=[
+				{
+					title:"first",
+					con:"this is first"
+				},
+				{
+					title:"second",
+					con:"this is second"
+				},
+				{
+					title:"third",
+					con:"this is third"
+				}
+			];
+		})
+		myModule.run(function($templateCache){
+			$templateCache.put("temp1",'<h1>1234567</h1>')
+			$templateCache.put("temp2","<h1>我言秋日胜春朝</h1>")
+		})
+		myModule.directive("one",function(){
+			return {
+				restrict:"EACM",
+				template:"<h1>自古逢秋悲寂廖</h1>"
+			}
+		})
+		myModule.directive("two",function(){
+			return {
+				restrict:"EA",
+				template:"<h1>{{2+2|currency}}</h1>"
+			}
+		})
+		myModule.directive("three",function(){
+			return {
+				restrict:"EA",
+				template:function(tele,tattr){
+					console.log(tattr)
+					return "<h2>"+(tattr.aa*tattr.bb)+"</h2>"
+				}
+
+			}
+		})
+		myModule.directive("four",function(){
+			return {
+				restrict:"EA",
+				template:function (tele,tattr){
+					var str="";
+					str+="<h2>"+tattr.tit+"</h2><p>"+tattr.con+"</p>";
+					return str;
+				}
+			}
+		})
+		myModule.directive("five",function($templateCache){
+			return {
+				template:$templateCache.get("temp2")
+			}
+		})
+	</script>
+</body>
+</html>

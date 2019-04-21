@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	.red{
+		background: red;
+	}
+	.lime{
+		background: lime;
+	}
+	.blue{
+		color: blue;
+	}
+	.white{
+		color: white;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<h1 ng-class="classN">天道酬勤，人道酬善，商道酬信！</h1>
+		<button ng-click="isRed=!isRed;">点击</button>
+		<h1 ng-class="{true:'red',false:'lime'}[isRed]">大学之道，在明明德。</h1>
+		<ul>
+			<li ng-repeat="i in arr" ng-class="{true:'red',false:'lime'}[$even]">{{i}}</li>
+		</ul>
+
+		<h1 ng-class="{'red':true,'lime':true,'blue':isBlue}">师傅究竟发生就</h1>
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+	angular.module("myApp",[])
+	.controller("ctrl",function($scope){
+		$scope.classN="red";
+		$scope.isRed=false;
+		$scope.arr=[1,2,3,4];
+		$scope.isBlue=true;
+
+	})
+	</script>
+</body>
+</html>

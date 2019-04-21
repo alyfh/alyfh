@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<h1 ng-click="speak()">{{str}}</h1>
+	</div>
+	<script type="text/javascript">
+		var myModule=angular.module("app",[]);
+		myModule.service("myService",function(){
+			this.str="沉舟侧畔千帆过，病树前头万木春";
+			this.speak=function(){
+				alert("1234567");
+			}
+		})
+		myModule.controller("ctrl",function($scope,myService){
+			$scope.str=myService.str;
+			$scope.speak=myService.speak;
+		})
+	</script>
+</body>
+</html>

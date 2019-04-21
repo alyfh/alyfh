@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+		.ng-cloak{
+			display: none;
+		}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<form name="form1" ng-submit="fn(form1.$valid)" novalidate>
+			<div>
+				<input type="email" placeholder="email" required ng-model="email" name="email"> 
+				<!-- <span>{{form1.email.$dirty}}</span> -->
+				<!-- <span ng-show="form1.email.$invalid&&form1.email.$dirty">输入不合法</span> -->
+				<span ng-show="form1.email.$invalid&&!form1.email.$pristine">输入不合法</span>
+			</div>
+			<div>
+				<input type="text" placeholder="输入姓名" required ng-model="name" name="userName" ng-minlength="3" ng-maxlength="5"> 
+				<!-- <p>{{form1.userName.$error|json}}</p> -->
+				<span ng-show="form1.userName.$invalid&&form1.userName.$dirty&&form1.userName.$error.minlength">输入过短</span>
+				<span ng-show="form1.userName.$invalid&&form1.userName.$dirty&&form1.userName.$error.maxlength">输入过长</span>
+				<span ng-show="form1.userName.$invalid&&form1.userName.$dirty&&form1.userName.$error.required">输入不合法</span>
+			</div>
+			<input type="submit">
+		</form>
+	</div>
+	<script>
+	var myModule=angular.module("myApp",[]);
+	myModule.controller("ctrl",function($scope){
+		$scope.fn=function(bool){
+			if(bool){
+				window.open("04.html")
+			}else{
+				alert("请检查你的输入")
+			}
+		}
+	})
+	</script>
+</body>
+</html>

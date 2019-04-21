@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	button{
+		font-size: 40px;
+	}
+	</style>
+</head>
+<body>
+	<h1>ctrl外--{{num}}</h1>
+	<div ng-controller="ctrl">
+		<h1>ctrl内--{{num}}</h1>
+		<button ng-click="add1()">+1</button>
+		<button ng-click="add2()">+2</button>
+		<button ng-click="num=num+3;">+3</button>
+	</div>
+	<script>
+	angular.module("myApp",[])
+	.controller("ctrl",function($scope,$rootScope){
+		$rootScope.num=10;
+		$rootScope.add1=function(){
+			$rootScope.num+=1;
+		}
+		$scope.add2=function(){
+			$rootScope.num+=2;
+		}
+	})
+
+
+	/*var json={
+		x:10
+	}
+	json.y=20;
+	console.log(json);*/
+
+
+	</script>
+</body>
+</html>

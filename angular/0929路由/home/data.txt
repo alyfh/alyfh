@@ -1,0 +1,26 @@
+{
+	"中国":[
+		"img/1.jpg",
+		"img/2.jpg",
+		"img/3.jpg",
+		"img/4.jpg"
+	],
+	"美国":[
+		"img/10.jpg",
+		"img/11.jpg",
+		"img/12.jpg"
+	],
+	"日本":[
+		"img/5.jpg",
+		"img/6.jpg",
+		"img/7.jpg",
+		"img/8.jpg",
+		"img/9.jpg"
+	],
+	"韩国":[
+		"img/13.jpg",
+		"img/14.jpg",
+		"img/15.jpg",
+		"img/16.jpg"
+	]
+}

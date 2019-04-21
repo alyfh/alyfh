@@ -1,0 +1,13 @@
+<style type="text/css">
+	.list button{
+		float: left;
+		font-size: 20px;
+		margin: 10px;
+	}
+</style>
+<div class="list">
+	<nav>
+		<button ng-repeat="(k,v) in data" ui-sref=".{{$index}}">{{k}}</button>
+	</nav>
+	<div ui-view></div>
+</div>

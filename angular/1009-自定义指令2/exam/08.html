@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<fruit></fruit>
+	<fruit apple></fruit>
+	<fruit orange apple></fruit>
+	<fruit orange apple banana></fruit>
+	<script type="text/javascript">
+		var myModule=angular.module("app",[]);
+		myModule.directive("fruit",function(){
+			return {
+				restrict:"E",
+				template:"<div ng-click='fn()'>水果：<span ng-repeat='i in fruits'>{{i}}</span</div>",
+				scope:{},
+				controller:function($scope){
+					$scope.fruits=[];
+					$scope.fn=function(){
+						alert($scope.fruits)
+					}
+					this.addApple=function(){
+						$scope.fruits.push("苹果");
+					}
+					this.addBanana=function(){
+						$scope.fruits.push("香蕉");
+					}
+					this.addOrange=function(){
+						$scope.fruits.push("橘子");
+					}
+				}
+			}
+		})
+		function createDirective(m){
+			return function(){
+				return {
+					require:"fruit",
+					link:function(scope,ele,attr,ctrl){
+						ctrl[m]();
+					}
+				}
+			}
+		}
+
+		myModule.directive("apple",createDirective('addApple'))
+		myModule.directive("orange",createDirective('addOrange'))
+		myModule.directive("banana",createDirective('addBanana'))
+
+
+		/*myModule.directive("apple",function(){
+			return {
+				require:"fruit",
+				link:function(scope,ele,attr,ctrl){
+					ctrl.addApple();
+				}
+			}
+		})
+		myModule.directive("orange",function(){
+			return {
+				require:"fruit",
+				link:function(scope,ele,attr,ctrl){
+					ctrl.addOrange();
+				}
+			}
+		})
+		myModule.directive("banana",function(){
+			return {
+				require:"fruit",
+				link:function(scope,ele,attr,ctrl){
+					ctrl.addBanana();
+				}
+			}
+		})
+
+*/
+		/*var json={
+			name:"zhangsan",
+			age:"lisi",
+			"for":"10",
+			i:20
+		}
+		json["for"]
+		json.name
+		json["name"]
+
+		var name="age";
+		json[name]
+
+		for(var i in json){
+			json[i]
+		}
+*/
+
+	</script>
+</body>
+</html>

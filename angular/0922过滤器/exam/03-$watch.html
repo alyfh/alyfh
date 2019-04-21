@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<input type="text" ng-model="arr[1]">
+		<h1>{{arr}}</h1>
+		<input type="text" ng-model="json.name">
+		<h1>{{json}}</h1>
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+	angular.module("myApp",[])
+	.controller("ctrl",function($scope){
+		$scope.arr=['a','b','c'];
+		$scope.json={
+			name:"zhangsan",
+			age:20
+		}
+		$scope.$watch("arr",function(newV,oldV){
+			if(newV==oldV) return false;
+			alert("arr变了")
+		},true)
+		$scope.$watch("json",function(newV,oldV){
+			if(newV==oldV) return false;
+			alert("json变了")
+		},true)
+	})
+	</script>
+</body>
+</html>

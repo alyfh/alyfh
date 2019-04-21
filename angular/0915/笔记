@@ -1,0 +1,41 @@
+1.数据绑定有几种？
+	3
+	ng-bind 绑定非表单元素 优点：不会出现闪屏
+	{{}} 方便快捷 缺点：会出现闪屏
+	ng-model  绑定表单元素
+2.ng-cloak 解决闪屏
+	.ng-cloak{
+		display: none;
+	}
+3.  ng-if true 显示，false-消失
+		false ---惰性加载
+	ng-show true 显示，false-消失
+		false----display:none;
+
+	ng-hide true 消失 false-出现
+		true  ----display:none;
+	注意：0false ,非0-true
+
+4.	ng-src
+	ng-href
+
+5. ng-repeat ********
+	$index 下标
+	$first 第一个true,其他false
+	$last 最后一个true,其他false
+	$middle 除了第一个，最后一个，其他true
+	$even 下标偶数true
+	$odd 下标奇数true
+
+	ng-repeat="(key,value) in json"
+
+	原生js:
+
+		for,while,do-while都可以遍历array
+			while:先判断，后执行  
+			do-while:先执行，后判断
+			for：知道执行次数
+
+		for-in	可以遍历json
+
+

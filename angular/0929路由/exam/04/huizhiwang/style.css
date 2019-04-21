@@ -1,0 +1,13 @@
+span{
+	float: left;
+	font-size: 30px;
+	background: lime;
+	cursor: pointer;
+	margin: 10px;
+}
+nav{
+	overflow: hidden;
+}
+nav span:hover{
+	transform: scale(1.2,1.2)
+}

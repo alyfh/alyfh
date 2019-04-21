@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="angular-1.3.0.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	li{
+		float: left;
+		list-style: none;
+		margin: 10px;
+		border: 1px solid #333;
+		padding: 10px;
+	}
+	ul{
+		overflow: hidden;
+		list-style: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<input type="text" ng-model="c">
+		<button ng-click="request()">查询</button>
+		<ul>
+			<li ng-repeat="i in data">
+				<h3>{{i.date.slice(0,2)}}</h3>
+				<p>天气：{{i.weather}}</p>
+				<p>温度：{{i.temperature}}</p>
+				<p>风力：{{i.wind}}</p>
+				<p>白天: <img ng-src="{{i.dayPictureUrl}}"></p>
+				<p>夜晚： <img ng-src="{{i.nightPictureUrl}}"></p>
+			</li>
+		</ul>
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+	var myModule=angular.module("myApp",[]);
+	myModule.controller("ctrl",function($scope,$http){
+		$scope.c="";
+		$scope.request=function(){
+			$http({
+				url:"source/source/baiduWeather.php",
+				method:"get",
+				params:{
+					city:$scope.c
+				}
+			}).success(function(res){
+				
+				$scope.data=res.results[0]["weather_data"];
+				console.log($scope.data)
+			})
+		}
+	})
+	</script>
+</body>
+</html>

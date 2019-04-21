@@ -1,0 +1,1 @@
+http://mobilecdn.kugou.com/api/v3/search/song?format=jsonp&keyword=£¿£¿£¿£¿£¿&page=1&pagesize=10&showtype=1&callback=cb

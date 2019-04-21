@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-controller="ctrl">
+		<h1 ng-if="false">吸烟有害健康</h1>
+		<button ng-click="fn()">点点试试</button>
+		<h1 ng-if="isShow">多读书，多看报，少吃零食多睡觉</h1>
+		<h1 ng-if="-1">{{str}}</h1>
+		<h1 ng-if="0">{{str}}</h1>
+	</div>
+	<script>
+	angular.module("myApp",[])
+	.controller("ctrl",function($scope){
+		$scope.isShow=false;
+		$scope.str="To sleep at the moment,you will make dream.To study at the moment,you will make your dream come true."
+		$scope.fn=function(){
+			$scope.isShow=($scope.isShow)?false:true;
+		}
+	})
+	</script>
+</body>
+</html>

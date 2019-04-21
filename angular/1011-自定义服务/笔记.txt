@@ -1,0 +1,8 @@
+自定义服务
+	1.value 定义变量
+	2.constant 定义常量
+	3.factory 工厂方式
+	4.service 构造函数
+	5.provider
+		1.config
+		2.$get

@@ -1,0 +1,36 @@
+{
+    "sites": [
+        {
+            "Name": "百度",
+            "Url": "http://www.baidu.com",
+            "Country": "CN"
+        },
+        {
+            "Name": "Google",
+            "Url": "http://www.google.com",
+            "Country": "USA"
+        },
+        {
+            "Name": "Facebook",
+            "Url": "http://www.facebook.com",
+            "Country": "USA"
+        },
+        {
+            "Name": "微博",
+            "Url": "http://www.weibo.com",
+            "Country": "CN"
+        }
+        ,
+        {
+            "Name": "淘宝",
+            "Url": "http://www.taobao.com",
+            "Country": "CN"
+        }
+         ,
+        {
+            "Name": "京东",
+            "Url": "http://www.jd.com",
+            "Country": "CN"
+        }
+    ]
+}

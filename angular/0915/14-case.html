@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+		.ng-cloak{
+			display: none;
+		}
+		img{
+			width: 200px;
+			height: 200px;
+		}
+	</style>
+</head>
+<body class="ng-cloak"> 
+	<div ng-controller="ctrl">
+		<ul>
+			<li ng-repeat="i in data" ng-if="$index<10">
+				<h2>{{i.title}}</h2>
+				<img ng-src="{{i.thumburl}}" alt="">
+			</li>
+		</ul>
+	</div>
+	<script>
+	angular.module("app",[])
+	.controller("ctrl",function($scope,$http){
+		$http({
+			url:"xiaohua.php"
+		}).success(function(d){
+			console.log(d)
+			$scope.data=d;
+		})
+	})
+	</script>
+</body>
+</html>

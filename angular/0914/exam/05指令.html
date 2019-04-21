@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-init="x=10;y='hello,world';arr=['a','b',20];json={name:'zhangsan',age:30}">
+		<h1>{{"abc"+x}}</h1>
+		<h2>{{y}}</h2>
+		<h1>{{arr[2]}}</h1>
+		<h1>你好，{{json.name}}</h1>
+		<h1>{{"你好，"+json.name}}</h1>
+
+		<h1 ng-bind="'abc'+x"></h1>
+		<h1 ng-bind="y"></h1>
+		<h1 ng-bind="arr[1]"></h1>
+		<h1 ng-bind="'hello,'+json.name"></h1>
+	</div>
+	<div style="height:400px;"></div>
+
+	
+
+</body>
+</html>
+<!-- ng-init初始化 -->
+<!-- ng-bind绑定数据 -->

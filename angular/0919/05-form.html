@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<div>账号：<input type="text" ng-model="user.name"></div>
+		<div>密码：<input type="text" ng-model="user.pass"></div>
+		<div>性别：
+			<input type="radio" value="boy" name="1" ng-model="user.sex">男
+			<input type="radio" value="girl" name="1" ng-model="user.sex">女
+		</div>
+		<div>爱好：
+			<input type="checkbox" ng-model="user.hobby[0]" ng-true-value="'sing'">唱歌
+			<input type="checkbox" ng-model="user.hobby[1]" ng-true-value="'dancing'">跳舞
+			<input type="checkbox" ng-model="user.hobby[2]">阅读
+			<input type="checkbox" ng-model="user.hobby[3]">跑步
+		</div>
+		<div>职业：
+			<select ng-model="user.job">
+				<option ng-repeat="i in job" value="{{$index}}">{{i.name}}</option>
+			</select>
+		</div>
+		<div>职业2：
+			<select ng-model="user.job2" ng-options="i.name as i.name group by i.type for i in job"></select>
+		</div>
+		<button ng-click="fn()">提交啊</button>
+
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+		var myModule=angular.module("myApp",[]);
+		myModule.controller("ctrl",function($scope){
+			$scope.user={
+				name:"张三",
+				pass:123,
+				sex:"boy",
+				hobby:['sing','dancing',true,false],
+				job:"1",
+				job2:'PHP前端工程师'
+			}
+			$scope.job=[
+				{
+					name:"HTML5前端工程师",
+					type:"IT"
+				},
+				{
+					name:"PHP前端工程师",
+					type:"IT"
+				},
+				{
+					name:"服务员",
+					type:"餐饮"
+				},
+
+				{
+					name:"公务员",
+					type:"政府"
+				},
+				{
+					name:"教授",
+					type:"教育"
+				},
+				{
+					name:"厨师",
+					type:"餐饮"
+				},
+				{
+					name:"讲师",
+					type:"教育"
+				}
+			];
+			$scope.fn=function(){
+				console.log($scope.user);
+			}
+		})
+	</script>
+</body>
+</html>

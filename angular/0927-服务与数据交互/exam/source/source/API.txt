@@ -1,0 +1,13 @@
+°Ù¶È£º
+http://suggestion.baidu.com/su?cb=callback&wd=
+
+Íõ½Ü
+´Þ½­ÌÎ
+·ëÓí³¼
+
+淘宝：
+http://suggest.taobao.com/sug?code=utf-8&q=商品关键字&callback=cb 用例 
+ps:callback是回调函数设定
+
+酷狗：
+http://mobilecdn.kugou.com/api/v3/search/song?format=jsonp&keyword=？&page=1&pagesize=10&showtype=1&callback=cb

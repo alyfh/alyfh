@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>豆瓣首页</title>
+	<script type="text/javascript" src="angular-1.3.0.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	} 
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl" class="wrap">
+		<input type="text" ng-model="kw">
+		<button ng-click="request()">搜索</button>
+		<div>
+			<a ng-repeat="i in data" ng-href="information.html?{{i.id}}">
+				<div class="item">
+					<img ng-src="{{i.images.medium}}">
+					<div class="right">
+						<h3>{{i.title}}<span>{{i.rating.average}}</span></h3>
+						<p>原名：{{i.original_title}}</p>
+						<p>导演：
+							<span ng-repeat="k in i.directors">{{k.name}}&nbsp;&nbsp;</span>
+						</p>
+						<p>主演：
+							<span ng-repeat="j in i.casts">{{j.name}}&nbsp;&nbsp;</span>
+						</p>
+					</div>
+				</div>
+			</a>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var myModule=angular.module("myApp",[]);
+		myModule.controller("ctrl",function($scope,$http){
+			$http({
+				url:"source/douban.php",
+				method:"get"
+			}).success(function(res){
+				console.log(res)
+				$scope.data=res.subjects;
+			})
+			$scope.kw="";
+			$scope.request=function(){
+				alert(2)
+				$http({
+					url:"source/search.php",
+					method:"get",
+					params:{
+						q:$scope.kw
+					}
+				}).success(function(res){
+					console.log(res)
+					$scope.data=res.subjects;
+				})
+			}
+		})
+	</script>
+</body>
+</html>

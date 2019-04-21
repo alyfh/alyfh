@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>账号：<input type="text"></div>
+	<div>密码：<input type="text"></div>
+	<button>提交</button>
+	<script>
+	var input=document.getElementsByTagName("input");
+	var button=document.getElementsByTagName("button");
+	button[0].onclick=function(){
+		var xhr=new XMLHttpRequest();
+		xhr.open("post","source/form2.php",true);
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xhr.send("user="+input[0].value+"&pass="+input[1].value+"&_="+new Date().getTime());
+
+
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4){
+				if(xhr.status==200){
+					alert(xhr.responseText)
+				}else{
+					alert("error!!")
+				}
+				
+			}
+		}
+	}
+	
+	</script>
+</body>
+</html>

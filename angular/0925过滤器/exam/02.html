@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<h1>{{str3|reverseStr}}</h1>
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+	String.prototype.reverseStr=function(){
+		return this.split("").reverse().join("");
+	}
+	var myModule=angular.module("app",[])
+	myModule.controller("ctrl",function($scope){
+		$scope.str="angular";
+		$scope.str2="芒果";
+		$scope.str3="To sleep at the moment,you will make dream.To study at the moment,you will make your dream come true.";
+	})
+	//字符串倒序
+	myModule.filter("reverseStr",function(){
+		return function(str){
+			return str.reverseStr();
+		}	
+	})
+	
+	
+	</script>
+</body>
+</html>

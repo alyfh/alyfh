@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<div ng-controller="ctrl">
+		<h1>ctrl---{{name}}</h1>
+	</div>
+	<h1>ctrl外---{{name}}</h1>
+	<script>
+	angular.module("myApp",[])
+	.controller("ctrl",function($rootScope,$scope){
+		$scope.name="angular";
+		$rootScope.name="Vue";
+
+	})
+
+	</script>
+</body>
+</html>

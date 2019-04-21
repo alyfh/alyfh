@@ -1,0 +1,56 @@
+ <!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	}
+	.box{
+		width: 300px;
+		border: 1px solid #09f;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<div class="box">
+			<h3>ctrl</h3>
+			<input type="text" ng-model="name">{{name}}
+		</div>
+		<one></one>
+		<two></two>
+		<three></three>
+	</div>
+	<script type="text/javascript">
+		var myModule=angular.module("app",[]);
+		myModule.controller("ctrl",function($scope){
+			$scope.name="angular";
+		})
+		myModule.directive("one",function(){
+			return {
+				restrict:"EA",
+				scope:false,
+				template:'<div class="box"><h3>one-false</h3><input type="text" ng-model="name">{{name}}</div>'
+			}
+		})
+		myModule.directive("two",function(){
+			return {
+				restrict:"EA",
+				scope:true,
+				template:'<div class="box"><h3>two-true</h3><input type="text" ng-model="name">{{name}}</div>'
+			}
+		})
+		myModule.directive("three",function(){
+			return {
+				restrict:"EA",
+				scope:{},//独立scope
+				template:'<div class="box"><h3>three-{}</h3><input type="text" ng-model="name">{{name}}</div>'
+			}
+		})
+	</script>
+</body>
+</html>
+

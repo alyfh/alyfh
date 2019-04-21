@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<h1>{{str|uppercase}}</h1>
+		<h1 ng-bind="str|uppercase"></h1>
+
+		<h1>{{str|lowercase}}</h1>
+		<h1 ng-bind="str|lowercase | uppercase"></h1>
+
+		<h1>{{json|json}}</h1>
+
+		<h1>{{num|number}}</h1>
+		<h1>{{num2|number:2}}</h1>
+
+
+		<h1>{{num3|currency}}</h1>
+		<h1>{{num3|currency:'￥'}}</h1>
+		<h1>{{num3|currency:'RMB'}}</h1>
+		<h1>{{num3|currency:'@@@@'}}</h1>
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+	var app=angular.module("myApp",[]);
+	app.controller("ctrl",["$scope",function($scope){
+		$scope.str="I have a dream.";
+		$scope.json={
+			name:"zhangsan",
+			age:30
+		}
+		$scope.num=1333498578;
+		$scope.num2=3.1415926;
+		$scope.num3=20;
+
+	}])
+	</script>
+</body>
+</html>

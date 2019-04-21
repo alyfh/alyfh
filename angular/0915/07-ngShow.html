@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+</head>
+<body>
+	<h1>ng-show</h1>
+	<div ng-controller="ctrl">
+		<h1 ng-show="false">吸烟有害健康</h1>
+		<button ng-click="isShow=!isShow">点点试试</button>
+		<h1 ng-show="isShow">多读书，多看报，少吃零食多睡觉</h1>
+		<h1 ng-show="-1">{{str}}</h1>
+		<h1 ng-show="0">{{str}}</h1>
+	</div>
+	<script>
+	angular.module("myApp",[])
+	.controller("ctrl",function($scope){
+		$scope.isShow=true;
+		$scope.str="To sleep at the moment,you will make dream.To study at the moment,you will make your dream come true."
+		
+	})
+	</script>
+</body>
+</html>

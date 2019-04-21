@@ -1,0 +1,35 @@
+1.angular.module("app",[]).directive(name,function(){
+	return {
+		restrict:"ECMA",
+		template/templateUrl:"fdfhjj"，
+		replace
+
+	}
+})
+restrict:
+E:元素
+C：类名
+M：注释
+A：属性
+常用：EA，默认：A
+
+name:如果出现大写myDirective,my-directive
+
+
+template:string/fn/$templateCache
+	fn(tele,tattr)
+	$templateCache put/get
+templateUrl:01.html--异步加载（服务器上运行
+）
+replace:true替换
+
+
+
+
+
+
+
+
+
+
+

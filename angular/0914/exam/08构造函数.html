@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	function People(name){
+		this.name=name;
+		
+	}
+	/*function People(){
+
+	}
+	People.prototype.name="zhangsan"*/
+	People.prototype.speak=function(){
+		alert(this.name)
+	}
+	var p1=new People("zhangsan");
+	var p2=new People("lisi");
+	alert(p1.speak==p2.speak)
+	</script>
+</body>
+</html>

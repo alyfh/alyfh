@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+		.ng-cloak{
+			display: none;
+		}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<form name="form1" novalidate>
+			<div><input type="email" required ng-model="email"></div>
+			<div><input type="url" required ng-model="url"></div>
+			<h1>$valid-->{{form1.$valid}}</h1>
+			<h1>$invalid--->{{form1.$invalid}}</h1>
+			<input type="submit" ng-disabled="!form1.$valid">
+			<input type="submit" ng-disabled="form1.$invalid">
+		</form>
+	</div>
+	<script>
+	var myModule=angular.module("myApp",[]);
+	myModule.controller("ctrl",function($scope){
+
+	})
+	</script>
+</body>
+</html>

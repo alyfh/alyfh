@@ -1,0 +1,22 @@
+header,footer{
+	height: 100px;
+	background: #90f;
+}
+nav{
+	overflow: hidden;
+}
+nav span{
+	float: left;
+	padding: 10px;
+	font-size: 30px;
+	margin: 10px;
+	background: lime;
+	color: #fff;
+	cursor: pointer;
+}
+nav .select{
+	background: blue;
+}
+nav .sub_select{
+	background: #09f;
+}

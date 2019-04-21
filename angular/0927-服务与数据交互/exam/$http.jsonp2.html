@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="angular-1.3.0.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<input type="text" ng-model="kw">
+		<p ng-repeat="i in data">{{i[0]}}</p>
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+	var myModule=angular.module("myApp",[]);
+	myModule.controller("ctrl",function($scope,$http){
+		$scope.kw="";
+		$scope.$watch("kw",function(newV,oldV){
+			if(newV==oldV) return false;
+			$http.jsonp("http://suggest.taobao.com/sug?code=utf-8&q="+$scope.kw+"&callback=cb");
+		})
+		window.cb=function(res){
+			console.log(res)
+			$scope.data=res.result
+
+		}
+	})
+	</script>
+</body>
+</html>

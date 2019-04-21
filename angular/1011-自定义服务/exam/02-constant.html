@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<h1>{{num}}</h1>
+		<h1>{{url}}</h1>
+	</div>
+	<script type="text/javascript">
+		var myModule=angular.module("app",[]);
+		myModule.constant("pi",3.1415926);//定义一个常量
+		myModule.constant("pi",4);
+		myModule.constant("url","http://baidu.com");
+		myModule.constant("url","http://jd.com");
+		myModule.controller("ctrl",function($scope,pi,url){
+			$scope.num=pi;
+			$scope.url=url;
+		})
+		
+	</script>
+</body>
+</html>

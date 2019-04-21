@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>index</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-ui-router.js"></script>
+</head>
+<body>
+	<div>
+		<span ui-sref="home">首页</span>
+		<span ui-sref="product">产品</span>
+		<span ui-sref="our">我们</span>
+	</div>
+	<div ui-view></div>
+	<script type="text/javascript">
+		var myModule=angular.module("myApp",['ui.router']);
+		myModule.config(function($stateProvider,$urlRouterProvider){
+			$stateProvider
+			.state("home",{
+				url:"/home",
+				templateUrl:"view/home.html",
+				controller:"ctrl"
+			})
+			.state("product",{
+				url:"/product",
+				templateUrl:"view/product.html",
+				controller:"ctrl"
+			})
+			.state("our",{
+				url:"our",
+				templateUrl:"view/our.html"
+			})
+		})
+		myModule.controller("ctrl",function($scope){
+			$scope.data=["锦瑟无端五十弦","一弦一柱思华年","庄生晓梦迷蝴蝶","望帝春心托杜鹃"];
+			$scope.fn=function(){
+				alert("sdjfhju")
+			}
+		})
+		
+	</script>
+</body>
+</html>

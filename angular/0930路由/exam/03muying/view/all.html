@@ -1,0 +1,36 @@
+<style type="text/css">
+	.all,li{
+		list-style: none;
+	}
+	.all{
+		overflow: hidden;
+	}
+	.all li{
+		float: left;
+		width: 200px;
+		background: #ccc;
+		margin: 10px;
+		padding: 10px;
+	}
+	.all li img{
+		width: 150px;
+		height: 150px;
+		margin: 0px 25px;
+	}
+	.all .old{
+		text-decoration: line-through;
+	}
+	.all .new{
+		color: red;
+		font-weight: 900;
+		font-size: 30px;
+	}
+</style>
+<ul class="all">
+	<li ng-repeat="i in data">
+		<img ng-src="{{i.url}}">
+		<p>{{i.baoyou}}</p>
+		<p>原价：<span class="old">{{i.price}}</span></p>
+		<p>现价：<span class="new">{{i.price1}}</span>	</p>
+	</li>
+</ul>

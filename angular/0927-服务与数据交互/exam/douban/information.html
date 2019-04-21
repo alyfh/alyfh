@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>详情页</title>
+	<script type="text/javascript" src="angular-1.3.0.js"></script>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div ng-controller="ctrl" class="wrap">
+		<h3>{{data.title}}</h3>
+		<img ng-src="{{data.images.large}}">
+		<p>摘要：{{data.summary}}</p>
+	</div>
+	<script type="text/javascript">
+		angular.module("myApp",[])
+		.controller("ctrl",function($scope,$location,$http){
+			$scope.id=$location.absUrl().split("?")[1];
+			$http({
+				url:"source/info.php",
+				method:"get",
+				params:{
+					id:$scope.id
+				}
+			}).success(function(res){
+				console.log(res)
+				$scope.data=res;
+			})
+		})
+
+	</script>
+</body>
+</html>

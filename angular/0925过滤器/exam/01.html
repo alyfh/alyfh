@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<h1>{{str|myFilter}}</h1>
+		<h1>{{str2|myFilter}}</h1>
+		<h1>{{str|myUpper}}</h1>
+		<h1>{{str3|reverseStr}}</h1>
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+	var myModule=angular.module("app",[])
+	myModule.controller("ctrl",function($scope){
+		$scope.str="angular";
+		$scope.str2="芒果";
+		$scope.str3="To sleep at the moment,you will make dream.To study at the moment,you will make your dream come true.";
+	})
+	myModule.filter("myFilter",function(){
+		return function(a){
+			// console.log(a) 
+			return a+a;
+		}
+	})
+	myModule.filter("myUpper",function(){
+		return function(str){//闭包
+			var s=str.toUpperCase();
+			return s;
+		}
+	})
+	//字符串倒序
+	myModule.filter("reverseStr",function(){
+		return function(str){
+			/*var s=str.split("").reverse().join("");
+			// console.log(s);
+			return s;*/
+
+			return str.split("").reverse().join("");
+		}	
+	})
+	
+	/*function getWeek(){
+		var date=new Date();
+		var n=date.getDay();//0-6
+		var arr=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+		return arr[n];
+	}
+	alert(getWeek())*/
+
+/*	Date.prototype.getWeek=function(){
+		var n=this.getDay();
+		var arr=["星期日","星期一","星期二","星期三","星期四","星期五","星期六"];
+		return arr[n];
+	}
+	String.prototype.reverseStr=function(){
+		return this.split("").reverse().join("");
+	}
+	var d=new Date();
+	alert(d.getWeek());
+	var str=new String("node");
+	alert(str.reverseStr());
+	var str2="haoliuting";
+	str2.reverseStr()*/
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en" ng-app='myApp'>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="js/angular.min.js"></script>
+	<style>
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<input type="text" ng-model="str">
+		<p>{{info}}</p>
+	</div>
+	<div style="height:400px;"></div>
+	<script>
+	var app=angular.module("myApp",[]);
+	app.controller("ctrl",["$scope",function($scope){
+		$scope.str="";
+		$scope.info="输入过短";
+		$scope.$watch("str",function(){
+			if($scope.str.length<3){
+				$scope.info="输入过短";
+			}else if($scope.str.length>5){
+				$scope.info="输入过长";
+			}else{
+				$scope.info="";
+			}
+		})
+	}])
+	</script>
+</body>
+</html>

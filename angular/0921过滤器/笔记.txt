@@ -1,0 +1,45 @@
+过滤器
+1.作用：转换数据
+2.用法： |
+3.内置过滤器
+	1.uppercase
+	2.lowercase
+	3.json
+	4.date :'yyyy-MM-dd hh:mm:ss'
+	5.number
+		不传参：千分位分割
+		传参：小数点后保留几位
+	6.limitTo:限制数组/string的长度（+-）
+	7.currency
+		默认：$
+		"￥"，"RMB"
+	8.orderBy 排列数组
+		参数：数组元素的某一个属性，默认升序，降序‘-’
+		多个参数：['age','-origin']
+	
+	9.filter
+		1.string/变量  ‘女’
+		2.{“sex”:'女'}
+		3.fn 参数是过滤的数组的每一项，返回true,要，返回false,不要
+
+
+1.Math
+2.JQ-事件绑定，DOM，
+3.全局作用域/局部作用域
+4.$watch
+5.ng-style
+6.ng-class
+7.数组
+
+作业：
+1.数组，字符串方法
+	array
+		pop()删除最后一个元素，返回删除的元素的值
+2.作业
+
+
+
+
+
+
+

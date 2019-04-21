@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<button>请求数据</button>
+	<h1></h1>
+	<script>
+	var btn=document.getElementsByTagName("button")[0];
+	var h1=document.getElementsByTagName("h1")[0];
+	btn.onclick=function(){
+		var xhr=new XMLHttpRequest();
+		xhr.open("get","source/01.xml?_="+new Date().getTime(),true);
+		xhr.send();
+		xhr.onreadystatechange=function(){
+			if(xhr.readyState==4&&xhr.status==200){
+				console.log(xhr.responseXML)
+				var doc=xhr.responseXML;
+				var nam=doc.getElementsByTagName("name");
+				h1.innerHTML=nam[1].innerHTML;
+			}
+		}
+	}
+	</script>
+</body>
+</html>

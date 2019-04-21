@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+	<meta charset="utf-8">
+	<title>首页</title>
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular-ui-router.js"></script>
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	}
+	header{
+		height: 100px;
+		background: blue;
+	}
+	footer{
+		height: 50px;
+		background: lime;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<header></header>
+	<div>
+		<span ui-sref="home">首页</span>
+		<span ui-sref="product">产品</span>
+		<span ui-sref="our">我们</span> 
+	</div>
+	<div ui-view></div>
+	<footer></footer>
+	<script type="text/javascript">
+		var myModule=angular.module("myApp",['ui.router']);
+		myModule.config(function($stateProvider,$urlRouterProvider){
+			$stateProvider
+			.state("home",{
+				url:'/0',
+				template:'<h1>这是home的内容</h1>'
+			})
+			.state("product",{
+				url:"/1",
+				template:"<h1>这是product的内容</h1>"
+			})
+			.state("our",{
+				url:"/2",
+				template:"<h1>这是our的内容</h1>"
+			})
+			$urlRouterProvider.when("","/1")
+		})
+	</script>
+</body>
+</html>

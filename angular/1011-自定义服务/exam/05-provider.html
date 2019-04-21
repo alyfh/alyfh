@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<script type="text/javascript" src="angular.min.js"></script>
+	<style type="text/css">
+	.ng-cloak{
+		display: none;
+	}
+	</style>
+</head>
+<body class="ng-cloak">
+	<div ng-controller="ctrl">
+		<h1 ng-click="fn()">{{y}}</h1>
+	</div>
+	<script type="text/javascript">
+		var myModule=angular.module("app",[]);
+		myModule.config(function(myProviderProvider){
+			myProviderProvider.setName(40);
+		})
+		myModule.provider("myProvider",function(){
+			var x=10;
+			this.y=20;
+			this.add=function(){
+				this.y+=30;
+			}
+			this.setName=function(n){
+				x=n;
+			}
+			this.$get=function(){
+				return {
+					name:x,
+					age:this.y,
+					a:this.add,
+					setName:this.setName
+				}
+			}
+		})
+		myModule.controller("ctrl",function($scope,myProvider){
+			$scope.y=myProvider.name;
+			$scope.fn=myProvider.a;
+		})
+		
+	</script>
+</body>
+</html>
